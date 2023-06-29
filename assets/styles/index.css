@@ -732,6 +732,32 @@ canvas {
   }
 }
 
+footer {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  color: white;
+  align-items: center;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(/assets/images/footer.svg);
+}
+
+.hdr {
+  margin-top: 5px;
+  font-size: 1.7em;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+.nohdr {
+  margin-top: 5px;
+  font-weight: 400;
+  font-size: 1.4em;
+  font-family: "Roboto", sans-serif;
+}
+
 @media only screen and (max-width: 600px) {
   #projects .container {
     grid-template-columns: 1fr;
