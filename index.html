@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Luka Shvelidze, Full-Stack Developer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.7.0/css/flag-icons.min.css"
+      integrity="sha512-s/Nra58/et4CDKSnhUiPrce+8M5tdK1Ps0+9dKe4I9JH/g0QGzsPAdf1fLeBsMTMG1zWMBsnzxvPgTOAFUHwLQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/brands.css" />
+    <link rel="stylesheet" href="assets/styles/aos.css" />
+    <link rel="stylesheet" href="assets/styles/index.css" />
+    <script src="assets/js/jquery-3.7.0.min.js"></script>
+    <script src="assets/js/particles.min.js"></script>
+    <script src="assets/js/typed.js" defer></script>
+    <script src="assets/js/aos.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <title>Luka Shvelidze Personal Website</title>
+  </head>
+  <body>
+    <!-- scroll-up button -->
+    <button onclick="scrollup()" class="scroll_up">&uarr;</button>
+    <!-- preloader -->
+    <div id="preloader">
+      <div class="loadingspinner">
+        <div id="square1"></div>
+        <div id="square2"></div>
+        <div id="square3"></div>
+        <div id="square4"></div>
+        <div id="square5"></div>
+      </div>
+    </div>
+    <!-- home page -->
+    <section class="home">
+      <div id="particles-js"></div>
+      <p class="header_text"><span>W</span>ELCOME TO</p>
+      <p class="header_text"><span>L</span>UKKSHH</p>
+      <p class="header_text"><span>U</span>NIVERSE</p>
+      <br /><br /><br />
+      <a href="#about" style="z-index: 9"
+        ><button class="explore_btn">START EXPLORING</button></a
+      >
+    </section>
+    <!-- about page -->
+    <section id="about">
+      <div class="image_side" data-aos-delay="60" data-aos="fade-up-right">
+        <svg
+          id="10015.io"
+          viewBox="0 0 480 480"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <defs>
+            <clipPath id="blob">
+              <path
+                fill="#474bff"
+                d="M395,352Q313,464,188.5,416Q64,368,56,234Q48,100,178,65Q308,30,392.5,135Q477,240,395,352Z"
+              />
+            </clipPath>
+          </defs>
+          <image
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            clip-path="url(#blob)"
+            xlink:href="/assets/images/lukkshh_pic.jpg"
+            preserveAspectRatio="xMidYMid slice"
+          ></image>
+        </svg>
+      </div>
+      <div class="about_side">
+        <div class="wrapper" data-aos="fade-up-left">
+          <div class="header">
+            <p>Hello 👋 I'm <span id="typer"></span></p>
+          </div>
+          <div class="content">
+            <div class="mini_about">
+              <p id="about_content">
+                I'm a junior developer from Georgia. In my free time, I'm
+                coding. I started learning programming when I was 16, and I love
+                searching for bugs and fixing them. I speak three languages:
+                Georgian (Native), English (Upper Intermediate), and Russian
+                (Basic).
+              </p>
+            </div>
+            <div class="plangs">
+              <div class="lang">
+                <span id="ge" class="fi fi-ge"> </span>
+                <span id="eng" class="fi fi-gb"> </span>
+              </div>
+              <div class="main_skills">
+                <p>Skills</p>
+                <ul>
+                  <li>Php</li>
+                  <li>Python</li>
+                  <li>Javascript</li>
+                  <li>Html - Css</li>
+                </ul>
+              </div>
+              <div class="other_skills">
+                <p>Other Skills</p>
+                <ul>
+                  <li>Git</li>
+                  <li>Linux</li>
+                  <li>Mysql</li>
+                  <li>Jquery</li>
+                </ul>
+              </div>
+            </div>
+            <div class="social_links">
+              <a href="https://github.com/lukkshh" target="_blank">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://twitter.com/lukkshh" target="_blank"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a href="https://facebook.com/lukkshh" target="_blank"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a href="https://instagram.com/lukkshh" target="_blank"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- projects page -->
+    <section id="projects">
+      <div class="container"></div>
+      <button id="loadMore">Load More</button>
+    </section>
+  </body>
+</html>

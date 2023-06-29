@@ -460,7 +460,7 @@ canvas {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(/static/images/bg_16-9.svg);
+  background-image: url(/assets/images/bg_16-9.svg);
   align-items: center;
   justify-content: center;
 }
@@ -582,7 +582,7 @@ canvas {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(/static/images/pr_bg.svg);
+  background-image: url(/assets/images/pr_bg.svg);
 }
 
 #projects .container {
