@@ -770,8 +770,8 @@ footer {
     grid-template-columns: 1fr;
   }
   #about {
-    height: 100vh;
     flex-direction: column;
+    height: 100vh;
   }
   .image_side {
     width: 100%;
