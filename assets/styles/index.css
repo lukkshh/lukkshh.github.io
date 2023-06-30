@@ -602,7 +602,11 @@ canvas {
   display: none;
   overflow: hidden;
   border-radius: 15px;
-  background-color: white;
+  background: linear-gradient(
+    180deg,
+    rgba(129, 129, 129, 1) 0%,
+    rgba(102, 102, 102, 1) 50%
+  );
   transition: box-shadow 0.3s ease;
 }
 
