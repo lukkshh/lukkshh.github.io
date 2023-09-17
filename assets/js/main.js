@@ -1,15 +1,7 @@
 $(document).ready(function () {
   AOS.init();
 
-  const device_width = $("html").width();
-
   $("#preloader").hide();
-
-  if (device_width < 601) {
-    $(".card").slice(0, 2).show();
-  } else {
-    $(".card").slice(0, 6).show();
-  }
 
   $(".header_text").map(function () {
     $(this).addClass("anm1");
@@ -38,20 +30,6 @@ $(document).ready(function () {
     e.preventDefault();
 
     $("#about_content").text(eng);
-  });
-
-  $("#loadMore").on("click", function (e) {
-    e.preventDefault();
-
-    if (device_width < 600) {
-      $(".card:hidden").slice(0, 2).slideDown();
-    } else {
-      $(".card:hidden").slice(0, 3).slideDown();
-    }
-
-    if ($(".card:hidden").length == 0) {
-      $("#loadMore").css("display", "none");
-    }
   });
 
   $(window).scroll(function () {
