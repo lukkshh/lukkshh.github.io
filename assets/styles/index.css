@@ -583,6 +583,7 @@ canvas {
   padding: 2rem;
   font-family: "Roboto", sans-serif;
   color: white;
+  overflow: hidden !important;
 }
 #projects p {
   font-size: x-large;
