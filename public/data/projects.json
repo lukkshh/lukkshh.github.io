@@ -1,0 +1,66 @@
+{
+  "eng": [
+    {
+      "header": "Full-Stack App",
+      "stack": "React , Python",
+      "link": "https://github.com/lukkshh/react-flask-fullstack",
+      "desc": "React + Flask fullstack application, products filter react frontend , python backend"
+    },
+    {
+      "header": "Human Detection",
+      "stack": "Python",
+      "link": "https://github.com/lukkshh/human-detection",
+      "desc": "Human Detection Python App Made With Flask, OpenCV, And Tailwind CSS"
+    },
+    {
+      "header": "Rock Paper Scissors",
+      "stack": "Python",
+      "link": "https://github.com/lukkshh/Rock-Paper-Scissors",
+      "desc": "Python Game, made with tkinter"
+    },
+    {
+      "header": "Php Turnstile",
+      "stack": "Php",
+      "link": "https://github.com/lukkshh/php-turnstile",
+      "desc": "Cloudflare turnstile recaptcha validaton on serverside with native php"
+    },
+    {
+      "header": "QrLukkshh",
+      "stack": "Python",
+      "link": "https://github.com/lukkshh/QrLukkshh",
+      "desc": "Simple Qrcode Generator And Reader Gui Using By Tkinter"
+    }
+  ],
+  "geo": [
+    {
+      "header": "Full-Stack აპლიკაცია",
+      "stack": "React , Python",
+      "link": "https://github.com/lukkshh/react-flask-fullstack",
+      "desc": "React + Flask fullstack application, products filter react frontend , python backend"
+    },
+    {
+      "header": "Human Detection",
+      "stack": "Python",
+      "link": "https://github.com/lukkshh/human-detection",
+      "desc": "Human Detection Python App Made With Flask, OpenCV, And Tailwind CSS"
+    },
+    {
+      "header": "Rock Paper Scissors",
+      "stack": "Python",
+      "link": "https://github.com/lukkshh/Rock-Paper-Scissors",
+      "desc": "Python Game, made with tkinter"
+    },
+    {
+      "header": "Php Turnstile",
+      "stack": "Php",
+      "link": "https://github.com/lukkshh/php-turnstile",
+      "desc": "Cloudflare turnstile recaptcha validaton on serverside with native php"
+    },
+    {
+      "header": "QrLukkshh",
+      "stack": "Python",
+      "link": "https://github.com/lukkshh/QrLukkshh",
+      "desc": "Simple Qrcode Generator And Reader Gui Using By Tkinter"
+    }
+  ]
+}
