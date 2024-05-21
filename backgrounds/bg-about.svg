@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<svg width="1440" height="700" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" version="1.1">
+ <defs>
+  <mask id="SvgjsMask1100">
+   <rect fill="#ffffff" height="700" id="svg_1" width="1440"/>
+  </mask>
+  <symbol height="560" id="svg_8" preserveAspectRatio="none" version="1.1" viewBox="0 0 1440 560" width="1440" xmlns="http://www.w3.org/2000/svg" xmlns:svgjs="http://svgjs.dev/svgjs" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <g fill="none" mask="url(#svg_7)">
+    <path d="m-340.3,380c96,-57 288,-273.6 480,-285c192,-11.4 288,215 480,228c192,13 288,-199 480,-163c192,36 411.93,327.4 480,343c68.06,15.6 -111.76,-212 -139.7,-265" stroke="rgba(86, 0, 144, 0.46)" stroke-width="2"/>
+    <path d="m-156.2,362c96,-56.6 288,-288.4 480,-283c192,5.4 288,289 480,310c192,21 288,-218.2 480,-205c192,13.2 448.76,286.2 480,271c31.24,-15.2 -259.04,-277.6 -323.8,-347" stroke="rgba(86, 0, 144, 0.46)" stroke-width="2"/>
+    <path d="m-256.96,487c96,-46 288,-203.8 480,-230c192,-26.2 288,125.6 480,99c192,-26.6 288,-221.2 480,-232c192,-10.8 428.61,161.8 480,178c51.39,16.2 -178.43,-77.6 -223.04,-97" stroke="rgba(86, 0, 144, 0.46)" stroke-width="2"/>
+    <path d="m-545.64,222c96,42.2 288,230.8 480,211c192,-19.8 288,-290.6 480,-310c192,-19.4 288,194.8 480,213c192,18.2 370.87,-155 480,-122c109.13,33 52.51,229.6 65.64,287" stroke="rgba(86, 0, 144, 0.46)" stroke-width="2"/>
+   </g>
+   <defs>
+    <mask id="svg_7">
+     <rect fill="#ffffff" height="560" width="1440"/>
+    </mask>
+   </defs>
+  </symbol>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <use id="svg_9" transform="matrix(0.993795 0 0 0.984844 -846.973 125.532)" x="855.2" xlink:href="#svg_8" y="156.63"/>
+ </g>
+</svg>
