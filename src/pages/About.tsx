@@ -9,7 +9,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="bcl ab w-full h-screen flex justify-center items-center flex-col"
+      className="bcl ab w-full h-screen flex justify-center items-center flex-col overflow-hidden"
     >
       <div className="w-full h-[60%] flex justify-center items-center max-md:h-full max-md:flex-col">
         <div className="w-1/2 h-full flex justify-center items-center max-md:w-full max-md:h-1/2">
@@ -28,7 +28,7 @@ const About = () => {
           </p>
         </div>
         <div
-          className="w-1/2 h-full flex justify-center items-center max-md:w-full max-md:h-1/2"
+          className="w-1/2 h-full flex justify-center items-center max-md:w-full max-md:h-1/2 overflow-hidden"
           data-aos="zoom-in"
         >
           <TagCloud

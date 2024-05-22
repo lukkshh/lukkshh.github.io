@@ -2,7 +2,7 @@ import "../style/Certificates.css";
 
 const Certificates = () => {
   return (
-    <section className="bcl bc  w-full h-screen flex justify-center items-center flex-col">
+    <section className="bcl bc  w-full h-screen flex justify-center items-center flex-col overflow-hidden">
       <div className="w-full h-[25%] flex justify-center items-end max-md:items-center">
         <p className="text-3xl text-white font-bold tracking-wider">
           CERTIFICATES
