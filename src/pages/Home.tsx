@@ -4,7 +4,7 @@ import "../style/Home.css";
 
 const Home = () => {
   return (
-    <section className="bcl bt w-full h-screen flex flex-col justify-center items-center max-md:items-end ">
+    <section className="bcl bt w-full h-screen flex flex-col justify-center items-center max-md:items-end max-md:min-h-[110vh]">
       <div className="text-white absolute left-2 mt-6 flex space-y-4 flex-col max-md:flex-row max-md:space-y-0 max-md:space-x-4 max-md:top-0 max-md:left-1/2 max-md:-translate-x-1/2">
         <a
           href="https://github.com/lukkshh/"
@@ -36,9 +36,9 @@ const Home = () => {
         </a>
       </div>
       <div className="text-slate-50 w-1/2 max-md:w-full flex flex-col justify-center items-center">
-        <div className="w-full max-md:p-4">
+        <div className="w-full max-md:pl-6 max-md:pr-6">
           <TypeAnimation
-            className="max-md:min-h-[7.5rem]"
+            className="max-md:min-h-[11rem]"
             sequence={[
               "Hello👋 I'm Luka Shvelidze",
               1000,
@@ -53,7 +53,7 @@ const Home = () => {
             repeat={Infinity}
           />
         </div>
-        <div className="w-full mt-6 text-lg text-focus-in text-slate-400 max-md:p-4">
+        <div className="w-full mt-6 text-lg text-focus-in text-slate-400 max-md:p-6 max-md:mt-0">
           <p>
             I'm a junior, self-taught full-stack web developer with a passion
             for crafting immersive digital experiences. With two years of

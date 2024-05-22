@@ -9,11 +9,14 @@ const About = () => {
   return (
     <section
       id="about"
-      className="bcl ab w-full h-screen flex justify-center items-center flex-col overflow-hidden"
+      className="bcl ab w-full h-screen flex justify-center items-center flex-col overflow-hidden max-md:h-full"
     >
       <div className="w-full h-[60%] flex justify-center items-center max-md:h-full max-md:flex-col">
         <div className="w-1/2 h-full flex justify-center items-center max-md:w-full max-md:h-1/2">
-          <p className="text-slate-300 p-8 text-lg" data-aos="fade-right">
+          <p
+            className="text-slate-300 p-8 text-lg max-md:p-6"
+            data-aos="fade-right"
+          >
             With two years of experience in coding, I have mastered{" "}
             <span className="mmm">PHP</span>,{" "}
             <span className="mmm">Python</span>, and{" "}
@@ -56,15 +59,29 @@ const About = () => {
           </TagCloud>
         </div>
       </div>
-      <div className="w-full h-[30%] flex flex-col justify-center items-center max-md:hidden">
-        <p className="w-full text-center text-white uppercase tracking-wider font-bold text-xl pb-6">
+      <div className="w-full h-[30%] flex flex-col justify-center items-center max-md:h-[180px] max-md:mt-4">
+        <p className="w-full text-center text-white uppercase tracking-wider font-bold text-xl pb-6 max-md:pb-2 max-md:text-sm">
           Tchnologies i have worked with
         </p>
         <Swiper
-          className="w-[95%] h-full mb-2"
+          className="w-[95%] h-full mb-2 max-md:w-[90%]"
           spaceBetween={30}
           slidesPerView={7}
           loop={true}
+          breakpoints={{
+            1024: {
+              slidesPerView: 7,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 7,
+              spaceBetween: 15,
+            },
+            320: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+          }}
           autoplay={{
             delay: 1500,
             disableOnInteraction: false,
