@@ -35,7 +35,7 @@ const Home = () => {
           <LinkedIn fontSize="large" />
         </a>
       </div>
-      <div className="text-slate-50 w-1/2 max-md:w-11/12 flex flex-col justify-center items-center">
+      <div className="text-slate-50 w-1/2 max-md:w-full flex flex-col justify-center items-center">
         <div className="w-full max-md:p-4">
           <TypeAnimation
             className="max-md:min-h-[7.5rem]"
