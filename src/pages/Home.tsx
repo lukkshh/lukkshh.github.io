@@ -63,7 +63,10 @@ const Home = () => {
             efficiently.
           </p>
         </div>
-        <a href="#about" className="cbtn w-1/3 h-12 mt-16 max-md:w-1/2">
+        <a
+          href="#about"
+          className="cbtn w-1/3 h-12 mt-16 max-md:w-1/2 max-md:mt-4"
+        >
           Let's Begin
         </a>
       </div>
