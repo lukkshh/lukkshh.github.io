@@ -11,10 +11,10 @@ const About = (): JSX.Element => {
       transition={{ duration: 1.8, ease: "easeInOut" }}
       className="w-full h-full"
     >
-      <p className="pl-4 pt-4 pb-2 text-xl text-white max-sm:p-4 max-sm:text-lg max-md:text-base">
+      <p className="pl-4 pt-4 pb-2 text-3xl text-white max-sm:p-4 max-sm:text-lg max-md:text-base ">
         {language.About.Title}
       </p>
-      <p className="pl-4 pr-4 text-gray-400 max-sm:hidden max-md:text-xs">
+      <p className="pl-4 pr-4 text-2xl  text-gray-400 max-xl:text-sm max-2xl:text-base  max-sm:hidden max-md:text-xs">
         {language.About.Text}
       </p>
     </motion.div>

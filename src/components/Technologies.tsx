@@ -25,7 +25,7 @@ const Technologies = (): JSX.Element => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8, ease: "easeInOut" }}
-          className="text-base max-sm:text-sm max-md:text-xs"
+          className="text-lg max-sm:text-sm max-md:text-xs"
         >
           {language.Technologies.Title}
         </motion.p>
@@ -36,7 +36,7 @@ const Technologies = (): JSX.Element => {
         }}
         initial="hidden"
         animate="showTech"
-        className="h-[90%] p-4 flex justify-around items-center flex-wrap max-sm:pt-6 max-sm:pl-2 max-sm:pr-2 max-sm:pb-0"
+        className="h-[90%] p-4 grid grid-cols-4 gap-4 mt-6 max-sm:grid-cols-3 max-sm:mt-2 max-sm:gap-2 max-sm:pt-6 max-sm:pl-2 max-sm:pr-2 max-sm:pb-0"
       >
         <ReactIcon />
         <LaravelIcon />

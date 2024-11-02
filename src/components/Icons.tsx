@@ -9,7 +9,7 @@ function ReactIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14 "
       xmlns="http://www.w3.org/2000/svg"
       width="800"
       height="800"
@@ -28,7 +28,7 @@ function TypescriptIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14"
       xmlns="http://www.w3.org/2000/svg"
       width="800"
       height="800"
@@ -48,7 +48,7 @@ function LaravelIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14"
       xmlns="http://www.w3.org/2000/svg"
       width="800"
       height="800"
@@ -67,7 +67,7 @@ function MySqlIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14"
       xmlns="http://www.w3.org/2000/svg"
       width="256"
       height="133"
@@ -101,7 +101,7 @@ function PythonIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14"
       xmlns="http://www.w3.org/2000/svg"
       width="800"
       height="800"
@@ -152,7 +152,7 @@ function JavascriptIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
     >
@@ -166,7 +166,7 @@ function TailwindIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14"
       xmlns="http://www.w3.org/2000/svg"
       width="800"
       height="800"
@@ -184,7 +184,7 @@ function GitIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14"
       xmlns="http://www.w3.org/2000/svg"
       width="800"
       height="800"
@@ -207,7 +207,7 @@ function NginxIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14"
       xmlns="http://www.w3.org/2000/svg"
       width="800"
       height="800"
@@ -229,7 +229,7 @@ function VsCodeIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14"
       xmlns="http://www.w3.org/2000/svg"
       width="800"
       height="800"
@@ -332,7 +332,7 @@ function FlaskIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14"
       xmlns="http://www.w3.org/2000/svg"
       fill="#fff"
       stroke="#fff"
@@ -437,7 +437,7 @@ function FramerMotionIcon() {
   return (
     <motion.svg
       variants={TechVariants}
-      className="w-12 h-12"
+      className="w-12 h-12 2xl:w-14 2xl:h-14"
       xmlns="http://www.w3.org/2000/svg"
       width="2500"
       height="2500"
