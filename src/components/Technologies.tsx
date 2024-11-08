@@ -16,7 +16,7 @@ import {
 } from "./Icons";
 
 const Technologies = (): JSX.Element => {
-  const { language } = useLanguage();
+  const { language, isEn } = useLanguage();
 
   return (
     <div className="w-full h-full flex justify-center items-center flex-col">
@@ -25,7 +25,9 @@ const Technologies = (): JSX.Element => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8, ease: "easeInOut" }}
-          className="text-lg max-sm:text-sm max-md:text-xs"
+          className={`${
+            isEn ? "font-en" : "font-ge"
+          } text-lg max-sm:text-sm max-md:text-xs`}
         >
           {language.Technologies.Title}
         </motion.p>

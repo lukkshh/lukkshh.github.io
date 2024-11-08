@@ -2,7 +2,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { motion } from "framer-motion";
 
 const Education = (): JSX.Element => {
-  const { language } = useLanguage();
+  const { language, isEn } = useLanguage();
 
   return (
     <motion.div
@@ -12,17 +12,29 @@ const Education = (): JSX.Element => {
       className="w-full h-full flex flex-col"
     >
       <div className="w-full h-[10%] pl-4 pt-2 max-sm:pl-3">
-        <p className="text-2xl max-sm:text-xl max-md:text-xl">
+        <p
+          className={`${
+            isEn ? "font-en" : "font-ge font-semibold tracking-wide"
+          } mt-2 text-2xl max-sm:text-xl max-md:text-xl`}
+        >
           {language.Education.Title}
         </p>
       </div>
       <div className="w-full mt-2">
         {language.Education.Data.map((item, index) => (
           <div key={index} className="w-full p-2 space-y-1">
-            <p className="text-lg text-gray-200 max-sm:text-lg max-md:text-base">
+            <p
+              className={`${
+                isEn ? "font-en" : "font-ge"
+              } text-xl text-gray-200 max-sm:text-lg max-md:text-base`}
+            >
               {item.Title}
             </p>
-            <p className="text-sm text-gray-400 max-md:text-xs">
+            <p
+              className={` ${
+                isEn ? "font-en" : "font-ge"
+              } text-base text-gray-400 max-md:text-xs`}
+            >
               {item.SubTitle}
             </p>
             <p className="text-sm text-gray-500 max-sm:text-xs max-md:text-xs">
@@ -32,7 +44,11 @@ const Education = (): JSX.Element => {
         ))}
       </div>
       <div className="w-full h-[10%] pl-4 pt-2 max-sm:pl-3 max-sm:pr-3">
-        <p className="text-2xl max-sm:text-lg max-md:text-lg">
+        <p
+          className={` ${
+            isEn ? "font-en" : "font-ge font-semibold tracking-wide"
+          } text-2xl max-sm:text-lg max-md:text-lg`}
+        >
           {language.Certificates.Title}
         </p>
       </div>
@@ -48,7 +64,7 @@ const Education = (): JSX.Element => {
             >
               {item.SubTitle}
             </a>
-            <p className="text-sm text-gray-500">{item.Date}</p>
+            <p className="text-sm text-gray-500 ">{item.Date}</p>
           </div>
         ))}
       </div>

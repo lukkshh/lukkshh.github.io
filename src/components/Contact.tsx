@@ -7,6 +7,7 @@ const Contact = (): JSX.Element => {
       <p className="flex items-center space-x-1">
         <PinIcon />{" "}
         <motion.span
+          className="font-en"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8, ease: "easeInOut" }}
@@ -17,6 +18,7 @@ const Contact = (): JSX.Element => {
       <p className="flex items-center space-x-1">
         <EmailIcon />{" "}
         <motion.span
+          className="font-en"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8, ease: "easeInOut" }}
@@ -26,7 +28,7 @@ const Contact = (): JSX.Element => {
       </p>
       <div className="w-full h-1/2 flex justify-center items-center">
         <a className="flex bg-zinc-800 space-x-2 rounded-3xl pl-6 pr-6 pt-4 pb-4 justify-center items-center max-sm:p-2 max-sm:pr-4 max-sm:pl-4">
-          <span>Download CV </span>
+          <span className="font-en">Download CV </span>
           <CvIcon />
         </a>
       </div>

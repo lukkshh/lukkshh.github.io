@@ -19,7 +19,7 @@ const LinksVariants = {
 };
 
 const Links = (): JSX.Element => {
-  const { language } = useLanguage();
+  const { language, isEn } = useLanguage();
   return (
     <div className="w-full h-full">
       <div className="w-full h-[20%]">
@@ -27,7 +27,9 @@ const Links = (): JSX.Element => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8, ease: "easeInOut" }}
-          className="p-4 text-lg"
+          className={` ${
+            isEn ? "font-en" : "font-ge font-semibold tracking-wide"
+          } p-4 text-lg`}
         >
           {language.SocialLinks.Title}
         </motion.p>

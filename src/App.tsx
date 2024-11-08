@@ -1,12 +1,20 @@
-import { useLanguage } from "./context/LanguageContext";
-import { en, ge } from "./locales/language";
-import Header from "./components/Header";
 import { useEffect } from "react";
+
+import { en, ge } from "./locales/language";
+
+import Header from "./components/Header";
+import Projects from "./views/Projects";
 import Home from "./views/Home";
+
 import "./App.css";
+
+import { useLanguage } from "./context/LanguageContext";
+import { useView } from "./context/ViewContext";
 
 const App = (): JSX.Element => {
   const { setLanguage, isEn, setIsEn } = useLanguage();
+
+  const { view } = useView();
 
   useEffect(() => {
     if (!localStorage.getItem("language")) {
@@ -27,7 +35,7 @@ const App = (): JSX.Element => {
   return (
     <>
       <Header />
-      <Home />
+      {view === "home" ? <Home /> : <Projects />}
     </>
   );
 };
