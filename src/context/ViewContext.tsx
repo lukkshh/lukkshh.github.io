@@ -10,7 +10,7 @@ const ViewContext = createContext<ViewContextType | undefined>(undefined);
 export const ViewProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [view, setView] = useState<string>("projects");
+  const [view, setView] = useState<string>("home");
 
   return (
     <ViewContext.Provider value={{ view, setView }}>
