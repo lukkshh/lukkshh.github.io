@@ -1,0 +1,23 @@
+[
+  {
+    "img": "/images/ecommerce.png",
+    "title": "<p className='text-lg ml-4 mb-2'>E-Commerce Website</p>",
+    "ghLink": "https://github.com/lukkshh/scandiweb",
+    "webLink": "https://lukkshh-scandiweb.ct.ws/",
+    "badges": ["React", "PHP", "MySQL", "GraphQL", "TailwindCSS"]
+  },
+  {
+    "img": "/images/github-scraper.png",
+    "title": "<p className='text-lg ml-4 mb-2'>Github Scraper <span className='text-sm'>- Made For Fun :)</span></p>  ",
+    "ghLink": "https://github.com/lukkshh/github-scraper",
+    "webLink": "https://lukkshh.github.io/github-scraper/",
+    "badges": ["React", "TailwindCSS", "REST API"]
+  },
+  {
+    "img": "/images/rpc.png",
+    "title": "<p className='text-lg ml-4 mb-2'>Rock Paper Scissors</p>",
+    "ghLink": "https://github.com/lukkshh/Rock-Paper-Scissors",
+    "webLink": "",
+    "badges": ["Python", "Tkinter"]
+  }
+]
