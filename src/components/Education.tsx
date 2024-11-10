@@ -26,18 +26,18 @@ const Education = (): JSX.Element => {
             <p
               className={`${
                 isEn ? "font-en" : "font-ge"
-              } text-xl text-gray-200 max-sm:text-lg max-md:text-base`}
+              } text-xl text-gray-100 max-sm:text-lg max-md:text-base`}
             >
               {item.Title}
             </p>
             <p
               className={` ${
                 isEn ? "font-en" : "font-ge"
-              } text-base text-gray-400 max-md:text-xs`}
+              } text-base text-gray-300 max-md:text-xs`}
             >
               {item.SubTitle}
             </p>
-            <p className="text-sm text-gray-500 max-sm:text-xs max-md:text-xs">
+            <p className="text-sm text-gray-400 max-sm:text-xs max-md:text-xs">
               {item.Date}
             </p>
           </div>
@@ -55,16 +55,16 @@ const Education = (): JSX.Element => {
       <div className="w-full mt-2">
         {language.Certificates.Data.map((item, index) => (
           <div key={index} className="w-full p-2 space-y-1">
-            <p className="text-lg text-gray-200 max-sm:text-base max-md:text-xs">
+            <p className="text-lg text-gray-100 max-sm:text-base max-md:text-xs">
               {item.Title}
             </p>
             <a
               href={item.Link}
-              className="text-sm underline text-gray-400 hover:text-gray-200 transition-colors max-sm:text-xs"
+              className="text-sm underline text-gray-300 hover:text-gray-200 transition-colors max-sm:text-xs"
             >
               {item.SubTitle}
             </a>
-            <p className="text-sm text-gray-500 ">{item.Date}</p>
+            <p className="text-sm text-gray-400 ">{item.Date}</p>
           </div>
         ))}
       </div>
