@@ -10,7 +10,9 @@ const LanguageButton = (): JSX.Element => {
   };
 
   return (
-    <button onClick={HandleClick}>{isEn ? <GeFlag /> : <EnFlag />}</button>
+    <button aria-label="Change Language" onClick={HandleClick}>
+      {isEn ? <GeFlag /> : <EnFlag />}
+    </button>
   );
 };
 

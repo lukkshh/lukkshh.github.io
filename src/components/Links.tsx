@@ -36,6 +36,7 @@ const Links = (): JSX.Element => {
       </div>
       <div className="w-full h-[80%] flex justify-center items-center space-x-4 p-4 overflow-hidden">
         <motion.a
+          aria-label="Lukkshh Github Link"
           initial="initial"
           animate="animate"
           variants={LinksVariants}
@@ -44,6 +45,7 @@ const Links = (): JSX.Element => {
           <GHIcon />
         </motion.a>
         <motion.a
+          aria-label="Lukkshh Instagram Link"
           initial="initial"
           animate="animate"
           variants={LinksVariants}
@@ -52,6 +54,7 @@ const Links = (): JSX.Element => {
           <IGIcon />
         </motion.a>
         <motion.a
+          aria-label="Lukkshh Facebook Link"
           initial="initial"
           animate="animate"
           variants={LinksVariants}
@@ -60,6 +63,7 @@ const Links = (): JSX.Element => {
           <FBIcon />
         </motion.a>
         <motion.a
+          aria-label="Lukkshh Linkedin Link"
           initial="initial"
           animate="animate"
           variants={LinksVariants}
