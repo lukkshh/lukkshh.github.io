@@ -7,6 +7,13 @@
     "badges": ["React", "PHP", "MySQL", "GraphQL", "TailwindCSS"]
   },
   {
+    "img": "/images/lukkshield.png",
+    "title": "<p className='text-lg ml-4 mb-2'>Password Manager</p>",
+    "ghLink": "https://github.com/lukkshh/lukkshield",
+    "webLink": "https://lukkshield.ct.ws/?referer=lukkshh.github.io",
+    "badges": ["PHP", "MySQL", "TailwindCSS"]
+  },
+  {
     "img": "/images/github-scraper.png",
     "title": "<p className='text-lg ml-4 mb-2'>Github Scraper <span className='text-sm'>- Made For Fun :)</span></p>  ",
     "ghLink": "https://github.com/lukkshh/github-scraper",
