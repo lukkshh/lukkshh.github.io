@@ -7,6 +7,13 @@
     "badges": ["React", "PHP", "MySQL", "GraphQL", "TailwindCSS"]
   },
   {
+    "img": "/images/ticket-scanner.gif",
+    "title": "<p className='text-lg ml-4 mb-2'>Ticket Scanner</p>",
+    "ghLink": "https://github.com/lukkshh/lukkshield",
+    "webLink": "",
+    "badges": ["Python", "OpenCV", "SQLite"]
+  },
+  {
     "img": "/images/lukkshield.png",
     "title": "<p className='text-lg ml-4 mb-2'>Password Manager</p>",
     "ghLink": "https://github.com/lukkshh/lukkshield",
