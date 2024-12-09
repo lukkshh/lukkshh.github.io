@@ -9,7 +9,7 @@
   {
     "img": "/images/ticket-scanner.gif",
     "title": "<p className='text-lg ml-4 mb-2'>Ticket Scanner</p>",
-    "ghLink": "https://github.com/lukkshh/lukkshield",
+    "ghLink": "https://github.com/lukkshh/ticket-scanner",
     "webLink": "",
     "badges": ["Python", "OpenCV", "SQLite"]
   },
