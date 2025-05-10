@@ -7,6 +7,13 @@
     "badges": ["React", "PHP", "MySQL", "GraphQL", "TailwindCSS"]
   },
   {
+    "img": "/images/tictactoe.png",
+    "title": "<p className='text-lg ml-4 mb-2'>TicTacToe</p>",
+    "ghLink": "https://github.com/lukkshh/tictactoe",
+    "webLink": "https://lukkshh.github.io/tictactoe/",
+    "badges": ["React", "TailwindCSS"]
+  },
+  {
     "img": "/images/ticket-scanner.gif",
     "title": "<p className='text-lg ml-4 mb-2'>Ticket Scanner</p>",
     "ghLink": "https://github.com/lukkshh/ticket-scanner",
