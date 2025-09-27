@@ -2,16 +2,9 @@
   {
     "img": "/images/ecommerce.png",
     "title": "<p className='text-lg ml-4 mb-2'>E-Commerce Website</p>",
-    "ghLink": "https://github.com/lukkshh/scandiweb",
-    "webLink": "https://lukkshh-scandiweb.ct.ws/",
+    "ghLink": "https://github.com/lukkshh/php-react-ecommerce",
+    "webLink": "https://lukkshh-ecommerce.ct.ws/",
     "badges": ["React", "PHP", "MySQL", "GraphQL", "TailwindCSS"]
-  },
-  {
-    "img": "/images/tictactoe.png",
-    "title": "<p className='text-lg ml-4 mb-2'>TicTacToe</p>",
-    "ghLink": "https://github.com/lukkshh/tictactoe",
-    "webLink": "https://lukkshh.github.io/tictactoe/",
-    "badges": ["React", "TailwindCSS"]
   },
   {
     "img": "/images/ticket-scanner.gif",
