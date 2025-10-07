@@ -1,5 +1,11 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
-import { en, Language } from "../locales/language";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
+import { en, ge, Language } from "../locales/language";
 
 interface LanguageContextType {
   language: Language;
@@ -17,6 +23,22 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [language, setLanguage] = useState<Language>(en);
   const [isEn, setIsEn] = useState(true);
+
+  useEffect(() => {
+    if (!localStorage.getItem("language")) {
+      localStorage.setItem("language", "en");
+      setIsEn(false);
+    }
+
+    if (localStorage.getItem("language") === "ge") {
+      setLanguage(ge);
+      setIsEn(false);
+    } else {
+      localStorage.setItem("language", "en");
+      setLanguage(en);
+      setIsEn(true);
+    }
+  }, [isEn]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, isEn, setIsEn }}>
