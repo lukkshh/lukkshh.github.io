@@ -1,7 +1,7 @@
 const GeFlag = (): JSX.Element => {
   return (
     <svg
-      className="w-10 h-10 rounded-xl"
+      className="w-9 h-9 rounded-lg"
       xmlns="http://www.w3.org/2000/svg"
       id="flag-icons-ge"
       viewBox="0 0 640 480"
@@ -21,7 +21,7 @@ const GeFlag = (): JSX.Element => {
 const EnFlag = (): JSX.Element => {
   return (
     <svg
-      className="w-10 h-10 rounded-xl"
+      className="w-9 h-9 rounded-xl"
       xmlns="http://www.w3.org/2000/svg"
       id="flag-icons-gb"
       viewBox="0 0 640 480"

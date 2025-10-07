@@ -10,7 +10,11 @@ const LanguageButton = (): JSX.Element => {
   };
 
   return (
-    <button aria-label="Change Language" onClick={HandleClick}>
+    <button
+      className="flex justify-center items-center"
+      aria-label="Change Language"
+      onClick={HandleClick}
+    >
       {isEn ? <GeFlag /> : <EnFlag />}
     </button>
   );
