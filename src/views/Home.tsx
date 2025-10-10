@@ -1,43 +1,67 @@
-import Technologies from "../components/Technologies";
-import Education from "../components/Education";
-import Profile from "../components/Profile";
-import Contact from "../components/Contact";
-import About from "../components/About";
-import Links from "../components/Links";
+import { useLanguage } from "../context/LanguageContext";
+import parse from "html-react-parser";
+
+const SpotlightEffect = (): JSX.Element => {
+  const isMobile = window.innerWidth <= 768;
+
+  return (
+    <div className="absolute top-0 w-full">
+      <img
+        className="absolute left-0"
+        src={
+          isMobile
+            ? "/images/spotlight-left-mobile.svg"
+            : "/images/spotlight-left.svg"
+        }
+        alt="spotlight-left"
+      />
+      <img
+        className="absolute right-0"
+        src={
+          isMobile
+            ? "/images/spotlight-right-mobile.svg"
+            : "/images/spotlight-right.svg"
+        }
+        alt="spotlight-right"
+      />
+    </div>
+  );
+};
 
 const Home = (): JSX.Element => {
+  const { isEn, language } = useLanguage();
+
   return (
-    <section className="text-white w-full h-[92vh] flex justify-center items-center max-sm:h-[95dvh]">
-      <div className="w-[55%] h-[95%] max-sm:w-[98%] max-sm:h-full max-md:w-[90%] max-lg:w-[95%]">
-        <div className="w-full h-[33%] flex justify-center items-center max-sm:p-2 max-sm:h-[27%]">
-          <div className="bg-zinc-900 flex-[2] m-2 h-[90%] rounded-xl max-sm:flex-none max-sm:w-[35%]">
-            <About />
-          </div>
-          <div className="bg-zinc-900 flex-1 h-[90%] m-2 rounded-xl max-sm:flex-none max-sm:w-[65%]">
-            <Contact />
-          </div>
-        </div>
-        <div className="w-full h-[66%] flex justify-center items-center max-sm:h-[73%]">
-          <div className="flex-1 h-full p-2 max-sm:p-0 max-sm:pr-2 max-sm:pb-4">
-            <div className="bg-zinc-900 w-full h-full rounded-xl">
-              <Technologies />
-            </div>
-          </div>
-          <div className="flex-1 h-full flex flex-col justify-center items-center p-2 max-sm:hidden">
-            <div className="bg-zinc-900 w-full h-[60%] rounded-xl ">
-              <Profile />
-            </div>
-            <div className="bg-zinc-900 w-full h-[50%] mt-4 rounded-xl">
-              <Links />
-            </div>
-          </div>
-          <div className="flex-1 h-full p-2 max-sm:p-0 max-sm:pl-2 max-sm:pb-4">
-            <div className="bg-zinc-900 w-full h-full rounded-xl">
-              <Education />
-            </div>
-          </div>
-        </div>
-      </div>
+    <section
+      className={` ${
+        isEn ? "font-en" : "font-ge"
+      } bg-[url(/images/grid-pattern.svg)] w-full min-h-screen bg-[#000319] `}
+    >
+      <SpotlightEffect />
+      <section className="w-full h-full flex items-center flex-col">
+        <main className="mt-[140px] mx-4 md:mt-[280px] text-white text-center">
+          <h3
+            className={` ${
+              isEn ? "text-base" : "text-lg"
+            } mb-3 tracking-widest text-[#E4ECFF]`}
+          >
+            {language.Home.Headline}
+          </h3>
+          <h1
+            className={` ${
+              isEn ? "lg:max-w-[900px]" : "lg:max-w-[1000px]"
+            } font-bold text-[42px] leading-[1.2] md:text-7xl md:max-w-[700px] `}
+          >
+            {parse(language.Home.Subtext)}
+          </h1>
+          <h2 className="mt-6 text-[#E4ECFF] text-base md:text-2xl">
+            {language.Home.CTA}
+          </h2>
+        </main>
+        <button className="flex justify-center items-center text-lg gap-2 w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-[40px]  text-white drop-shadow-sm rounded-lg border-[0.5px] border-[#3637498a] bg-gradient-to-tl from-[#06091F]  to-[#161A31]">
+          {parse(language.Home.ButtonText)}
+        </button>
+      </section>
     </section>
   );
 };

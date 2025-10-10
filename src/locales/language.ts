@@ -5,6 +5,13 @@ interface Language {
     Projects: string;
   };
 
+  Home: {
+    Headline: string;
+    Subtext: string;
+    CTA: string;
+    ButtonText: string;
+  };
+
   Profile: {
     Title: string;
     SubTitle: string;
@@ -45,6 +52,15 @@ const ge: Language = {
     About: "შესახებ",
     Projects: "პროექტები",
   },
+
+  Home: {
+    Headline: "გამარჯობა 👋🏼",
+    Subtext:
+      "მე ვარ ლუკა შველიძე <span className='text-[#CBACF9] font-en'>Junior Full-Stack Web Developer</span>",
+    CTA: "გარდავქმნი იდეებს სრულ ვებ გამოცდილებად.",
+    ButtonText: "ჩემს შესახებ <span className='text-xl'> &#x2197;</span>",
+  },
+
   Profile: {
     Title: "ლუკა შველიძე",
     SubTitle: "Full-Stack დეველოპერი",
@@ -88,6 +104,15 @@ const en: Language = {
     About: "About",
     Projects: "Projects",
   },
+
+  Home: {
+    Headline: "Hey There 👋🏼",
+    Subtext:
+      "I'm Luka Shvelidze <span className='text-[#CBACF9]'>Junior Full-Stack Web Developer</span>",
+    CTA: "Transforming Concepts into Seamless User Experiences.",
+    ButtonText: "See my work <span className='text-xl'> &#x2197;</span>",
+  },
+
   Profile: {
     Title: "Luka Shvelidze",
     SubTitle: "Full-Stack Developer",
