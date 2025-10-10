@@ -5,7 +5,7 @@ export default {
     extend: {},
     fontFamily: {
       ge: ["Arial Geo", "sans-serif"],
-      en: ["Roboto", "sans-serif"],
+      en: ["Inter", "sans-serif"],
     },
   },
   plugins: [],
