@@ -52,7 +52,7 @@ const Header = (): JSX.Element => {
       
         `}
     >
-      <header className="w-[398px] h-[55px] md:h-[60px] md:min-w-[450px] mx-[16px] my-[28px] px-[6px] py-[20px] rounded-xl flex justify-center items-center bg-gradient-to-br from-[#04071D] to-[#0C0E23] drop-shadow-sm border-[0.1px] border-[#36374942]">
+      <header className="w-[398px] h-[55px] md:h-[60px] md:min-w-[450px] mx-[16px] my-[22px] md:my-[28px] px-[6px] py-[20px] rounded-xl flex justify-center items-center bg-gradient-to-br from-[#04071D] to-[#0C0E23] drop-shadow-sm border-[0.1px] border-[#36374942]">
         <nav>
           <ul
             className={` ${
