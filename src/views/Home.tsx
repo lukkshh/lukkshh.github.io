@@ -35,11 +35,11 @@ const Home = (): JSX.Element => {
     <section
       className={` ${
         isEn ? "font-en" : "font-ge"
-      } bg-[url(/images/grid-pattern.svg)] w-full min-h-screen bg-[#000319] `}
+      } bg-[url(/images/grid-pattern.svg)] w-full mb-10 md:mb-20`}
     >
       <SpotlightEffect />
       <section className="w-full h-full flex items-center flex-col">
-        <main className="mt-[140px] mx-4 md:mt-[280px] text-white text-center">
+        <main className="mt-[120px] mx-4 md:mt-[280px] text-white text-center">
           <h3
             className={` ${
               isEn ? "text-base" : "text-lg"
@@ -49,7 +49,7 @@ const Home = (): JSX.Element => {
           </h3>
           <h1
             className={` ${
-              isEn ? "lg:max-w-[900px]" : "lg:max-w-[1000px]"
+              isEn ? "lg:max-w-[900px]" : "lg:max-w-[1000px] !leading-[1.2]"
             } font-bold text-[42px] leading-[1.2] md:text-7xl md:max-w-[700px] `}
           >
             {parse(language.Home.Subtext)}
@@ -58,9 +58,12 @@ const Home = (): JSX.Element => {
             {language.Home.CTA}
           </h2>
         </main>
-        <button className="flex justify-center items-center text-lg gap-2 w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-[40px]  text-white drop-shadow-sm rounded-lg border-[0.5px] border-[#3637498a] bg-gradient-to-tl from-[#06091F]  to-[#161A31]">
+        <a
+          href="#about"
+          className="flex justify-center items-center text-lg gap-2 w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-[40px]  text-white drop-shadow-sm rounded-lg border-[0.5px] border-[#3637498a] bg-gradient-to-tl from-[#06091F]  to-[#161A31]"
+        >
           {parse(language.Home.ButtonText)}
-        </button>
+        </a>
       </section>
     </section>
   );

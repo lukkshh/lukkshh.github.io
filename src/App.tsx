@@ -1,13 +1,14 @@
 import "./App.css";
 import Home from "./views/Home";
 import Header from "./components/Header";
+import About from "./views/About";
 
 const App = (): JSX.Element => {
   return (
     <>
       <Header />
       <Home />
-      <section id="about" className="h-screen"></section>
+      <About />
     </>
   );
 };
