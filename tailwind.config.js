@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      ge: ["Arial Geo", "sans-serif"],
+      ge: ["Noto Sans Georgian", "sans-serif"],
       en: ["Inter", "sans-serif"],
     },
   },

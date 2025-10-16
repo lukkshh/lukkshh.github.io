@@ -18,8 +18,16 @@ interface Language {
   };
 
   About: {
-    Title: string;
-    Text: string;
+    FeatureCard: {
+      Title: string;
+    };
+    LanguageCard: {
+      Title: string;
+      Languages: string[];
+    };
+    TechStackCard: {
+      Title: string;
+    };
   };
 
   Education: {
@@ -67,8 +75,17 @@ const ge: Language = {
   },
 
   About: {
-    Title: "გამარჯობა 👋 მე ვარ ლუკა შველიძე",
-    Text: "უმცროსი, თვითნასწავლი full-stack ვებ დეველოპერი, კოდირების ორ წლიანი გამოცდილებით დავეუფლე რამდენიმე პროგრამირების ენასა და ტექნოლოგიას, რაც მაძლევს საშუალებას სწრაფად და მარტივად გადავჭრა პრობლემები.",
+    TechStackCard: {
+      Title: "ტექნოლოგიები რომლებსაც ვიყენებ",
+    },
+    LanguageCard: {
+      Title: "ვფლობ რამდენიმე ენას ამიტომ კომუნიკაცია პრობლემა არ არის.",
+      Languages: ["ქართული", "ინგლისური", "რუსული"],
+    },
+    FeatureCard: {
+      Title:
+        "მნიშვნელობას ვანიჭებ კლიენტთან თანამშრომლობას და ღია კომუნიკაციას.",
+    },
   },
 
   Education: {
@@ -119,8 +136,16 @@ const en: Language = {
   },
 
   About: {
-    Title: "Hello 👋 I'm Luka Shvelidze",
-    Text: "A junior, self-taught full-stack web developer with a passion for crafting immersive digital experiences. With two years of coding experience, I've mastered multiple languages and developed strong problem-solving skills to tackle complex challenges efficiently",
+    TechStackCard: {
+      Title: "My tech stack",
+    },
+    LanguageCard: {
+      Title: "I’m very flexible with time zone communications",
+      Languages: ["Georgian", "English", "Russian"],
+    },
+    FeatureCard: {
+      Title: "I prioritize client collaboration, fostering open communication",
+    },
   },
 
   Education: {

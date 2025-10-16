@@ -39,7 +39,7 @@ const Home = (): JSX.Element => {
     >
       <SpotlightEffect />
       <section className="w-full h-full flex items-center flex-col">
-        <main className="mt-[120px] mx-4 md:mt-[280px] text-white text-center">
+        <main className="mt-[120px] mx-4 md:mt-[200px] text-white text-center">
           <h3
             className={` ${
               isEn ? "text-base" : "text-lg"
