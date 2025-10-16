@@ -39,7 +39,7 @@ export default function LanguageCard() {
       viewport={{ once: true }}
       className={`${
         isEn ? "" : "max-w-[622px]"
-      } min-h-[195px] md:min-h-[255px] border-[0.1px] border-[#6971a265] rounded-xl bg-[#04071D] relative text-white`}
+      } min-h-[195px] md:min-h-[255px] overflow-hidden border-[0.1px] border-[#6971a265] rounded-xl bg-[#04071D] relative text-white`}
     >
       <img
         className="w-full max-h-[135px] absolute bottom-0"
@@ -48,8 +48,8 @@ export default function LanguageCard() {
       />
       <p
         className={` ${
-          isEn ? "font-en" : "font-ge max-w-[75%]"
-        } font-bold text-xl px-[24px] py-[30px]`}
+          isEn ? "font-en text-xl" : "font-ge text-lg md:text-xl max-w-[90%]"
+        } font-bold px-[24px] py-4 md:py-[30px]`}
       >
         {language.About.LanguageCard.Title}
       </p>

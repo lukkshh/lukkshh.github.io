@@ -40,7 +40,7 @@ export default function TechStackCard() {
     >
       <p
         className={` ${
-          isEn ? "font-en text-3xl" : "font-ge text-xl"
+          isEn ? "font-en text-3xl" : "font-ge text-xl z-10 max-w-[35%]"
         } font-bold ml-5`}
       >
         {language.About.TechStackCard.Title}
