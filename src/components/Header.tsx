@@ -3,7 +3,7 @@ import throttle from "lodash/throttle";
 import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
-import LanguageButton from "./LanguageButton";
+import LanguageButton from "./LanguageButton/LanguageButton";
 
 type NavNavLinkType = {
   href: string;
