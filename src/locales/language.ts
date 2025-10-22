@@ -18,6 +18,10 @@ interface Language {
   };
 
   About: {
+    CvCard: {
+      Title: string;
+      SubTitle: string;
+    };
     FeatureCard: {
       Title: string;
     };
@@ -75,6 +79,10 @@ const ge: Language = {
   },
 
   About: {
+    CvCard: {
+      Title: "გაიგე მეტი ჩემ შესახებ.",
+      SubTitle: "გადმოწერე რეზიუმე",
+    },
     TechStackCard: {
       Title: "ტექნოლოგიები რომლებსაც ვიყენებ",
     },
@@ -136,6 +144,10 @@ const en: Language = {
   },
 
   About: {
+    CvCard: {
+      Title: "Want To Know More About Me?",
+      SubTitle: "Download CV.",
+    },
     TechStackCard: {
       Title: "My tech stack",
     },
