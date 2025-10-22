@@ -31,9 +31,11 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
     }
 
     if (localStorage.getItem("language") === "ge") {
+      document.documentElement.lang = "ge";
       setLanguage(ge);
       setIsEn(false);
     } else {
+      document.documentElement.lang = "en";
       localStorage.setItem("language", "en");
       setLanguage(en);
       setIsEn(true);

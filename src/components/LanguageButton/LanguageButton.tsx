@@ -5,6 +5,7 @@ const LanguageButton = (): JSX.Element => {
   const { isEn, setIsEn } = useLanguage();
 
   const HandleClick = (): void => {
+    document.documentElement.lang = isEn ? "ge" : "en";
     localStorage.setItem("language", isEn ? "ge" : "en");
     setIsEn(!isEn);
   };
