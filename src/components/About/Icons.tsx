@@ -350,7 +350,7 @@ function FlaskIcon() {
 function IGIcon() {
   return (
     <svg
-      className="w-8 h-8"
+      className="w-6 h-6"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       stroke="#fff"
@@ -376,7 +376,7 @@ function IGIcon() {
 function GHIcon() {
   return (
     <svg
-      className="w-8 h-8"
+      className="w-6 h-6"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
     >
@@ -414,7 +414,7 @@ function FBIcon() {
 function LIIcon() {
   return (
     <svg
-      className="w-8 h-8"
+      className="w-6 h-6"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
