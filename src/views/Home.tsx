@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import { useLanguage } from "../context/LanguageContext";
 import parse from "html-react-parser";
 
@@ -58,11 +59,14 @@ const Home = (): JSX.Element => {
             {language.Home.CTA}
           </h2>
         </main>
-        <a
-          href="#about"
-          className="flex justify-center items-center text-lg gap-2 w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-[40px]  text-white drop-shadow-sm rounded-lg border-[0.5px] border-[#3637498a] bg-gradient-to-tl from-[#06091F]  to-[#161A31]"
-        >
-          {parse(language.Home.ButtonText)}
+        <a href="#about">
+          <Button
+            className={` ${
+              isEn ? "font-en" : "font-ge"
+            } flex justify-center items-center text-lg gap-2 w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-[40px]`}
+          >
+            {parse(language.Home.ButtonText)}
+          </Button>
         </a>
       </section>
     </section>

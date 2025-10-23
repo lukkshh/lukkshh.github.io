@@ -1,4 +1,5 @@
 import { useLanguage } from "../../context/LanguageContext";
+import Button from "../Button";
 
 export default function CvCard() {
   const { isEn, language } = useLanguage();
@@ -12,11 +13,14 @@ export default function CvCard() {
       >
         {language.About.CvCard.Title}
       </p>
-      <a
-        href="/Luka Shvelidze.pdf"
-        className="flex font-en justify-center items-center text-lg gap-2 w-[75%] h-[50px] lg:w-[200px] md:h-[60px]   text-white drop-shadow-sm rounded-lg border-[0.5px] border-[#3637498a] bg-gradient-to-tl from-[#06091F]  to-[#161A31]"
-      >
-        {language.About.CvCard.SubTitle}
+      <a href="/Luka Shvelidze.pdf">
+        <Button
+          className={` ${
+            isEn ? "font-en" : "font-ge"
+          } flex justify-center items-center text-lg gap-2 w-[75%] h-[50px] lg:w-[200px] md:h-[60px]`}
+        >
+          {language.About.CvCard.SubTitle}
+        </Button>
       </a>
     </div>
   );
