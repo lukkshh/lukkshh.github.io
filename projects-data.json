@@ -1,37 +1,42 @@
 [
   {
     "img": "/images/ecommerce.png",
-    "title": "<p className='text-lg ml-4 mb-2'>E-Commerce Website</p>",
+    "title": "<p>E-Commerce Website</p>",
+    "description": "eCommerce website made with PHP and React, for Scandiweb Junior Full Stack Developer test task",
     "ghLink": "https://github.com/lukkshh/php-react-ecommerce",
     "webLink": "https://lukkshh-ecommerce.ct.ws/",
     "badges": ["React", "PHP", "MySQL", "GraphQL", "TailwindCSS"]
   },
   {
+    "img": "/images/tictactoe.png",
+    "title": "<p>Tic Tac Toe Game</p>",
+    "description": "TicTacToe Game built with React and tailwindcss",
+    "ghLink": "https://github.com/lukkshh/tictactoe",
+    "webLink": "https://lukkshh.github.io/tictactoe/",
+    "badges": ["React", "TailwindCSS"]
+  },
+  {
     "img": "/images/ticket-scanner.gif",
-    "title": "<p className='text-lg ml-4 mb-2'>Ticket Scanner</p>",
+    "title": "<p>Ticket Scanner</p>",
+    "description": "ticket-scanner is a simple ticket management system that allows for ticket generation and QR code scanning. It stores ticket information in an SQLite database and supports real-time ticket verification, showing whether a ticket is valid, already used, or does not exist. Perfect for event organizers to manage access control.",
     "ghLink": "https://github.com/lukkshh/ticket-scanner",
     "webLink": "",
     "badges": ["Python", "OpenCV", "SQLite"]
   },
   {
-    "img": "/images/lukkshield.png",
-    "title": "<p className='text-lg ml-4 mb-2'>Password Manager</p>",
-    "ghLink": "https://github.com/lukkshh/lukkshield",
-    "webLink": "https://lukkshield.ct.ws/?referer=lukkshh.github.io",
-    "badges": ["PHP", "MySQL", "TailwindCSS"]
-  },
-  {
-    "img": "/images/github-scraper.png",
-    "title": "<p className='text-lg ml-4 mb-2'>Github Scraper <span className='text-sm'>- Made For Fun :)</span></p>  ",
-    "ghLink": "https://github.com/lukkshh/github-scraper",
-    "webLink": "https://lukkshh.github.io/github-scraper/",
-    "badges": ["React", "TailwindCSS", "REST API"]
-  },
-  {
     "img": "/images/rpc.png",
-    "title": "<p className='text-lg ml-4 mb-2'>Rock Paper Scissors</p>",
+    "title": "<p>Rock Paper Scissors</p>",
+    "description": "A simple Rock Paper Scissors game built with Python's Tkinter library.",
     "ghLink": "https://github.com/lukkshh/Rock-Paper-Scissors",
     "webLink": "",
     "badges": ["Python", "Tkinter"]
+  },
+  {
+    "img": "/images/github-scraper.png",
+    "title": "<p>Github Scraper</p>  ",
+    "description": "A React application that allows users to search for GitHub profiles and view detailed information about them, including repositories, followers, and more, by utilizing the GitHub REST API.",
+    "ghLink": "https://github.com/lukkshh/github-scraper",
+    "webLink": "https://lukkshh.github.io/github-scraper/",
+    "badges": ["React", "TailwindCSS", "REST API"]
   }
 ]
