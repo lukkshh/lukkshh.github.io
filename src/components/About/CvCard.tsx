@@ -13,11 +13,14 @@ export default function CvCard() {
       >
         {language.About.CvCard.Title}
       </p>
-      <a href="/Luka Shvelidze.pdf">
+      <a
+        href="/Luka Shvelidze.pdf"
+        className="w-[75%] h-[50px] lg:w-[200px] md:h-[60px]"
+      >
         <Button
           className={` ${
             isEn ? "font-en" : "font-ge"
-          } flex justify-center items-center text-lg gap-2 w-[75%] h-[50px] lg:w-[200px] md:h-[60px]`}
+          } flex justify-center items-center text-lg gap-2 w-full h-full`}
         >
           {language.About.CvCard.SubTitle}
         </Button>

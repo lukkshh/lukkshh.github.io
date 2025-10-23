@@ -34,6 +34,11 @@ interface Language {
     };
   };
 
+  Projects: {
+    Title: string;
+    ShowMore: string;
+  };
+
   Education: {
     Title: string;
     Data: { Title: string; SubTitle: string; Date: string }[];
@@ -94,6 +99,11 @@ const ge: Language = {
       Title:
         "მნიშვნელობას ვანიჭებ კლიენტთან თანამშრომლობას და ღია კომუნიკაციას.",
     },
+  },
+
+  Projects: {
+    Title: "ჩემი <span className='text-[#CBACF9]'>პროექტები</span>",
+    ShowMore: "მეტის ნახვა",
   },
 
   Education: {
@@ -158,6 +168,12 @@ const en: Language = {
     FeatureCard: {
       Title: "I prioritize client collaboration, fostering open communication",
     },
+  },
+
+  Projects: {
+    Title:
+      "A small selection of <span className='text-[#CBACF9]'>recent projects</span>",
+    ShowMore: "Show More",
   },
 
   Education: {

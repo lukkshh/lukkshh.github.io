@@ -59,11 +59,14 @@ const Home = (): JSX.Element => {
             {language.Home.CTA}
           </h2>
         </main>
-        <a href="#about">
+        <a
+          href="#about"
+          className="w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-[40px]"
+        >
           <Button
             className={` ${
               isEn ? "font-en" : "font-ge"
-            } flex justify-center items-center text-lg gap-2 w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-[40px]`}
+            } flex justify-center items-center text-lg gap-2 w-full h-full`}
           >
             {parse(language.Home.ButtonText)}
           </Button>

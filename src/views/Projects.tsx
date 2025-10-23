@@ -1,11 +1,17 @@
-import { ProjectData } from "../components/ProjectCard";
-import ProjectCard from "../components/ProjectCard";
 import { useEffect, useState } from "react";
+import Card, { CardDataType } from "../components/Projects/Card";
+import { useLanguage } from "../context/LanguageContext";
+
+import parser from "html-react-parser";
+import Button from "../components/Button";
 
 const Projects = () => {
-  const [projects, setProjects] = useState<Array<ProjectData>>([]);
+  const [projects, setProjects] = useState<Array<CardDataType>>([]);
+  const [visibleCount, setVisibleCount] = useState<number>(4);
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+
+  const { isEn, language } = useLanguage();
 
   useEffect(() => {
     fetch("/projects-data.json")
@@ -25,8 +31,17 @@ const Projects = () => {
       });
   }, []);
 
+  const handleShowMore = () => {
+    setVisibleCount((prevCount) => prevCount + 4);
+  };
+
   return (
-    <section className="w-full flex  justify-center items-center text-white max-lg:p-2">
+    <section
+      id="projects"
+      className={` ${
+        isEn ? "font-en" : "font-ge"
+      } w-full flex mb-10 justify-center items-center text-white max-lg:p-2`}
+    >
       {loading ? (
         <div className="w-full h-[92vh] flex justify-center items-center">
           <span className="loader"></span>
@@ -34,10 +49,29 @@ const Projects = () => {
       ) : error ? (
         <p className="text-xl mt-12">{error}</p>
       ) : (
-        <div className="grid grid-cols-3 gap-16 mt-12 mb-12 max-2xl:gap-8 max-sm:gap-6 max-sm:mt-6 max-sm:grid-cols-1 max-lg:grid-cols-2 ">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} data={project} />
-          ))}
+        <div className="flex flex-col justify-center items-center w-full space-y-8 mt-10">
+          <div className="flex justify-center items-center w-full">
+            <p className="font-bold text-xl  md:text-5xl">
+              {parser(language.Projects.Title)}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-16">
+            {projects.slice(0, visibleCount).map((project, index) => (
+              <Card key={index} data={project} />
+            ))}
+          </div>
+          <div>
+            {visibleCount < projects.length && (
+              <Button
+                onClick={handleShowMore}
+                className={` ${
+                  isEn ? "font-en" : "font-ge"
+                } min-w-[160px] min-h-[55px] font-bold`}
+              >
+                {language.Projects.ShowMore}
+              </Button>
+            )}
+          </div>
         </div>
       )}
     </section>
