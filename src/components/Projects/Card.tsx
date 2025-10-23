@@ -25,13 +25,14 @@ export default function Card({ data }: CardProps) {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="font-en md:max-h-[620px] drop-shadow-sm border-[0.1px] border-[#36374942] px-3 md:px-6 py-5 md:py-9  rounded-3xl bg-gradient-to-bl from-[#0C0E23] to-[#04071D] "
+      className="font-en lg:max-h-[620px] drop-shadow-sm border-[0.1px] border-[#36374942] px-3 md:px-6 py-5 md:py-9  rounded-3xl bg-gradient-to-bl from-[#0C0E23] to-[#04071D] "
     >
       <div className=" h-[150px] md:h-[240px] lg:min-w-[552px] lg:min-h-[330px] bg-[url(/images/card_img_background.svg)] drop-shadow-sm flex justify-center items-end  rounded-xl overflow-hidden bg-[#13162D]">
         <img
           className="w-[240px] md:w-[330px] md:h-[240px] lg:w-[450px] lg:h-[320px] rotate-2 translate-y-8 rounded-lg object-cover"
           src={data.img}
-          alt=""
+          loading="lazy"
+          alt={data.title}
         />
       </div>
       <p className=" mt-5 md:mt-9 text-xl md:text-3xl max-w-[552px] font-bold text-white">
