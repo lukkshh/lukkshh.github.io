@@ -37,7 +37,7 @@ export default function Card({ data }: CardProps) {
       <p className=" mt-5 md:mt-9 text-xl md:text-3xl max-w-[552px] font-bold text-white">
         {parse(data.title)}
       </p>
-      <p className="mt-2 md:mt-4 text-sm md:text-xl max-w-[552px] text-[#BEC1DD]">
+      <p className="mt-2 line-clamp-2 md:mt-4 text-sm md:text-xl max-w-[552px] text-[#BEC1DD]">
         {data.description}
       </p>
       <div className="mt-4 md:mt-6 max-w-[552px] flex justify-between items-center">
