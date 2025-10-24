@@ -53,14 +53,6 @@ interface Language {
       Link: string;
     }[];
   };
-
-  Technologies: {
-    Title: string;
-  };
-
-  SocialLinks: {
-    Title: string;
-  };
 }
 
 const ge: Language = {
@@ -127,10 +119,6 @@ const ge: Language = {
       },
     ],
   },
-  Technologies: { Title: "ტექნოლოგიები რომლებსაც ვიყენებ" },
-  SocialLinks: {
-    Title: "გამომყევი",
-  },
 };
 
 const en: Language = {
@@ -196,10 +184,6 @@ const en: Language = {
         Link: "https://ude.my/UC-51dace1f-4ca4-4ee9-9d74-049c053d75a5",
       },
     ],
-  },
-  Technologies: { Title: "Technologies i have worked with" },
-  SocialLinks: {
-    Title: "Follow Me",
   },
 };
 
