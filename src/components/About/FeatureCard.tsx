@@ -73,9 +73,9 @@ export default function FeatureCard() {
       <PurpleDecoration />
       <YellowDecoration />
       <p
-        className={`${
+        className={` ${
           isEn ? "max-w-[75%]" : "max-w-[60%]"
-        } font-bold z-50 text-white text-xl m-4`}
+        } font-bold z-4 text-white text-xl m-4`}
       >
         {language.About.FeatureCard.Title}
       </p>

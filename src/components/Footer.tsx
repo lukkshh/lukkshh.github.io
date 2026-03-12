@@ -16,8 +16,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="h-10 mb-16 md:mb-10 w-full flex flex-col space-y-4 md:space-y-0 md:flex-row items-center justify-around">
-      <span className="text-sm text-white">Copyright ©2025 Luka Shvelidze</span>
+    <footer className="h-10 pb-10 md:pb-14 w-full flex flex-col space-y-4 md:space-y-0 md:flex-row items-center justify-around">
+      <span className="text-sm text-white">Copyright ©2026 Luka Shvelidze</span>
       <ul className="flex space-x-4">
         {links.map(({ icon: Icon, url, aria_label }, index) => (
           <li key={index}>

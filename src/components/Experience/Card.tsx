@@ -1,4 +1,5 @@
 import parse from "html-react-parser";
+import { motion } from "framer-motion";
 
 export interface ExperienceData {
   title: string;
@@ -14,7 +15,13 @@ export default function Card({
   img,
 }: ExperienceData) {
   return (
-    <article className="w-full xl:max-w-[600px] min-h-[190px] drop-shadow-sm border-[0.1px] border-[#36374942] px-3 md:px-6 py-5 md:py-9 rounded-3xl bg-gradient-to-bl from-[#0C0E23] to-[#04071D] flex flex-col sm:flex-row items-start gap-4 sm:gap-8">
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="w-full xl:max-w-[600px] min-h-[190px] drop-shadow-sm border-[0.1px] border-[#36374942] px-3 md:px-6 py-5 md:py-9 rounded-3xl bg-gradient-to-bl from-[#0C0E23] to-[#04071D] flex flex-col sm:flex-row items-start gap-4 sm:gap-8"
+    >
       <div className="grid place-items-center shrink-0">
         <img
           className="w-16 h-16 sm:w-[94px] sm:h-[94px] max-w-[unset]"
@@ -38,6 +45,6 @@ export default function Card({
           {parse(description)}
         </p>
       </div>
-    </article>
+    </motion.article>
   );
 }

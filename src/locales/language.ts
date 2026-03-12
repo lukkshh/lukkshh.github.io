@@ -2,6 +2,7 @@ interface Language {
   Header: {
     Home: string;
     About: string;
+    Experience: string;
     Projects: string;
   };
 
@@ -63,6 +64,7 @@ const ge: Language = {
   Header: {
     Home: "მთავარი",
     About: "შესახებ",
+    Experience: "გამოცდილება",
     Projects: "პროექტები",
   },
 
@@ -132,6 +134,7 @@ const en: Language = {
   Header: {
     Home: "Home",
     About: "About",
+    Experience: "Experience",
     Projects: "Projects",
   },
 

@@ -38,7 +38,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="w-full flex mb-10 justify-center items-center text-white max-lg:p-2"
+      className="w-full flex justify-center items-center text-white px-4"
     >
       {loading ? (
         <div className="w-full h-[92vh] flex justify-center items-center">
@@ -47,7 +47,7 @@ const Projects = () => {
       ) : error ? (
         <p className="text-xl mt-12">{error}</p>
       ) : (
-        <div className="flex flex-col justify-center items-center w-full space-y-8 mt-10">
+        <div className="flex flex-col justify-center items-center w-full space-y-8">
           <div className="flex justify-center items-center w-full">
             <p className="font-bold text-xl  md:text-5xl">
               {parser(language.Projects.Title)}

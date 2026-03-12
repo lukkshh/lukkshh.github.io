@@ -6,8 +6,8 @@ import TechStackCard from "../components/About/TechStackCard";
 
 export default function About(): JSX.Element {
   return (
-    <section id="about" className="mb-10 grid place-items-center">
-      <main className="p-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+    <section id="about" className="grid place-items-center px-4">
+      <main className="grid grid-cols-1 gap-4 md:grid-cols-2 w-full max-w-[1280px]">
         <FeatureCard />
         <div className="space-y-4">
           <LanguageCard />

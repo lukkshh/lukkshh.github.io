@@ -33,10 +33,10 @@ const Home = (): JSX.Element => {
   const { isEn, language } = useLanguage();
 
   return (
-    <section className="bg-[url(/images/grid-pattern.svg)] w-full mb-10 md:mb-20">
+    <section className="bg-[url(/images/grid-pattern.svg)] w-full pt-24 md:pt-40">
       <SpotlightEffect />
       <section className="w-full h-full flex items-center flex-col">
-        <main className="mt-[120px] mx-4 md:mt-[200px] text-white text-center">
+        <main className="mx-4 text-white text-center">
           <h3
             className={` ${
               isEn ? "text-base" : "text-lg"
@@ -57,7 +57,7 @@ const Home = (): JSX.Element => {
         </main>
         <a
           href="#about"
-          className="w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-[40px]"
+          className="w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-8 md:mt-10"
         >
           <Button className="flex justify-center items-center text-lg gap-2 w-full h-full">
             {parse(language.Home.ButtonText)}
