@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Junior Frontend Developer",
+    "description": "Lead frontend team, built responsive, scalable web applications using <span>React.js</span>, <span>Typescript</span>, <span>Next.js</span>, <span>SASS</span>.",
+    "company": {
+      "name": "ROWIX",
+      "url": "https://www.rowix.com",
+      "type": "Full Time"
+    },
+    "img": "/images/guy_coding.svg"
+  }
+]

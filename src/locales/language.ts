@@ -53,6 +53,10 @@ interface Language {
       Link: string;
     }[];
   };
+
+  Experience: {
+    Headline: string;
+  };
 }
 
 const ge: Language = {
@@ -119,6 +123,9 @@ const ge: Language = {
       },
     ],
   },
+  Experience: {
+    Headline: 'სამუშაო <span className="text-[#CBACF9]">გამოცდილება</span>',
+  },
 };
 
 const en: Language = {
@@ -184,6 +191,10 @@ const en: Language = {
         Link: "https://ude.my/UC-51dace1f-4ca4-4ee9-9d74-049c053d75a5",
       },
     ],
+  },
+
+  Experience: {
+    Headline: 'My <span className="text-[#CBACF9]">Work Experience</span>',
   },
 };
 

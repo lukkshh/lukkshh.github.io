@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import About from "./views/About";
 import Projects from "./views/Projects";
 import Footer from "./components/Footer";
+import Experience from "./views/Experience";
 
 const App = (): JSX.Element => {
   return (
@@ -11,6 +12,7 @@ const App = (): JSX.Element => {
       <Header />
       <Home />
       <About />
+      <Experience />
       <Projects />
       <Footer />
     </>
