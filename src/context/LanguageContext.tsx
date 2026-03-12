@@ -15,7 +15,7 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
@@ -32,10 +32,14 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
 
     if (localStorage.getItem("language") === "ge") {
       document.documentElement.lang = "ge";
+      document.body.classList.remove("font-en");
+      document.body.classList.add("font-ge");
       setLanguage(ge);
       setIsEn(false);
     } else {
       document.documentElement.lang = "en";
+      document.body.classList.remove("font-ge");
+      document.body.classList.add("font-en");
       localStorage.setItem("language", "en");
       setLanguage(en);
       setIsEn(true);

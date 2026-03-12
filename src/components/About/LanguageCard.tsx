@@ -47,8 +47,8 @@ export default function LanguageCard() {
         alt="globe_map"
       />
       <p
-        className={` ${
-          isEn ? "font-en text-xl" : "font-ge text-lg md:text-xl max-w-[90%]"
+        className={`${
+          isEn ? "text-xl" : "text-lg md:text-xl max-w-[90%]"
         } font-bold px-[24px] py-4 md:py-[30px]`}
       >
         {language.About.LanguageCard.Title}
@@ -61,8 +61,8 @@ export default function LanguageCard() {
             index === 0
               ? "left-5 md:left-3 scale-75 md:scale-100 lg:left-12 md:translate-y-4"
               : index === 1
-              ? "left-1/2 scale-75 md:scale-100 bottom-5 md:bottom-8 -translate-x-1/2"
-              : "right-5 md:right-3 scale-75 md:scale-100 lg:right-12 md:translate-y-4"
+                ? "left-1/2 scale-75 md:scale-100 bottom-5 md:bottom-8 -translate-x-1/2"
+                : "right-5 md:right-3 scale-75 md:scale-100 lg:right-12 md:translate-y-4"
           }`}
         >
           {lang}

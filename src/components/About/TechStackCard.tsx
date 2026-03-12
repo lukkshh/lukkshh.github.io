@@ -39,8 +39,8 @@ export default function TechStackCard() {
       } max-h-[195px] md:min-h-[255px] overflow-hidden flex items-center justify-between rounded-xl border-[0.1px] border-[#6971a265] bg-[#04071D] relative text-white`}
     >
       <p
-        className={` ${
-          isEn ? "font-en text-3xl" : "font-ge text-xl z-10 max-w-[35%]"
+        className={`${
+          isEn ? "text-3xl" : "text-xl z-10 max-w-[35%]"
         } font-bold ml-5`}
       >
         {language.About.TechStackCard.Title}

@@ -11,7 +11,7 @@ const Projects = () => {
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
-  const { isEn, language } = useLanguage();
+  const { language } = useLanguage();
 
   useEffect(() => {
     fetch("/projects-data.json")
@@ -38,9 +38,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className={` ${
-        isEn ? "font-en" : "font-ge"
-      } w-full flex mb-10 justify-center items-center text-white max-lg:p-2`}
+      className="w-full flex mb-10 justify-center items-center text-white max-lg:p-2"
     >
       {loading ? (
         <div className="w-full h-[92vh] flex justify-center items-center">
@@ -64,9 +62,7 @@ const Projects = () => {
             {visibleCount < projects.length && (
               <Button
                 onClick={handleShowMore}
-                className={` ${
-                  isEn ? "font-en" : "font-ge"
-                } min-w-[160px] min-h-[55px] font-bold`}
+                className="min-w-[160px] min-h-[55px] font-bold"
               >
                 {language.Projects.ShowMore}
               </Button>

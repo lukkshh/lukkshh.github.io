@@ -20,7 +20,7 @@ export default function Experience() {
   return (
     <section className="flex flex-col gap-10 md:gap-[70px] mt-20 md:mt-[170px] justify-center items-center px-4">
       <div>
-        <p className="text-2xl sm:text-4xl md:text-[48px] font-bold font-en text-[#FFFFFF] text-center">
+        <p className="text-2xl sm:text-4xl md:text-[48px] font-bold text-[#FFFFFF] text-center">
           {parse(language.Experience.Headline)}
         </p>
       </div>
