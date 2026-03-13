@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -42,6 +42,11 @@ const HamburgerIcon = ({
 const Header = (): JSX.Element => {
   const { language, isEn } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("#");
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const isProgrammaticScrollRef = useRef(false);
+  const scrollSettleFrameRef = useRef<number | null>(null);
+  const highlightedLink = hoveredLink ?? activeLink;
 
   const NavLink: NavNavLinkType = [
     { href: "#", label: language.Header.Home },
@@ -49,6 +54,65 @@ const Header = (): JSX.Element => {
     { href: "#experience", label: language.Header.Experience },
     { href: "#projects", label: language.Header.Projects },
   ];
+
+  const scrollToWithLock = (targetY: number) => {
+    const normalizedTargetY = Math.max(0, targetY);
+
+    if (scrollSettleFrameRef.current !== null) {
+      window.cancelAnimationFrame(scrollSettleFrameRef.current);
+      scrollSettleFrameRef.current = null;
+    }
+
+    isProgrammaticScrollRef.current = true;
+    window.scrollTo({ top: normalizedTargetY, behavior: "smooth" });
+
+    const startedAt = performance.now();
+    const maxDuration = 1800;
+
+    const waitForScrollSettle = () => {
+      const reachedTarget = Math.abs(window.scrollY - normalizedTargetY) < 4;
+      const timedOut = performance.now() - startedAt > maxDuration;
+
+      if (reachedTarget || timedOut) {
+        isProgrammaticScrollRef.current = false;
+        scrollSettleFrameRef.current = null;
+        return;
+      }
+
+      scrollSettleFrameRef.current =
+        window.requestAnimationFrame(waitForScrollSettle);
+    };
+
+    scrollSettleFrameRef.current =
+      window.requestAnimationFrame(waitForScrollSettle);
+  };
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    offset: number,
+    closeMenuAfterClick = false,
+  ) => {
+    e.preventDefault();
+    setActiveLink(href);
+
+    if (closeMenuAfterClick) {
+      setMenuOpen(false);
+    }
+
+    const id = href.replace("#", "");
+
+    if (!id) {
+      scrollToWithLock(0);
+      return;
+    }
+
+    const el = document.getElementById(id);
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - offset;
+      scrollToWithLock(y);
+    }
+  };
 
   useEffect(() => {
     if (menuOpen) {
@@ -61,6 +125,78 @@ const Header = (): JSX.Element => {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    return () => {
+      if (scrollSettleFrameRef.current !== null) {
+        window.cancelAnimationFrame(scrollSettleFrameRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = ["about", "experience", "projects"];
+    const visibleSections = new Map<string, number>();
+
+    const updateActiveFromScroll = () => {
+      if (isProgrammaticScrollRef.current) {
+        return;
+      }
+
+      if (window.scrollY < 120 && visibleSections.size === 0) {
+        setActiveLink("#");
+        return;
+      }
+
+      if (visibleSections.size === 0) {
+        return;
+      }
+
+      const [mostVisibleSectionId] = [...visibleSections.entries()].sort(
+        (a, b) => b[1] - a[1],
+      )[0];
+
+      setActiveLink(`#${mostVisibleSectionId}`);
+    };
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null);
+
+    if (sections.length === 0) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSections.set(entry.target.id, entry.intersectionRatio);
+          } else {
+            visibleSections.delete(entry.target.id);
+          }
+        });
+
+        updateActiveFromScroll();
+      },
+      {
+        root: null,
+        rootMargin: "-35% 0px -45% 0px",
+        threshold: [0.1, 0.25, 0.5, 0.75],
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    window.addEventListener("scroll", updateActiveFromScroll, {
+      passive: true,
+    });
+    updateActiveFromScroll();
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", updateActiveFromScroll);
+    };
+  }, []);
+
   return (
     <div className="fixed w-full flex justify-center items-center z-50">
       {/* Desktop header */}
@@ -72,26 +208,30 @@ const Header = (): JSX.Element => {
             } flex justify-center items-center text-white md:text-lg font-medium space-x-6`}
           >
             {NavLink.map((link) => (
-              <li key={link.href}>
+              <li
+                key={link.href}
+                className="relative"
+                onMouseEnter={() => setHoveredLink(link.href)}
+                onMouseLeave={() => setHoveredLink(null)}
+              >
                 <a
                   href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const id = link.href.replace("#", "");
-                    if (!id) {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                      return;
-                    }
-                    const el = document.getElementById(id);
-                    if (el) {
-                      const y =
-                        el.getBoundingClientRect().top + window.scrollY - 140;
-                      window.scrollTo({ top: y, behavior: "smooth" });
-                    }
-                  }}
+                  className={`transition-colors duration-200 hover:text-[#CBACF9] ${
+                    highlightedLink === link.href
+                      ? "text-[#CBACF9]"
+                      : "text-white"
+                  }`}
+                  onClick={(e) => handleNavClick(e, link.href, 140)}
                 >
                   {link.label}
                 </a>
+                {highlightedLink === link.href && (
+                  <motion.span
+                    layoutId="active-nav-indicator-desktop"
+                    className="absolute left-0 -bottom-1 h-[2px] w-full rounded-full bg-[#CBACF9]"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
               </li>
             ))}
             <li>
@@ -129,32 +269,35 @@ const Header = (): JSX.Element => {
                 {NavLink.map((link, index) => (
                   <motion.li
                     key={link.href}
+                    className="relative w-fit"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
+                    onMouseEnter={() => setHoveredLink(link.href)}
+                    onMouseLeave={() => setHoveredLink(null)}
                   >
                     <a
                       href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setMenuOpen(false);
-                        const id = link.href.replace("#", "");
-                        if (!id) {
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                          return;
-                        }
-                        const el = document.getElementById(id);
-                        if (el) {
-                          const y =
-                            el.getBoundingClientRect().top +
-                            window.scrollY -
-                            50;
-                          window.scrollTo({ top: y, behavior: "smooth" });
-                        }
-                      }}
+                      className={`transition-colors duration-200 hover:text-[#CBACF9] ${
+                        highlightedLink === link.href
+                          ? "text-[#CBACF9]"
+                          : "text-white"
+                      }`}
+                      onClick={(e) => handleNavClick(e, link.href, 50, true)}
                     >
                       {link.label}
                     </a>
+                    {highlightedLink === link.href && (
+                      <motion.span
+                        layoutId="active-nav-indicator-mobile"
+                        className="absolute left-0 -bottom-1 h-[2px] w-full rounded-full bg-[#CBACF9]"
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 30,
+                        }}
+                      />
+                    )}
                   </motion.li>
                 ))}
               </ul>

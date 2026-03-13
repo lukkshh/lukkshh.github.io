@@ -39,7 +39,8 @@ export default function Card({
           rel="noopener noreferrer"
           className="text-[#BEC1DD] font-en font-medium text-[16px]"
         >
-          <span className="underline">{company.name}</span> - {company.type}
+          <span className="underline text-[#CBACF9]">{company.name}</span> -{" "}
+          {company.type}
         </a>
         <p className="text-[#BEC1DD] mt-2 font-en font-medium text-[14px] [&>span]:text-[#CBACF9]">
           {parse(description)}
