@@ -136,6 +136,9 @@ const Header = (): JSX.Element => {
   useEffect(() => {
     const sectionIds = ["about", "experience", "projects"];
     const visibleSections = new Map<string, number>();
+    let intersectionObserver: IntersectionObserver | null = null;
+    let mutationObserver: MutationObserver | null = null;
+    let isScrollListening = false;
 
     const updateActiveFromScroll = () => {
       if (isProgrammaticScrollRef.current) {
@@ -158,42 +161,65 @@ const Header = (): JSX.Element => {
       setActiveLink(`#${mostVisibleSectionId}`);
     };
 
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((section): section is HTMLElement => section !== null);
+    const startObserving = (): boolean => {
+      const sections = sectionIds
+        .map((id) => document.getElementById(id))
+        .filter((section): section is HTMLElement => section !== null);
 
-    if (sections.length === 0) {
-      return;
+      if (sections.length === 0) return false;
+
+      intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              visibleSections.set(entry.target.id, entry.intersectionRatio);
+            } else {
+              visibleSections.delete(entry.target.id);
+            }
+          });
+
+          updateActiveFromScroll();
+        },
+        {
+          root: null,
+          rootMargin: "-35% 0px -45% 0px",
+          threshold: [0.1, 0.25, 0.5, 0.75],
+        },
+      );
+
+      sections.forEach((section) => intersectionObserver!.observe(section));
+
+      if (!isScrollListening) {
+        window.addEventListener("scroll", updateActiveFromScroll, {
+          passive: true,
+        });
+        isScrollListening = true;
+      }
+
+      updateActiveFromScroll();
+      return true;
+    };
+
+    if (!startObserving()) {
+      // Sections not in DOM yet (lazy-loaded) — wait for them
+      mutationObserver = new MutationObserver(() => {
+        if (startObserving()) {
+          mutationObserver?.disconnect();
+          mutationObserver = null;
+        }
+      });
+      mutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            visibleSections.set(entry.target.id, entry.intersectionRatio);
-          } else {
-            visibleSections.delete(entry.target.id);
-          }
-        });
-
-        updateActiveFromScroll();
-      },
-      {
-        root: null,
-        rootMargin: "-35% 0px -45% 0px",
-        threshold: [0.1, 0.25, 0.5, 0.75],
-      },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    window.addEventListener("scroll", updateActiveFromScroll, {
-      passive: true,
-    });
-    updateActiveFromScroll();
-
     return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", updateActiveFromScroll);
+      mutationObserver?.disconnect();
+      intersectionObserver?.disconnect();
+      if (isScrollListening) {
+        window.removeEventListener("scroll", updateActiveFromScroll);
+      }
     };
   }, []);
 

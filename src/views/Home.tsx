@@ -15,7 +15,6 @@ const SpotlightEffect = (): JSX.Element => {
             : "/images/spotlight-left.svg"
         }
         alt=""
-        fetchPriority="high"
       />
       <img
         className="absolute right-0"
@@ -25,7 +24,6 @@ const SpotlightEffect = (): JSX.Element => {
             : "/images/spotlight-right.svg"
         }
         alt=""
-        fetchPriority="high"
       />
     </div>
   );
