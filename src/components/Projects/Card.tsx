@@ -35,9 +35,9 @@ export default function Card({ data }: CardProps) {
           alt={data.title}
         />
       </div>
-      <p className=" mt-5 md:mt-9 text-xl md:text-3xl max-w-[552px] font-bold text-white">
+      <div className=" mt-5 md:mt-9 text-xl md:text-3xl max-w-[552px] font-bold text-white">
         {parse(data.title)}
-      </p>
+      </div>
       <p className="mt-2 line-clamp-2 md:mt-4 text-sm md:text-xl max-w-[552px] text-[#BEC1DD]">
         {data.description}
       </p>

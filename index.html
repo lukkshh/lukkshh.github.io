@@ -10,7 +10,18 @@
       content="Luka Shvelidze, Full-Stack Developer, Programming , Coding , Web Development , Portfolio"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/fonts/Fonts.css" />
+    <!-- Preload fonts directly to avoid render-blocking network request -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/noto_sans_georgian.woff2" crossorigin />
+    <!-- Non-render-blocking font CSS -->
+    <link rel="preload" href="/fonts/Fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/fonts/Fonts.css" /></noscript>
+    <!-- Preload LCP images so they are discoverable from the initial HTML -->
+    <link rel="preload" as="image" href="/images/grid-pattern.svg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/spotlight-left.svg" media="(min-width: 769px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/spotlight-right.svg" media="(min-width: 769px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/spotlight-left-mobile.svg" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/spotlight-right-mobile.svg" media="(max-width: 768px)" fetchpriority="high" />
     <title>Luka Shvelidze</title>
   </head>
   <body class="bg-[#000319]">

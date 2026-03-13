@@ -3,7 +3,7 @@ import { useLanguage } from "../context/LanguageContext";
 import parse from "html-react-parser";
 
 const SpotlightEffect = (): JSX.Element => {
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
   return (
     <div className="absolute top-0 w-full">
@@ -14,7 +14,8 @@ const SpotlightEffect = (): JSX.Element => {
             ? "/images/spotlight-left-mobile.svg"
             : "/images/spotlight-left.svg"
         }
-        alt="spotlight-left"
+        alt=""
+        fetchPriority="high"
       />
       <img
         className="absolute right-0"
@@ -23,7 +24,8 @@ const SpotlightEffect = (): JSX.Element => {
             ? "/images/spotlight-right-mobile.svg"
             : "/images/spotlight-right.svg"
         }
-        alt="spotlight-right"
+        alt=""
+        fetchPriority="high"
       />
     </div>
   );
