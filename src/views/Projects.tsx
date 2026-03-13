@@ -1,35 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Card, { CardDataType } from "../components/Projects/Card";
 import { useLanguage } from "../context/LanguageContext";
 
 import parser from "html-react-parser";
 import Button from "../components/Button";
 
-const Projects = () => {
-  const [projects, setProjects] = useState<Array<CardDataType>>([]);
+interface ProjectsProps {
+  projects: CardDataType[];
+}
+
+const Projects = ({ projects }: ProjectsProps) => {
   const [visibleCount, setVisibleCount] = useState<number>(4);
-  const [error, setError] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(true);
 
   const { language } = useLanguage();
-
-  useEffect(() => {
-    fetch("/projects-data.json")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setProjects(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setError("Oops! Error fetching data");
-        setLoading(false);
-      });
-  }, []);
 
   const handleShowMore = () => {
     setVisibleCount((prevCount) => prevCount + 4);
@@ -40,12 +23,8 @@ const Projects = () => {
       id="projects"
       className="w-full flex justify-center items-center text-white px-4"
     >
-      {loading ? (
-        <div className="w-full h-[92vh] flex justify-center items-center">
-          <span className="loader"></span>
-        </div>
-      ) : error ? (
-        <p className="text-xl mt-12">{error}</p>
+      {projects.length === 0 ? (
+        <p className="text-xl mt-12">Oops! Error fetching data</p>
       ) : (
         <div className="flex flex-col justify-center items-center w-full space-y-8">
           <div className="flex justify-center items-center w-full">

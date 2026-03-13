@@ -200,7 +200,7 @@ const Header = (): JSX.Element => {
   return (
     <div className="fixed w-full flex justify-center items-center z-50">
       {/* Desktop header */}
-      <header className="hidden md:flex min-w-[550px] h-[60px] mx-4 my-7 px-2 py-5 rounded-xl justify-center items-center bg-gradient-to-br from-[#04071D] to-[#0C0E23] drop-shadow-sm border-[0.1px] border-[#36374942]">
+      <header className="hidden md:flex min-w-[600px] h-[60px] mx-4 my-7 px-2 py-5 rounded-xl justify-center items-center bg-gradient-to-br from-[#04071D] to-[#0C0E23] drop-shadow-sm border-[0.1px] border-[#36374942]">
         <nav>
           <ul
             className={`${
