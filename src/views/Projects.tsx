@@ -1,18 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card, { CardDataType } from "../components/Projects/Card";
 import { useLanguage } from "../context/LanguageContext";
 
 import parser from "html-react-parser";
 import Button from "../components/Button";
 
-interface ProjectsProps {
-  projects: CardDataType[];
-}
-
-const Projects = ({ projects }: ProjectsProps) => {
+const Projects = () => {
+  const [projects, setProjects] = useState<CardDataType[]>([]);
   const [visibleCount, setVisibleCount] = useState<number>(4);
 
   const { language } = useLanguage();
+
+  useEffect(() => {
+    fetch("/projects-data.json")
+      .then((res) => res.json())
+      .then((data: CardDataType[]) => setProjects(data))
+      .catch(() => setProjects([]));
+  }, []);
 
   const handleShowMore = () => {
     setVisibleCount((prevCount) => prevCount + 4);

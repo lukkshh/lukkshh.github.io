@@ -1,13 +1,18 @@
+import { useEffect, useState } from "react";
 import Card, { ExperienceData } from "../components/Experience/Card";
 import { useLanguage } from "../context/LanguageContext";
 import parse from "html-react-parser";
 
-interface ExperienceProps {
-  experiences: ExperienceData[];
-}
-
-export default function Experience({ experiences }: ExperienceProps) {
+export default function Experience() {
   const { language } = useLanguage();
+  const [experiences, setExperiences] = useState<ExperienceData[]>([]);
+
+  useEffect(() => {
+    fetch("/experience-data.json")
+      .then((res) => res.json())
+      .then((data: ExperienceData[]) => setExperiences(data))
+      .catch(() => setExperiences([]));
+  }, []);
 
   return (
     <section

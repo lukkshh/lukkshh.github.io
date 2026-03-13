@@ -9,7 +9,7 @@ import PageLoader from "./components/Loader/PageLoader";
 import { useInitialAssetLoader } from "./hooks/useInitialAssetLoader";
 
 const App = (): JSX.Element => {
-  const { isReady, progress, content } = useInitialAssetLoader();
+  const { isReady, progress } = useInitialAssetLoader();
 
   if (!isReady) {
     return <PageLoader progress={progress} />;
@@ -20,8 +20,8 @@ const App = (): JSX.Element => {
       <Header />
       <Home />
       <About />
-      <Experience experiences={content.experiences} />
-      <Projects projects={content.projects} />
+      <Experience />
+      <Projects />
       <Footer />
     </div>
   );
