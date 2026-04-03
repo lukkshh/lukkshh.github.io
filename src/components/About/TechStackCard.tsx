@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "../../context/LanguageContext";
+import SpotlightCard from "../SpotlightCard";
 
 const Tech = ({
   children,
@@ -34,31 +35,34 @@ export default function TechStackCard() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className={`${
-        isEn ? "" : "max-w-[622px]"
-      } max-h-[195px] md:min-h-[255px] overflow-hidden flex items-center justify-between rounded-xl border-[0.1px] border-[#6971a265] bg-[#04071D] relative text-white`}
     >
-      <p
+      <SpotlightCard
         className={`${
-          isEn ? "text-3xl" : "text-xl z-10 max-w-[35%]"
-        } font-bold ml-5`}
+          isEn ? "" : "max-w-[622px]"
+        } max-h-[195px] md:min-h-[255px] overflow-hidden flex items-center justify-between rounded-xl border-[0.1px] border-[#6971a265] bg-[#04071D] relative text-white`}
       >
-        {language.About.TechStackCard.Title}
-      </p>
-      <div className="flex justify-center items-center mr-1 md:mr-2 space-x-2">
-        <div className="flex flex-col h-full space-y-2">
-          <Tech className="translate-y-5">ReactJS</Tech>
-          <Tech className="translate-y-5">Laravel</Tech>
-          <Tech className="translate-y-5">PHP</Tech>
-          <Tech className="translate-y-5"></Tech>
+        <p
+          className={`${
+            isEn ? "text-3xl" : "text-xl z-10 max-w-[35%]"
+          } font-bold ml-5`}
+        >
+          {language.About.TechStackCard.Title}
+        </p>
+        <div className="flex justify-center items-center mr-1 md:mr-2 space-x-2">
+          <div className="flex flex-col h-full space-y-2">
+            <Tech className="translate-y-5">ReactJS</Tech>
+            <Tech className="translate-y-5">Laravel</Tech>
+            <Tech className="translate-y-5">PHP</Tech>
+            <Tech className="translate-y-5"></Tech>
+          </div>
+          <div className="flex flex-col h-full  space-y-2">
+            <Tech className="-translate-y-4"></Tech>
+            <Tech className="-translate-y-4">TypeScript</Tech>
+            <Tech className="-translate-y-4">MySQL</Tech>
+            <Tech className="-translate-y-4">TailwindCSS</Tech>
+          </div>
         </div>
-        <div className="flex flex-col h-full  space-y-2">
-          <Tech className="-translate-y-4"></Tech>
-          <Tech className="-translate-y-4">TypeScript</Tech>
-          <Tech className="-translate-y-4">MySQL</Tech>
-          <Tech className="-translate-y-4">TailwindCSS</Tech>
-        </div>
-      </div>
+      </SpotlightCard>
     </motion.div>
   );
 }

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "../../context/LanguageContext";
+import SpotlightCard from "../SpotlightCard";
 
 const PurpleDecoration = () => (
   <motion.svg
@@ -65,7 +66,7 @@ export default function FeatureCard() {
   const { isEn, language } = useLanguage();
 
   return (
-    <div
+    <SpotlightCard
       className={` ${
         isEn ? "" : "max-w-[622px]"
       } min-h-[312px] overflow-hidden border-[0.1px] border-[#6971a265] relative rounded-xl flex items-end bg-[url(/images/about_card.svg)] bg-no-repeat bg-cover`}
@@ -79,6 +80,6 @@ export default function FeatureCard() {
       >
         {language.About.FeatureCard.Title}
       </p>
-    </div>
+    </SpotlightCard>
   );
 }

@@ -1,3 +1,4 @@
+import SpotlightCard from "../SpotlightCard";
 import {
   GitIcon,
   ReactIcon,
@@ -17,7 +18,7 @@ import { motion } from "framer-motion";
 
 export default function TechIconsCard() {
   return (
-    <div className="rounded-xl bg-[url(/images/about-bg.svg)] flex justify-center items-center md:col-span-2 border-[0.1px] border-[#6971a265] bg-[#04071D]">
+    <SpotlightCard className="rounded-xl bg-[url(/images/about-bg.svg)] flex justify-center items-center md:col-span-2 border-[0.1px] border-[#6971a265] bg-[#04071D]">
       <motion.div
         variants={{
           showTech: {
@@ -42,6 +43,6 @@ export default function TechIconsCard() {
         <FlaskIcon />
         <FramerMotionIcon />
       </motion.div>
-    </div>
+    </SpotlightCard>
   );
 }

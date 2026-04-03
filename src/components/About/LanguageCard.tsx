@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "../../context/LanguageContext";
+import SpotlightCard from "../SpotlightCard";
 
 const Language = ({
   children,
@@ -37,37 +38,40 @@ export default function LanguageCard() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className={`${
-        isEn ? "" : "max-w-[622px]"
-      } min-h-[195px] md:min-h-[255px] overflow-hidden border-[0.1px] border-[#6971a265] rounded-xl bg-[#04071D] relative text-white`}
     >
-      <img
-        className="w-full max-h-[135px] absolute bottom-0"
-        src="/images/map.svg"
-        alt="globe_map"
-      />
-      <p
+      <SpotlightCard
         className={`${
-          isEn ? "text-xl" : "text-lg md:text-xl max-w-[90%]"
-        } font-bold px-[24px] py-4 md:py-[30px]`}
+          isEn ? "" : "max-w-[622px]"
+        } min-h-[195px] md:min-h-[255px] overflow-hidden border-[0.1px] border-[#6971a265] rounded-xl bg-[#04071D] relative text-white`}
       >
-        {language.About.LanguageCard.Title}
-      </p>
-
-      {language.About.LanguageCard.Languages.map((lang, index) => (
-        <Language
-          key={index}
+        <img
+          className="w-full max-h-[135px] absolute bottom-0"
+          src="/images/map.svg"
+          alt="globe_map"
+        />
+        <p
           className={`${
-            index === 0
-              ? "left-5 md:left-3 scale-75 md:scale-100 lg:left-12 md:translate-y-4"
-              : index === 1
-                ? "left-1/2 scale-75 md:scale-100 bottom-5 md:bottom-8 -translate-x-1/2"
-                : "right-5 md:right-3 scale-75 md:scale-100 lg:right-12 md:translate-y-4"
-          }`}
+            isEn ? "text-xl" : "text-lg md:text-xl max-w-[90%]"
+          } font-bold px-[24px] py-4 md:py-[30px]`}
         >
-          {lang}
-        </Language>
-      ))}
+          {language.About.LanguageCard.Title}
+        </p>
+
+        {language.About.LanguageCard.Languages.map((lang, index) => (
+          <Language
+            key={index}
+            className={`${
+              index === 0
+                ? "left-5 md:left-3 scale-75 md:scale-100 lg:left-12 md:translate-y-4"
+                : index === 1
+                  ? "left-1/2 scale-75 md:scale-100 bottom-5 md:bottom-8 -translate-x-1/2"
+                  : "right-5 md:right-3 scale-75 md:scale-100 lg:right-12 md:translate-y-4"
+            }`}
+          >
+            {lang}
+          </Language>
+        ))}
+      </SpotlightCard>
     </motion.div>
   );
 }

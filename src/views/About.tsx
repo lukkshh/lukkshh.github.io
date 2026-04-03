@@ -6,7 +6,10 @@ import TechStackCard from "../components/About/TechStackCard";
 
 export default function About(): JSX.Element {
   return (
-    <section id="about" className="grid place-items-center px-4">
+    <section
+      id="about"
+      className="grid place-items-center px-4 scroll-mt-24 md:scroll-mt-28"
+    >
       <main className="grid grid-cols-1 gap-4 md:grid-cols-2 w-full max-w-[1280px]">
         <FeatureCard />
         <div className="space-y-4">

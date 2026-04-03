@@ -32,6 +32,12 @@ const SpotlightEffect = (): JSX.Element => {
 const Home = (): JSX.Element => {
   const { isEn, language } = useLanguage();
 
+  const scrollToAbout = () => {
+    document.getElementById("about")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="bg-[url(/images/grid-pattern.svg)] w-full pt-24 md:pt-40">
       <SpotlightEffect />
@@ -55,14 +61,14 @@ const Home = (): JSX.Element => {
             {language.Home.CTA}
           </h2>
         </main>
-        <a
-          href="#about"
-          className="w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-8 md:mt-10"
-        >
-          <Button className="flex justify-center items-center text-lg gap-2 w-full h-full">
+        <div className="w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-8 md:mt-10">
+          <Button
+            onClick={scrollToAbout}
+            className="flex justify-center items-center text-lg gap-2 w-full h-full"
+          >
             {parse(language.Home.ButtonText)}
           </Button>
-        </a>
+        </div>
       </section>
     </section>
   );
