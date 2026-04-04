@@ -18,7 +18,7 @@ const App = (): JSX.Element => {
   }
 
   return (
-    <div className="flex flex-col gap-16 md:gap-28 lg:gap-40">
+    <div className="flex flex-col gap-16 md:gap-28 lg:gap-40 overflow-x-hidden">
       <Header />
       <Home />
       <Suspense fallback={null}>

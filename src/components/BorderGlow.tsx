@@ -9,6 +9,7 @@ import {
 interface BorderGlowProps {
   children?: ReactNode;
   className?: string;
+  disableOnMobile?: boolean;
   edgeSensitivity?: number;
   glowColor?: string;
   backgroundColor?: string;
@@ -120,6 +121,7 @@ function buildMeshGradients(colors: string[]): string[] {
 const BorderGlow: React.FC<BorderGlowProps> = ({
   children,
   className = "",
+  disableOnMobile = true,
   edgeSensitivity = 30,
   glowColor = "40 80 80",
   backgroundColor = "#060010",
@@ -131,11 +133,31 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
   colors = ["#c084fc", "#f472b6", "#38bdf8"],
   fillOpacity = 0.5,
 }) => {
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(max-width: 767px)").matches;
+  });
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [cursorAngle, setCursorAngle] = useState(45);
   const [edgeProximity, setEdgeProximity] = useState(0);
   const [sweepActive, setSweepActive] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const onChange = (event: MediaQueryListEvent) => {
+      setIsMobile(event.matches);
+    };
+
+    setIsMobile(mediaQuery.matches);
+    mediaQuery.addEventListener("change", onChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", onChange);
+    };
+  }, []);
 
   const getCenterOfElement = useCallback((el: HTMLElement) => {
     const { width, height } = el.getBoundingClientRect();
@@ -239,6 +261,10 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
   const borderBg = meshGradients.map((g) => `${g} border-box`);
   const fillBg = meshGradients.map((g) => `${g} padding-box`);
   const angleDeg = `${cursorAngle.toFixed(3)}deg`;
+
+  if (disableOnMobile && isMobile) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <div
