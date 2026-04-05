@@ -1,10 +1,12 @@
 import "./App.css";
-import { lazy, Suspense } from "react";
+
 import Home from "./views/Home";
+import Winter from "./components/Winter";
 import Header from "./components/Header";
 import PageLoader from "./components/Loader/PageLoader";
+
+import { lazy, Suspense } from "react";
 import { useInitialAssetLoader } from "./hooks/useInitialAssetLoader";
-import SnowFall from "./components/SnowFall";
 
 const About = lazy(() => import("./views/About"));
 const Experience = lazy(() => import("./views/Experience"));
@@ -20,7 +22,7 @@ const App = (): JSX.Element => {
 
   return (
     <div className="flex flex-col gap-16 md:gap-28 lg:gap-40 overflow-x-hidden">
-      <SnowFall />
+      <Winter />
       <Header />
       <Home />
       <Suspense fallback={null}>
