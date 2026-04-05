@@ -4,6 +4,7 @@ import Home from "./views/Home";
 import Header from "./components/Header";
 import PageLoader from "./components/Loader/PageLoader";
 import { useInitialAssetLoader } from "./hooks/useInitialAssetLoader";
+import SnowFall from "./components/SnowFall";
 
 const About = lazy(() => import("./views/About"));
 const Experience = lazy(() => import("./views/Experience"));
@@ -19,6 +20,7 @@ const App = (): JSX.Element => {
 
   return (
     <div className="flex flex-col gap-16 md:gap-28 lg:gap-40 overflow-x-hidden">
+      <SnowFall />
       <Header />
       <Home />
       <Suspense fallback={null}>
