@@ -5,6 +5,8 @@ import { useLanguage } from "../context/LanguageContext";
 import parser from "html-react-parser";
 import Button from "../components/Button";
 
+import { motion } from "framer-motion";
+
 const Projects = () => {
   const [projects, setProjects] = useState<CardDataType[]>([]);
   const [visibleCount, setVisibleCount] = useState<number>(4);
@@ -32,9 +34,18 @@ const Projects = () => {
       ) : (
         <div className="flex flex-col justify-center items-center w-full space-y-8">
           <div className="flex justify-center items-center w-full">
-            <p className="font-bold text-xl  md:text-5xl">
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="font-bold text-xl  md:text-5xl"
+            >
               {parser(language.Projects.Title)}
-            </p>
+            </motion.p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-16">
             {projects.slice(0, visibleCount).map((project, index) => (
