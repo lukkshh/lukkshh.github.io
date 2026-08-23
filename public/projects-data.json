@@ -1,6 +1,21 @@
 [
   {
-    "img": "/images/ecommerce.png",
+    "img": "/images/projects/svgalco.png",
+    "title": "<p>SVGalco – Multilingual Winery Management Platform</p>",
+    "description": "A multilingual winery management platform built with React and PHP. It allows users to manage winery operations, including inventory, sales, and customer relations, with support for multiple languages.",
+    "webLink": "https://svgalco.com/",
+    "badges": [
+      "Laravel",
+      "React",
+      "PHP",
+      "PostgreSQL",
+      "Inertia.js",
+      "SASS",
+      "Filament"
+    ]
+  },
+  {
+    "img": "/images/projects/ecommerce.png",
     "title": "<p>E-Commerce Website</p>",
     "description": "eCommerce website made with PHP and React, for Scandiweb Junior Full Stack Developer test task",
     "ghLink": "https://github.com/lukkshh/php-react-ecommerce",
@@ -8,7 +23,7 @@
     "badges": ["React", "PHP", "MySQL", "GraphQL", "TailwindCSS"]
   },
   {
-    "img": "/images/tictactoe.png",
+    "img": "/images/projects/tictactoe.png",
     "title": "<p>Tic Tac Toe Game</p>",
     "description": "TicTacToe Game built with React and tailwindcss",
     "ghLink": "https://github.com/lukkshh/tictactoe",
@@ -16,7 +31,7 @@
     "badges": ["React", "TailwindCSS"]
   },
   {
-    "img": "/images/ticket-scanner.gif",
+    "img": "/images/projects/ticket-scanner.gif",
     "title": "<p>Ticket Scanner</p>",
     "description": "ticket-scanner is a simple ticket management system that allows for ticket generation and QR code scanning. It stores ticket information in an SQLite database and supports real-time ticket verification, showing whether a ticket is valid, already used, or does not exist. Perfect for event organizers to manage access control.",
     "ghLink": "https://github.com/lukkshh/ticket-scanner",
@@ -24,19 +39,11 @@
     "badges": ["Python", "OpenCV", "SQLite"]
   },
   {
-    "img": "/images/rpc.png",
+    "img": "/images/projects/rpc.png",
     "title": "<p>Rock Paper Scissors</p>",
     "description": "A simple Rock Paper Scissors game built with Python's Tkinter library.",
     "ghLink": "https://github.com/lukkshh/Rock-Paper-Scissors",
     "webLink": "",
     "badges": ["Python", "Tkinter"]
-  },
-  {
-    "img": "/images/github-scraper.png",
-    "title": "<p>Github Scraper</p>  ",
-    "description": "A React application that allows users to search for GitHub profiles and view detailed information about them, including repositories, followers, and more, by utilizing the GitHub REST API.",
-    "ghLink": "https://github.com/lukkshh/github-scraper",
-    "webLink": "https://lukkshh.github.io/github-scraper/",
-    "badges": ["React", "TailwindCSS", "REST API"]
   }
 ]
