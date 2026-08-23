@@ -71,7 +71,7 @@ const ge: Language = {
   Home: {
     Headline: "გამარჯობა 👋🏼",
     Subtext:
-      "მე ვარ ლუკა შველიძე <span className='text-[#CBACF9] font-en'>Junior Full-Stack Web Developer</span>",
+      "მე ვარ ლუკა შველიძე <br/> <span className='text-[#CBACF9] font-en'>Full-Stack Web Developer</span>",
     CTA: "გარდავქმნი იდეებს სრულ ვებ გამოცდილებად.",
     ButtonText: "ჩემს შესახებ <span className='text-xl'> &#x2197;</span>",
   },
@@ -141,7 +141,7 @@ const en: Language = {
   Home: {
     Headline: "Hey There 👋🏼",
     Subtext:
-      "I'm Luka Shvelidze <span className='text-[#CBACF9]'>Junior Full-Stack Web Developer</span>",
+      "I'm Luka Shvelidze <br/> <span className='text-[#CBACF9]'>Full-Stack Web Developer</span>",
     CTA: "Transforming Concepts into Seamless User Experiences.",
     ButtonText: "See my work <span className='text-xl'> &#x2197;</span>",
   },

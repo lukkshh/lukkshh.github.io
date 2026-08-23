@@ -2,7 +2,7 @@
   {
     "img": "/images/projects/svgalco.png",
     "title": "<p>SVGalco – Multilingual Winery Management Platform</p>",
-    "description": "A multilingual winery management platform built with React and PHP. It allows users to manage winery operations, including inventory, sales, and customer relations, with support for multiple languages.",
+    "description": "Collaborated closely with a designer to turn the project vision into a responsive multilingual platform. I handled the full technical implementation, including frontend and backend development, deployment, hosting configuration, and production setup.",
     "projectType": "freelance",
     "webLink": "https://svgalco.com/",
     "badges": [

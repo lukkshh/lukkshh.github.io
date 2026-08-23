@@ -7,6 +7,7 @@ export interface ExperienceData {
   title: string;
   description: string;
   company: { name: string; url: string; type: string };
+  dates: { from: string; to: string; duration: string };
   img: string;
 }
 
@@ -14,6 +15,7 @@ export default function Card({
   title,
   description,
   company,
+  dates,
   img,
 }: ExperienceData) {
   return (
@@ -44,6 +46,13 @@ export default function Card({
             <span className="underline text-[#CBACF9]">{company.name}</span> -{" "}
             {company.type}
           </a>
+          <p className="mt-0.5 font-en text-[14px] text-[#9296AE]">
+            <time>{dates.from}</time>
+            <span aria-hidden="true"> – </span>
+            <time>{dates.to}</time>
+            <span aria-hidden="true"> · </span>
+            {dates.duration}
+          </p>
           <p className="text-[#BEC1DD] mt-2 font-en font-medium text-[14px] [&>span]:text-[#CBACF9]">
             {parse(description)}
           </p>

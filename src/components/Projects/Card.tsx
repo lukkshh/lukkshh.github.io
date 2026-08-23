@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import parse from "html-react-parser";
+import { useEffect, useRef, useState } from "react";
 import BorderGlow from "../BorderGlow";
 
 export type CardDataType = {
@@ -17,6 +18,31 @@ interface CardProps {
 }
 
 export default function Card({ data }: CardProps) {
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+  const descriptionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isDescriptionOpen) return;
+
+    const closeDescription = () => setIsDescriptionOpen(false);
+    const closeOnOutsidePress = (event: PointerEvent) => {
+      if (!descriptionRef.current?.contains(event.target as Node)) {
+        closeDescription();
+      }
+    };
+
+    window.addEventListener("scroll", closeDescription, {
+      passive: true,
+      capture: true,
+    });
+    document.addEventListener("pointerdown", closeOnOutsidePress);
+
+    return () => {
+      window.removeEventListener("scroll", closeDescription, true);
+      document.removeEventListener("pointerdown", closeOnOutsidePress);
+    };
+  }, [isDescriptionOpen]);
+
   const projectTypeStyles = {
     personal: {
       label: "Personal project",
@@ -72,9 +98,35 @@ export default function Card({ data }: CardProps) {
           <div className="mt-7 text-xl md:mt-11 md:text-3xl max-w-[552px] font-bold text-white">
             {parse(data.title)}
           </div>
-          <p className="mt-2 line-clamp-2 md:mt-4 text-sm md:text-xl max-w-[552px] text-[#BEC1DD]">
-            {data.description}
-          </p>
+          <div
+            ref={descriptionRef}
+            className="group/description relative mt-2 max-w-[552px] md:mt-4"
+            tabIndex={0}
+            role="button"
+            aria-expanded={isDescriptionOpen}
+            aria-label="Show full project description"
+            onClick={() => setIsDescriptionOpen((isOpen) => !isOpen)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setIsDescriptionOpen((isOpen) => !isOpen);
+              }
+            }}
+          >
+            <p className="line-clamp-2 text-sm text-[#BEC1DD] md:text-xl">
+              {data.description}
+            </p>
+            <p
+              aria-hidden="true"
+              className={`pointer-events-none absolute -left-2 -top-2 z-20 w-[calc(100%+1rem)] rounded-xl border border-[#34384F] bg-[#0B0E20] p-3 text-sm leading-relaxed text-[#D9DBE8] shadow-xl transition-[opacity,transform,visibility] duration-200 ease-out md:invisible md:translate-y-1 md:scale-[0.98] md:opacity-0 md:group-hover/description:visible md:group-hover/description:translate-y-0 md:group-hover/description:scale-100 md:group-hover/description:opacity-100 md:text-base ${
+                isDescriptionOpen
+                  ? "visible translate-y-0 scale-100 opacity-100 md:!visible md:!translate-y-0 md:!scale-100 md:!opacity-100"
+                  : "invisible translate-y-1 scale-[0.98] opacity-0"
+              }`}
+            >
+              {data.description}
+            </p>
+          </div>
           <div className="mt-4 md:mt-6 max-w-[552px] flex justify-between items-center">
             <div className="max-w-[60%]">
               {data.badges.map((badge, index) => (
@@ -91,10 +143,19 @@ export default function Card({ data }: CardProps) {
                 <a
                   href={data.ghLink}
                   target="_blank"
-                  className="text-[#CBACF9] mr-6 hover:underline"
+                  rel="noopener noreferrer"
+                  className="mr-6 inline-flex items-center gap-2 text-[#CBACF9] transition-colors hover:text-white"
                 >
-                  GitHub Repository Link{" "}
-                  <span className="text-xl"> &#x2197;</span>
+                  <svg
+                    aria-hidden="true"
+                    className="h-4 w-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M12 .7A11.3 11.3 0 0 0 8.4 22.8c.6.1.8-.3.8-.6v-2.4c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.7-1.3-1.7-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.9 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.3 11.3 0 0 0 12 .7Z" />
+                  </svg>
+                  View Source
+                  <span aria-hidden="true">↗</span>
                 </a>
               )}
 
@@ -102,9 +163,22 @@ export default function Card({ data }: CardProps) {
                 <a
                   href={data.webLink}
                   target="_blank"
-                  className="text-[#CBACF9] hover:underline"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[#CBACF9] transition-colors hover:text-white"
                 >
-                  Check Live Demo <span className="text-xl"> &#x2197;</span>
+                  <svg
+                    aria-hidden="true"
+                    className="h-4 w-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  >
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M3 12h18M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21c-2.3-2.5-3.5-5.5-3.5-9S9.7 5.5 12 3Z" />
+                  </svg>
+                  View Live Site
+                  <span aria-hidden="true">↗</span>
                 </a>
               )}
             </div>
