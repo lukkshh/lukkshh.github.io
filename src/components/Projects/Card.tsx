@@ -41,7 +41,7 @@ export default function Card({ data }: CardProps) {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="h-full"
+      className="h-full min-w-0"
     >
       <BorderGlow
         className="h-full"
@@ -56,10 +56,10 @@ export default function Card({ data }: CardProps) {
         colors={["#06b6d4", "#3b82f6", "#6366f1"]}
       >
         <div className="font-en h-full drop-shadow-sm border-[0.1px] border-[#36374942] px-3 md:px-6 py-5 md:py-9 rounded-3xl bg-gradient-to-bl from-[#0C0E23] to-[#04071D]">
-          <div className="relative h-[150px] md:h-[240px] lg:min-w-[552px] lg:min-h-[330px] drop-shadow-sm">
+          <div className="relative h-[150px] md:h-[240px] lg:h-[330px] w-full min-w-0 drop-shadow-sm">
             <div className="flex h-full items-end justify-center overflow-hidden rounded-xl bg-[#13162D] bg-[url(/images/card_img_background.svg)]">
               <img
-                className="w-[240px] md:w-[330px] md:h-[240px] lg:w-[450px] lg:h-[320px] rotate-2 translate-y-8 rounded-lg object-cover"
+                className="h-[145px] w-[80%] max-w-[450px] rotate-2 translate-y-8 rounded-lg object-cover md:h-[230px] lg:h-[300px]"
                 src={data.img}
                 loading="lazy"
                 alt={data.title}

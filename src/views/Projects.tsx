@@ -47,7 +47,7 @@ const Projects = () => {
               {parser(language.Projects.Title)}
             </motion.p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-16">
+          <div className="grid w-full max-w-[1200px] grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:gap-10 xl:gap-16">
             {projects.slice(0, visibleCount).map((project, index) => (
               <Card key={index} data={project} />
             ))}
