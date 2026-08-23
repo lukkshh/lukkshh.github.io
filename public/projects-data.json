@@ -3,6 +3,7 @@
     "img": "/images/projects/svgalco.png",
     "title": "<p>SVGalco – Multilingual Winery Management Platform</p>",
     "description": "A multilingual winery management platform built with React and PHP. It allows users to manage winery operations, including inventory, sales, and customer relations, with support for multiple languages.",
+    "projectType": "freelance",
     "webLink": "https://svgalco.com/",
     "badges": [
       "Laravel",
@@ -18,6 +19,7 @@
     "img": "/images/projects/ecommerce.png",
     "title": "<p>E-Commerce Website</p>",
     "description": "eCommerce website made with PHP and React, for Scandiweb Junior Full Stack Developer test task",
+    "projectType": "personal",
     "ghLink": "https://github.com/lukkshh/php-react-ecommerce",
     "webLink": "https://lukkshh-ecommerce.ct.ws/",
     "badges": ["React", "PHP", "MySQL", "GraphQL", "TailwindCSS"]
@@ -26,6 +28,7 @@
     "img": "/images/projects/tictactoe.png",
     "title": "<p>Tic Tac Toe Game</p>",
     "description": "TicTacToe Game built with React and tailwindcss",
+    "projectType": "personal",
     "ghLink": "https://github.com/lukkshh/tictactoe",
     "webLink": "https://lukkshh.github.io/tictactoe/",
     "badges": ["React", "TailwindCSS"]
@@ -34,6 +37,7 @@
     "img": "/images/projects/ticket-scanner.gif",
     "title": "<p>Ticket Scanner</p>",
     "description": "ticket-scanner is a simple ticket management system that allows for ticket generation and QR code scanning. It stores ticket information in an SQLite database and supports real-time ticket verification, showing whether a ticket is valid, already used, or does not exist. Perfect for event organizers to manage access control.",
+    "projectType": "personal",
     "ghLink": "https://github.com/lukkshh/ticket-scanner",
     "webLink": "",
     "badges": ["Python", "OpenCV", "SQLite"]
@@ -42,6 +46,7 @@
     "img": "/images/projects/rpc.png",
     "title": "<p>Rock Paper Scissors</p>",
     "description": "A simple Rock Paper Scissors game built with Python's Tkinter library.",
+    "projectType": "personal",
     "ghLink": "https://github.com/lukkshh/Rock-Paper-Scissors",
     "webLink": "",
     "badges": ["Python", "Tkinter"]

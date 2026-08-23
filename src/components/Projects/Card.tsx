@@ -6,9 +6,10 @@ export type CardDataType = {
   img: string;
   title: string;
   description: string;
-  ghLink: string;
-  webLink: string;
+  ghLink?: string;
+  webLink?: string;
   badges: string[];
+  projectType: "personal" | "freelance" | "company";
 };
 
 interface CardProps {
@@ -16,6 +17,20 @@ interface CardProps {
 }
 
 export default function Card({ data }: CardProps) {
+  const projectTypeStyles = {
+    personal: {
+      label: "Personal project",
+    },
+    freelance: {
+      label: "Freelance",
+    },
+    company: {
+      label: "Professional",
+    },
+  } as const;
+
+  const projectType = projectTypeStyles[data.projectType];
+
   return (
     <motion.div
       variants={{
@@ -41,15 +56,20 @@ export default function Card({ data }: CardProps) {
         colors={["#06b6d4", "#3b82f6", "#6366f1"]}
       >
         <div className="font-en h-full drop-shadow-sm border-[0.1px] border-[#36374942] px-3 md:px-6 py-5 md:py-9 rounded-3xl bg-gradient-to-bl from-[#0C0E23] to-[#04071D]">
-          <div className=" h-[150px] md:h-[240px] lg:min-w-[552px] lg:min-h-[330px] bg-[url(/images/card_img_background.svg)] drop-shadow-sm flex justify-center items-end  rounded-xl overflow-hidden bg-[#13162D]">
-            <img
-              className="w-[240px] md:w-[330px] md:h-[240px] lg:w-[450px] lg:h-[320px] rotate-2 translate-y-8 rounded-lg object-cover"
-              src={data.img}
-              loading="lazy"
-              alt={data.title}
-            />
+          <div className="relative h-[150px] md:h-[240px] lg:min-w-[552px] lg:min-h-[330px] drop-shadow-sm">
+            <div className="flex h-full items-end justify-center overflow-hidden rounded-xl bg-[#13162D] bg-[url(/images/card_img_background.svg)]">
+              <img
+                className="w-[240px] md:w-[330px] md:h-[240px] lg:w-[450px] lg:h-[320px] rotate-2 translate-y-8 rounded-lg object-cover"
+                src={data.img}
+                loading="lazy"
+                alt={data.title}
+              />
+            </div>
+            <span className="absolute -bottom-3 left-3 z-10 inline-flex items-center rounded-full border border-[#34384F] bg-[#0B0E20] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-[#D9DBE8] shadow-md md:left-4 md:text-[11px]">
+              {projectType.label}
+            </span>
           </div>
-          <div className=" mt-5 md:mt-9 text-xl md:text-3xl max-w-[552px] font-bold text-white">
+          <div className="mt-7 text-xl md:mt-11 md:text-3xl max-w-[552px] font-bold text-white">
             {parse(data.title)}
           </div>
           <p className="mt-2 line-clamp-2 md:mt-4 text-sm md:text-xl max-w-[552px] text-[#BEC1DD]">
