@@ -1,11 +1,16 @@
 [
   {
-    "title": "Frontend Developer",
-    "description": "Develop and maintain responsive and scalable web applications using <span>React.js</span>, <span>TypeScript</span>, <span>Next.js</span>, and <span>SASS</span>.",
+    "title": "Frontend Developer / Team Lead",
+    "description": "Developed and maintained responsive, scalable web applications using <span>React.js</span>, <span>TypeScript</span>, <span>Next.js</span>, <span>SvelteKit</span>, <span>Tailwind CSS</span>, and <span>SASS</span>.",
     "company": {
       "name": "ROWIX",
       "url": "https://www.rowix.com",
       "type": "Full Time"
+    },
+    "dates": {
+      "from": "Feb 2025",
+      "to": "Aug 2025",
+      "duration": "7 mos"
     },
     "img": "/images/guy_coding.svg"
   }
