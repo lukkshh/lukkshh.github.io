@@ -79,8 +79,11 @@ export const initializeAnalytics = (): (() => void) | undefined => {
 
   initialized = true;
   window.dataLayer = window.dataLayer ?? [];
-  window.gtag = (...args: GtagArguments) => {
-    window.dataLayer.push(args);
+  window.gtag = function (...args: GtagArguments) {
+    void args;
+    // gtag.js expects the function's array-like arguments object in its queue.
+    // eslint-disable-next-line prefer-rest-params
+    window.dataLayer.push(arguments);
   };
 
   window.gtag("js", new Date());
