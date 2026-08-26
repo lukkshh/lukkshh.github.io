@@ -2,32 +2,50 @@ type AnalyticsParameter = string | number | boolean;
 
 export type AnalyticsEventParameters = Record<string, AnalyticsParameter>;
 
-type GtagArguments =
-  | [command: "js", date: Date]
-  | [command: "config", measurementId: string]
-  | [
-      command: "event",
-      eventName: string,
-      parameters?: AnalyticsEventParameters,
-    ];
+interface UmamiAnalytics {
+  track: (
+    eventName: string,
+    parameters?: AnalyticsEventParameters,
+  ) => void;
+}
 
 declare global {
   interface Window {
-    dataLayer: unknown[];
-    gtag: (...args: GtagArguments) => void;
+    umami?: UmamiAnalytics;
   }
 }
 
-const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim();
+const websiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID?.trim();
+const scriptUrl =
+  import.meta.env.VITE_UMAMI_SCRIPT_URL?.trim() ||
+  "https://cloud.umami.is/script.js";
+
 let initialized = false;
+const pendingEvents: Array<{
+  eventName: string;
+  parameters?: AnalyticsEventParameters;
+}> = [];
 
 export const trackEvent = (
   eventName: string,
   parameters?: AnalyticsEventParameters,
 ): void => {
-  if (!measurementId || !initialized) return;
+  if (!websiteId || !initialized) return;
 
-  window.gtag("event", eventName, parameters);
+  if (window.umami) {
+    window.umami.track(eventName, parameters);
+    return;
+  }
+
+  pendingEvents.push({ eventName, parameters });
+};
+
+const flushPendingEvents = (): void => {
+  if (!window.umami) return;
+
+  pendingEvents.splice(0).forEach(({ eventName, parameters }) => {
+    window.umami?.track(eventName, parameters);
+  });
 };
 
 const trackScrollDepth = (): (() => void) => {
@@ -75,25 +93,15 @@ const trackScrollDepth = (): (() => void) => {
 };
 
 export const initializeAnalytics = (): (() => void) | undefined => {
-  if (!measurementId || initialized) return;
+  if (!websiteId || initialized) return;
 
   initialized = true;
-  window.dataLayer = window.dataLayer ?? [];
-  window.gtag = function (...args: GtagArguments) {
-    void args;
-    // gtag.js expects the function's array-like arguments object in its queue.
-    // eslint-disable-next-line prefer-rest-params
-    window.dataLayer.push(arguments);
-  };
-
-  window.gtag("js", new Date());
-  window.gtag("config", measurementId);
 
   const script = document.createElement("script");
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(
-    measurementId,
-  )}`;
+  script.defer = true;
+  script.src = scriptUrl;
+  script.dataset.websiteId = websiteId;
+  script.addEventListener("load", flushPendingEvents, { once: true });
   document.head.appendChild(script);
 
   return trackScrollDepth();
