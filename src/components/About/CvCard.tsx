@@ -1,6 +1,7 @@
 import { useLanguage } from "../../context/LanguageContext";
 import Button from "../Button";
 import SpotlightCard from "../SpotlightCard";
+import { trackEvent } from "../../utils/analytics";
 
 export default function CvCard() {
   const { language } = useLanguage();
@@ -12,6 +13,7 @@ export default function CvCard() {
       </p>
       <a
         href="/Luka Shvelidze.pdf"
+        onClick={() => trackEvent("cv_download")}
         className="w-[75%] h-[50px] lg:w-[200px] md:h-[60px]"
       >
         <Button className="flex justify-center items-center text-lg gap-2 w-full h-full">

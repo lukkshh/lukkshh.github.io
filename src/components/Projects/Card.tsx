@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import parse from "html-react-parser";
 import { useEffect, useRef, useState } from "react";
 import BorderGlow from "../BorderGlow";
+import { trackEvent } from "../../utils/analytics";
 
 export type CardDataType = {
   img: string;
@@ -56,6 +57,7 @@ export default function Card({ data }: CardProps) {
   } as const;
 
   const projectType = projectTypeStyles[data.projectType];
+  const projectName = data.title.replace(/<[^>]*>/g, "").trim();
 
   return (
     <motion.div
@@ -142,6 +144,11 @@ export default function Card({ data }: CardProps) {
               {data.ghLink && (
                 <a
                   href={data.ghLink}
+                  onClick={() =>
+                    trackEvent("project_github_click", {
+                      project_name: projectName,
+                    })
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mr-6 inline-flex items-center gap-2 text-[#CBACF9] transition-colors hover:text-white"
@@ -162,6 +169,11 @@ export default function Card({ data }: CardProps) {
               {data.webLink && (
                 <a
                   href={data.webLink}
+                  onClick={() =>
+                    trackEvent("project_live_click", {
+                      project_name: projectName,
+                    })
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-[#CBACF9] transition-colors hover:text-white"
