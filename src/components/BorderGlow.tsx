@@ -3,6 +3,7 @@ import {
   useCallback,
   useState,
   useEffect,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 
@@ -118,6 +119,23 @@ function buildMeshGradients(colors: string[]): string[] {
   return gradients;
 }
 
+const MOBILE_QUERY = "(max-width: 767px)";
+
+function subscribeMobile(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  const mql = window.matchMedia(MOBILE_QUERY);
+  mql.addEventListener("change", callback);
+  return () => mql.removeEventListener("change", callback);
+}
+
+function getMobileSnapshot() {
+  return window.matchMedia(MOBILE_QUERY).matches;
+}
+
+function getMobileServerSnapshot() {
+  return false;
+}
+
 const BorderGlow: React.FC<BorderGlowProps> = ({
   children,
   className = "",
@@ -133,31 +151,16 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
   colors = ["#c084fc", "#f472b6", "#38bdf8"],
   fillOpacity = 0.5,
 }) => {
-  const [isMobile, setIsMobile] = useState<boolean>(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(max-width: 767px)").matches;
-  });
+  const isMobile = useSyncExternalStore(
+    subscribeMobile,
+    getMobileSnapshot,
+    getMobileServerSnapshot,
+  );
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [cursorAngle, setCursorAngle] = useState(45);
+  const [cursorAngle, setCursorAngle] = useState(animated ? 110 : 45);
   const [edgeProximity, setEdgeProximity] = useState(0);
-  const [sweepActive, setSweepActive] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const mediaQuery = window.matchMedia("(max-width: 767px)");
-    const onChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
-
-    setIsMobile(mediaQuery.matches);
-    mediaQuery.addEventListener("change", onChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", onChange);
-    };
-  }, []);
+  const [sweepActive, setSweepActive] = useState(animated);
 
   const getCenterOfElement = useCallback((el: HTMLElement) => {
     const { width, height } = el.getBoundingClientRect();
@@ -209,8 +212,6 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
     if (!animated) return;
     const angleStart = 110;
     const angleEnd = 465;
-    setSweepActive(true);
-    setCursorAngle(angleStart);
 
     animateValue({ duration: 500, onUpdate: (v) => setEdgeProximity(v / 100) });
     animateValue({
