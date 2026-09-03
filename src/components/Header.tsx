@@ -39,6 +39,42 @@ const HamburgerIcon = ({
   </button>
 );
 
+function scrollToWithLock(
+  targetY: number,
+  isProgrammaticScrollRef: React.MutableRefObject<boolean>,
+  scrollSettleFrameRef: React.MutableRefObject<number | null>,
+) {
+  const normalizedTargetY = Math.max(0, targetY);
+
+  if (scrollSettleFrameRef.current !== null) {
+    window.cancelAnimationFrame(scrollSettleFrameRef.current);
+    scrollSettleFrameRef.current = null;
+  }
+
+  isProgrammaticScrollRef.current = true;
+  window.scrollTo({ top: normalizedTargetY, behavior: "smooth" });
+
+  const startedAt = performance.now();
+  const maxDuration = 1800;
+
+  const waitForScrollSettle = () => {
+    const reachedTarget = Math.abs(window.scrollY - normalizedTargetY) < 4;
+    const timedOut = performance.now() - startedAt > maxDuration;
+
+    if (reachedTarget || timedOut) {
+      isProgrammaticScrollRef.current = false;
+      scrollSettleFrameRef.current = null;
+      return;
+    }
+
+    scrollSettleFrameRef.current =
+      window.requestAnimationFrame(waitForScrollSettle);
+  };
+
+  scrollSettleFrameRef.current =
+    window.requestAnimationFrame(waitForScrollSettle);
+}
+
 const Header = (): JSX.Element => {
   const { language, isEn } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -54,38 +90,6 @@ const Header = (): JSX.Element => {
     { href: "#experience", label: language.Header.Experience },
     { href: "#projects", label: language.Header.Projects },
   ];
-
-  const scrollToWithLock = (targetY: number) => {
-    const normalizedTargetY = Math.max(0, targetY);
-
-    if (scrollSettleFrameRef.current !== null) {
-      window.cancelAnimationFrame(scrollSettleFrameRef.current);
-      scrollSettleFrameRef.current = null;
-    }
-
-    isProgrammaticScrollRef.current = true;
-    window.scrollTo({ top: normalizedTargetY, behavior: "smooth" });
-
-    const startedAt = performance.now();
-    const maxDuration = 1800;
-
-    const waitForScrollSettle = () => {
-      const reachedTarget = Math.abs(window.scrollY - normalizedTargetY) < 4;
-      const timedOut = performance.now() - startedAt > maxDuration;
-
-      if (reachedTarget || timedOut) {
-        isProgrammaticScrollRef.current = false;
-        scrollSettleFrameRef.current = null;
-        return;
-      }
-
-      scrollSettleFrameRef.current =
-        window.requestAnimationFrame(waitForScrollSettle);
-    };
-
-    scrollSettleFrameRef.current =
-      window.requestAnimationFrame(waitForScrollSettle);
-  };
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -103,14 +107,14 @@ const Header = (): JSX.Element => {
     const id = href.replace("#", "");
 
     if (!id) {
-      scrollToWithLock(0);
+      scrollToWithLock(0, isProgrammaticScrollRef, scrollSettleFrameRef);
       return;
     }
 
     const el = document.getElementById(id);
     if (el) {
       const y = el.getBoundingClientRect().top + window.scrollY - offset;
-      scrollToWithLock(y);
+      scrollToWithLock(y, isProgrammaticScrollRef, scrollSettleFrameRef);
     }
   };
 
@@ -128,6 +132,7 @@ const Header = (): JSX.Element => {
   useEffect(() => {
     return () => {
       if (scrollSettleFrameRef.current !== null) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         window.cancelAnimationFrame(scrollSettleFrameRef.current);
       }
     };
