@@ -16,6 +16,28 @@
     ]
   },
   {
+    "img": "/images/projects/rp1.png",
+    "title": "<p>TT.ge - Creator Platform</p>",
+    "description": "Collaborated on TT.ge while working as a Frontend Developer at Rowix, a creator-focused platform built around direct audience interaction, similar to Patreon.",
+    "projectType": "company",
+    "webLink": "https://tt.ge/",
+    "badges": [
+      "SvelteKit",
+      "SASS",
+      "Typescript",
+      "WebSocket",
+      "Push Notifications"
+    ]
+  },
+  {
+    "img": "/images/projects/rp2.png",
+    "title": "<p>Bibo — Personalised Children's Books</p>",
+    "description": "Collaborated on Bibo while working as a Frontend Developer at Rowix, a personalized storybook platform that transforms uploaded photos into a fully illustrated children's book.",
+    "projectType": "company",
+    "webLink": "https://bibo.ge/",
+    "badges": ["Next.js", "SASS", "Typescript"]
+  },
+  {
     "img": "/images/projects/ecommerce.png",
     "title": "<p>E-Commerce Website</p>",
     "description": "eCommerce website made with PHP and React, for Scandiweb Junior Full Stack Developer test task",
