@@ -87,7 +87,7 @@ export default function Card({ data }: CardProps) {
           <div className="relative h-[150px] md:h-[240px] lg:h-[330px] w-full min-w-0 drop-shadow-sm">
             <div className="flex h-full items-end justify-center overflow-hidden rounded-xl bg-[#13162D] bg-[url(/images/card_img_background.svg)]">
               <img
-                className="h-[145px] w-[80%] max-w-[450px] rotate-2 translate-y-8 rounded-lg object-cover md:h-[230px] lg:h-[300px]"
+                className="h-[145px] w-[80%] max-w-[450px] rotate-2 translate-y-8 rounded-lg object-cover md:h-[230px] lg:h-[300px] md:hover:scale-105 transition-transform duration-300 ease-in-out"
                 src={data.img}
                 loading="lazy"
                 alt={data.title}

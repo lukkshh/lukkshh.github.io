@@ -100,7 +100,7 @@ const ge: Language = {
   },
 
   Projects: {
-    Title: "ჩემი <span className='text-[#CBACF9]'>პროექტები</span>",
+    Title: "რჩეული <span className='text-[#CBACF9]'>პროექტები</span>",
     ShowMore: "მეტის ნახვა",
   },
 
@@ -169,8 +169,7 @@ const en: Language = {
   },
 
   Projects: {
-    Title:
-      "A small selection of <span className='text-[#CBACF9]'>recent projects</span>",
+    Title: "Featured <span className='text-[#CBACF9]'>projects</span>",
     ShowMore: "Show More",
   },
 
