@@ -9,6 +9,7 @@
       "Laravel",
       "React",
       "PHP",
+      "Web3Forms",
       "PostgreSQL",
       "Inertia.js",
       "SASS",
@@ -24,6 +25,7 @@
     "badges": [
       "SvelteKit",
       "SASS",
+      "BOG Payments",
       "Typescript",
       "WebSocket",
       "Push Notifications"
@@ -35,7 +37,7 @@
     "description": "Collaborated on Bibo while working as a Frontend Developer at Rowix, a personalized storybook platform that transforms uploaded photos into a fully illustrated children's book.",
     "projectType": "company",
     "webLink": "https://bibo.ge/",
-    "badges": ["Next.js", "SASS", "Typescript"]
+    "badges": ["Next.js", "SASS", "Typescript", "BOG Payments"]
   },
   {
     "img": "/images/projects/ecommerce.png",
