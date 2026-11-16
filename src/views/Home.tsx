@@ -2,6 +2,7 @@ import type { JSX } from "react";
 import Button from "../components/Button";
 import parse from "html-react-parser";
 import { useLocale, useTranslations } from "next-intl";
+import { useLenis } from "lenis/react";
 
 const SpotlightEffect = (): JSX.Element => {
   return (
@@ -21,11 +22,14 @@ const SpotlightEffect = (): JSX.Element => {
 const Home = (): JSX.Element => {
   const isEn = useLocale() === "en";
   const t = useTranslations("Home");
+  const lenis = useLenis();
 
   const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({
-      behavior: "smooth",
-    });
+    if (lenis) {
+      lenis.scrollTo("#about", { offset: window.innerWidth >= 768 ? -140 : -50 });
+    } else {
+      document.getElementById("about")?.scrollIntoView();
+    }
   };
 
   return (

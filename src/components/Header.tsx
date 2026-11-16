@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, type JSX } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { useLenis } from "lenis/react";
 
 import LanguageButton from "./LanguageButton/LanguageButton";
 
@@ -42,53 +43,17 @@ const HamburgerIcon = ({
   </button>
 );
 
-function scrollToWithLock(
-  targetY: number,
-  isProgrammaticScrollRef: React.MutableRefObject<boolean>,
-  scrollSettleFrameRef: React.MutableRefObject<number | null>,
-) {
-  const normalizedTargetY = Math.max(0, targetY);
-
-  if (scrollSettleFrameRef.current !== null) {
-    window.cancelAnimationFrame(scrollSettleFrameRef.current);
-    scrollSettleFrameRef.current = null;
-  }
-
-  isProgrammaticScrollRef.current = true;
-  window.scrollTo({ top: normalizedTargetY, behavior: "smooth" });
-
-  const startedAt = performance.now();
-  const maxDuration = 1800;
-
-  const waitForScrollSettle = () => {
-    const reachedTarget = Math.abs(window.scrollY - normalizedTargetY) < 4;
-    const timedOut = performance.now() - startedAt > maxDuration;
-
-    if (reachedTarget || timedOut) {
-      isProgrammaticScrollRef.current = false;
-      scrollSettleFrameRef.current = null;
-      return;
-    }
-
-    scrollSettleFrameRef.current =
-      window.requestAnimationFrame(waitForScrollSettle);
-  };
-
-  scrollSettleFrameRef.current =
-    window.requestAnimationFrame(waitForScrollSettle);
-}
-
 const Header = (): JSX.Element => {
   const isEn = useLocale() === "en";
   const pathname = usePathname();
   const isPortfolioPage = pathname === "/" || pathname === "/ka";
   const homePath = isEn ? "/" : "/ka";
   const t = useTranslations("Header");
+  const lenis = useLenis();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("#");
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const isProgrammaticScrollRef = useRef(false);
-  const scrollSettleFrameRef = useRef<number | null>(null);
   const highlightedLink = hoveredLink ?? activeLink;
 
   const NavLink: NavNavLinkType = [
@@ -113,47 +78,48 @@ const Header = (): JSX.Element => {
     offset: number,
     closeMenuAfterClick = false,
   ) => {
-    if (!isPortfolioPage) return;
+    if (!isPortfolioPage || !lenis) return;
     e.preventDefault();
     setActiveLink(href);
 
     if (closeMenuAfterClick) {
       setMenuOpen(false);
+      lenis.start();
     }
 
     const id = href.replace("#", "");
 
     if (!id) {
-      scrollToWithLock(0, isProgrammaticScrollRef, scrollSettleFrameRef);
+      lenis.scrollTo(0, {
+        onStart: () => { isProgrammaticScrollRef.current = true; },
+        onComplete: () => { isProgrammaticScrollRef.current = false; },
+      });
       return;
     }
 
     const el = document.getElementById(id);
     if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - offset;
-      scrollToWithLock(y, isProgrammaticScrollRef, scrollSettleFrameRef);
+      lenis.scrollTo(el, {
+        offset: -offset,
+        onStart: () => { isProgrammaticScrollRef.current = true; },
+        onComplete: () => { isProgrammaticScrollRef.current = false; },
+      });
     }
   };
 
   useEffect(() => {
     if (menuOpen) {
+      lenis?.stop();
       document.body.style.overflow = "hidden";
     } else {
+      lenis?.start();
       document.body.style.overflow = "";
     }
     return () => {
+      lenis?.start();
       document.body.style.overflow = "";
     };
-  }, [menuOpen]);
-
-  useEffect(() => {
-    return () => {
-      if (scrollSettleFrameRef.current !== null) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        window.cancelAnimationFrame(scrollSettleFrameRef.current);
-      }
-    };
-  }, []);
+  }, [menuOpen, lenis]);
 
   useEffect(() => {
     if (!isPortfolioPage) return;

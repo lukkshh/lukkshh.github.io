@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { preload } from "react-dom";
+import SmoothScroll from "../components/SmoothScroll";
 import { getSiteUrl } from "../lib/site";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -64,7 +66,7 @@ export default async function RootLayout({
       </head>
       <body className={`bg-[#000319] ${locale === "ka" ? "font-ge" : "font-en"}`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <SmoothScroll>{children}</SmoothScroll>
         </NextIntlClientProvider>
       </body>
     </html>
