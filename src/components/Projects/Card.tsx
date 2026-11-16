@@ -46,17 +46,10 @@ export default function Card({ data }: CardProps) {
   }, [isDescriptionOpen]);
 
   const projectTypeStyles = {
-    personal: {
-      label: "Personal project",
-    },
-    freelance: {
-      label: "Freelance",
-    },
-    company: {
-      label: "Professional",
-    },
+    personal: { label: "Personal project" },
+    freelance: { label: "Freelance" },
+    company: { label: "Professional" },
   } as const;
-
   const projectType = projectTypeStyles[data.projectType];
   const projectName = data.title.replace(/<[^>]*>/g, "").trim();
 

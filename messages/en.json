@@ -39,6 +39,40 @@
     "Title": "Featured <span className='text-[#CBACF9]'>projects</span>",
     "ShowMore": "Show More"
   },
+  "ProjectsPage": {
+    "accessibleTitle": "Projects",
+    "title": "Work, made real.",
+    "intro": "A selection of products and experiments I’ve helped bring to life, from the first build to the details that make them useful.",
+    "categories": {
+      "all": "All",
+      "personal": "Personal",
+      "freelance": "Freelance",
+      "professional": "Professional"
+    },
+    "featured": "Featured",
+    "filterProjects": "Project filters and search",
+    "filterByCategory": "Filter by category",
+    "searchLabel": "Search projects",
+    "searchPlaceholder": "Search projects or technology…",
+    "clearSearch": "Clear search",
+    "resultCount": "{count, plural, one {# project} other {# projects}}",
+    "viewProject": "View project",
+    "readCaseStudy": "Explore project",
+    "technologies": "Technologies used",
+    "emptyTitle": "No projects found",
+    "emptyDescription": "Try another search or clear the selected filters.",
+    "clearFilters": "Clear filters",
+    "backHome": "Back to portfolio",
+    "backToProjects": "All projects",
+    "visitProject": "Visit live project",
+    "viewSource": "View source code",
+    "overview": "Overview",
+    "whatItIncludes": "What it includes",
+    "role": "My role",
+    "keepExploring": "Keep exploring",
+    "relatedProjects": "Related projects",
+    "allProjects": "See all projects"
+  },
   "Education": {
     "Title": "Education",
     "Data": [

@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .projects-theme {
+    --projects-canvas: #000319;
+    --projects-surface: #080b21;
+    --projects-surface-raised: #0c0e23;
+    --projects-surface-deep: #04071d;
+    --projects-panel-deep: #06091d;
+    --projects-image-surface: #11152d;
+    --projects-outline: #363749;
+    --projects-card-outline: rgba(54, 55, 73, 0.42);
+    --projects-card-shadow: 0 16px 50px rgba(0, 0, 0, 0.16);
+    --projects-card-hover-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    --projects-image-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+    --projects-muted: #bec1dd;
+    --projects-subtle: #9297b5;
+    --projects-placeholder: #81859f;
+    --projects-accent: #cbacf9;
+    --projects-accent-hover: #d9c5ff;
+    --projects-accent-foreground: #09091a;
+    --projects-accent-soft: rgba(203, 172, 249, 0.08);
+    --projects-accent-border: rgba(203, 172, 249, 0.25);
+    --projects-accent-bright: #dccbff;
+    --projects-accent-text: #d8c8ff;
+    --projects-strong-text: #e2e3ef;
+    --projects-tag: #1e2139;
+    --projects-tag-text: #c6c9dc;
+    --projects-copy: #d5d7e8;
+    --projects-glow: rgba(111, 76, 255, 0.18);
+    --projects-listing-glow: radial-gradient(ellipse, rgba(111, 76, 255, 0.18), transparent 68%);
+    --projects-detail-glow: radial-gradient(ellipse, rgba(111, 76, 255, 0.16), transparent 70%);
+  }
+}
+
 @font-face {
   font-family: "Inter";
   font-style: normal;

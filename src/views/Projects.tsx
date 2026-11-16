@@ -1,71 +1,43 @@
-import { useState, useEffect } from "react";
-import Card, { CardDataType } from "../components/Projects/Card";
+import Link from "next/link";
+import parse from "html-react-parser";
+import { useLocale, useTranslations } from "next-intl";
+import { motion, useReducedMotion } from "framer-motion";
+import { HiArrowUpRight } from "react-icons/hi2";
+import ProjectCard from "../components/Projects/ProjectCard";
+import { projects } from "../data/projects";
 
-import parser from "html-react-parser";
-import Button from "../components/Button";
-
-import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
-
-const Projects = () => {
-  const [projects, setProjects] = useState<CardDataType[]>([]);
-  const [visibleCount, setVisibleCount] = useState<number>(4);
-
+export default function Projects() {
+  const locale = useLocale();
   const t = useTranslations("Projects");
-
-  useEffect(() => {
-    fetch("/projects-data.json")
-      .then((res) => res.json())
-      .then((data: CardDataType[]) => setProjects(data))
-      .catch(() => setProjects([]));
-  }, []);
-
-  const handleShowMore = () => {
-    setVisibleCount((prevCount) => prevCount + 4);
-  };
+  const pageT = useTranslations("ProjectsPage");
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section
-      id="projects"
-      className="w-full flex justify-center items-center text-white px-4"
-    >
-      {projects.length === 0 ? (
-        <p className="text-xl mt-12">Oops! Error fetching data</p>
-      ) : (
-        <div className="flex flex-col justify-center items-center w-full space-y-8">
-          <div className="flex justify-center items-center w-full">
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="font-bold text-xl  md:text-5xl"
+    <section id="projects" className="projects-theme w-full px-4 text-white">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-8 md:gap-10">
+        <h2 className="text-center text-2xl font-bold md:text-5xl">{parse(t.raw("Title") as string)}</h2>
+        <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-7">
+          {projects.slice(0, 3).map((project) => (
+            <motion.div
+              key={project.slug}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="min-w-0"
             >
-              {parser(t.raw("Title") as string)}
-            </motion.p>
-          </div>
-          <div className="grid w-full max-w-[1200px] grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:gap-10 xl:gap-16">
-            {projects.slice(0, visibleCount).map((project, index) => (
-              <Card key={index} data={project} />
-            ))}
-          </div>
-          <div>
-            {visibleCount < projects.length && (
-              <Button
-                onClick={handleShowMore}
-                className="min-w-[160px] min-h-[55px] font-bold"
-              >
-                {t("ShowMore")}
-              </Button>
-            )}
-          </div>
+              <ProjectCard project={project} />
+            </motion.div>
+          ))}
         </div>
-      )}
+        <Link
+          href={locale === "ka" ? "/ka/projects" : "/projects"}
+          className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-[var(--projects-outline)] bg-gradient-to-br from-[var(--projects-surface-raised)] to-[var(--projects-surface-deep)] px-5 text-sm font-semibold text-[var(--projects-accent)] transition-colors hover:border-[var(--projects-accent-border)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--projects-accent)] active:scale-[0.98]"
+        >
+          {pageT("allProjects")}
+          <HiArrowUpRight aria-hidden="true" className="h-4 w-4" />
+        </Link>
+      </div>
     </section>
   );
-};
-
-export default Projects;
+}

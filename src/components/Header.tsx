@@ -1,6 +1,9 @@
+"use client";
+
 import { useState, useEffect, useRef, type JSX } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 import LanguageButton from "./LanguageButton/LanguageButton";
 
@@ -77,6 +80,9 @@ function scrollToWithLock(
 
 const Header = (): JSX.Element => {
   const isEn = useLocale() === "en";
+  const pathname = usePathname();
+  const isPortfolioPage = pathname === "/" || pathname === "/ka";
+  const homePath = isEn ? "/" : "/ka";
   const t = useTranslations("Header");
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("#");
@@ -86,10 +92,10 @@ const Header = (): JSX.Element => {
   const highlightedLink = hoveredLink ?? activeLink;
 
   const NavLink: NavNavLinkType = [
-    { href: "#", label: t("Home") },
-    { href: "#about", label: t("About") },
-    { href: "#experience", label: t("Experience") },
-    { href: "#projects", label: t("Projects") },
+    { href: isPortfolioPage ? "#" : homePath, label: t("Home") },
+    { href: isPortfolioPage ? "#about" : `${homePath}#about`, label: t("About") },
+    { href: isPortfolioPage ? "#experience" : `${homePath}#experience`, label: t("Experience") },
+    { href: isPortfolioPage ? "#projects" : `${isEn ? "" : "/ka"}/projects`, label: t("Projects") },
   ];
 
   const handleNavClick = (
@@ -98,6 +104,7 @@ const Header = (): JSX.Element => {
     offset: number,
     closeMenuAfterClick = false,
   ) => {
+    if (!isPortfolioPage) return;
     e.preventDefault();
     setActiveLink(href);
 
@@ -140,6 +147,7 @@ const Header = (): JSX.Element => {
   }, []);
 
   useEffect(() => {
+    if (!isPortfolioPage) return;
     const sectionIds = ["about", "experience", "projects"];
     const visibleSections = new Map<string, number>();
     let intersectionObserver: IntersectionObserver | null = null;
@@ -227,7 +235,7 @@ const Header = (): JSX.Element => {
         window.removeEventListener("scroll", updateActiveFromScroll);
       }
     };
-  }, []);
+  }, [isPortfolioPage]);
 
   return (
     <div className="fixed w-full flex justify-center items-center z-50">
@@ -275,6 +283,7 @@ const Header = (): JSX.Element => {
 
       {/* Mobile header */}
       <header className="flex md:hidden w-full mx-4 my-4 px-4 py-3 rounded-xl justify-between items-center bg-gradient-to-br from-[#04071D] to-[#0C0E23] drop-shadow-sm border-[0.1px] border-[#36374942] z-[1000]">
+        <a href={homePath} className="text-sm font-semibold text-white" aria-label="Luka Shvelidze — home">Luka Shvelidze</a>
         <LanguageButton />
         <HamburgerIcon
           isOpen={menuOpen}

@@ -39,6 +39,40 @@
     "Title": "რჩეული <span className='text-[#CBACF9]'>პროექტები</span>",
     "ShowMore": "მეტის ნახვა"
   },
+  "ProjectsPage": {
+    "accessibleTitle": "პროექტები",
+    "title": "პროექტები, რომლებიც რეალობად იქცა.",
+    "intro": "შერჩეული პროდუქტები და ექსპერიმენტები, რომლებზეც იდეიდან საბოლოო დეტალებამდე ვიმუშავე.",
+    "categories": {
+      "all": "ყველა",
+      "personal": "პირადი",
+      "freelance": "ფრილანსი",
+      "professional": "პროფესიული"
+    },
+    "featured": "რჩეული",
+    "filterProjects": "პროექტების ფილტრები და ძიება",
+    "filterByCategory": "კატეგორიით გაფილტვრა",
+    "searchLabel": "პროექტების ძიება",
+    "searchPlaceholder": "მოძებნე პროექტი ან ტექნოლოგია…",
+    "clearSearch": "ძიების გასუფთავება",
+    "resultCount": "{count} პროექტი",
+    "viewProject": "პროექტის ნახვა",
+    "readCaseStudy": "პროექტის ნახვა",
+    "technologies": "გამოყენებული ტექნոլոգიები",
+    "emptyTitle": "პროექტები ვერ მოიძებნა",
+    "emptyDescription": "სცადე სხვა საძიებო სიტყვა ან გაასუფთავე ფილტრები.",
+    "clearFilters": "ფილტრების გასუფთავება",
+    "backHome": "პორტფოლიოზე დაბრუნება",
+    "backToProjects": "ყველა პროექტი",
+    "visitProject": "პროექტის ვებსაიტი",
+    "viewSource": "კოდის ნახვა",
+    "overview": "მიმოხილვა",
+    "whatItIncludes": "რას მოიცავს",
+    "role": "ჩემი როლი",
+    "keepExploring": "განაგრძე დათვალიერება",
+    "relatedProjects": "მსგავსი პროექტები",
+    "allProjects": "ყველა პროექტის ნახვა"
+  },
   "Education": {
     "Title": "განათლება",
     "Data": [

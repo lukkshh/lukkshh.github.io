@@ -1,3 +1,5 @@
+"use client";
+
 import { GHIcon, IGIcon, LIIcon } from "./About/Icons";
 import { trackEvent } from "../utils/analytics";
 
@@ -35,14 +37,11 @@ export default function Footer() {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={aria_label}
               onClick={() => eventName && trackEvent(eventName)}
+              className="flex h-10 w-10 items-center justify-center rounded-lg border-[0.1px] border-[#ffffff61] bg-[#05041F] text-white shadow-inner shadow-[#ffffff61] transition-colors hover:border-[#CBACF9] hover:text-[#CBACF9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#CBACF9] active:scale-95"
             >
-              <button
-                aria-label={aria_label}
-                className="w-10 h-10 flex justify-center items-center rounded-lg border-[0.1px] border-[#ffffff61] shadow-inner shadow-[#ffffff61] bg-[#05041F] text-white"
-              >
-                <Icon />
-              </button>
+              <Icon />
             </a>
           </li>
         ))}
