@@ -15,9 +15,9 @@ declare global {
   }
 }
 
-const websiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID?.trim();
+const websiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID?.trim();
 const scriptUrl =
-  import.meta.env.VITE_UMAMI_SCRIPT_URL?.trim() ||
+  process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL?.trim() ||
   "https://cloud.umami.is/script.js";
 
 let initialized = false;

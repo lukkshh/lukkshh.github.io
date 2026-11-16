@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { useLanguage } from "../../context/LanguageContext";
 import SpotlightCard from "../SpotlightCard";
+import { useLocale, useTranslations } from "next-intl";
 
 const Tech = ({
   children,
@@ -26,7 +26,8 @@ const Tech = ({
 };
 
 export default function TechStackCard() {
-  const { isEn, language } = useLanguage();
+  const isEn = useLocale() === "en";
+  const t = useTranslations("About.TechStackCard");
   return (
     <motion.div
       variants={{
@@ -46,7 +47,7 @@ export default function TechStackCard() {
             isEn ? "text-3xl" : "text-xl z-10 max-w-[35%]"
           } font-bold ml-5`}
         >
-          {language.About.TechStackCard.Title}
+          {t("Title")}
         </p>
         <div className="flex justify-center items-center mr-1 md:mr-2 space-x-2">
           <div className="flex flex-col h-full space-y-2">

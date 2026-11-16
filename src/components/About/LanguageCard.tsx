@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { useLanguage } from "../../context/LanguageContext";
 import SpotlightCard from "../SpotlightCard";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 
 const Language = ({
   children,
@@ -28,7 +29,8 @@ const Language = ({
 };
 
 export default function LanguageCard() {
-  const { isEn, language } = useLanguage();
+  const isEn = useLocale() === "en";
+  const t = useTranslations("About.LanguageCard");
 
   return (
     <motion.div
@@ -44,9 +46,12 @@ export default function LanguageCard() {
           isEn ? "" : "max-w-[622px]"
         } min-h-[195px] md:min-h-[255px] overflow-hidden border-[0.1px] border-[#6971a265] rounded-xl bg-[#04071D] relative text-white`}
       >
-        <img
+        <Image
           className="w-full max-h-[135px] absolute bottom-0"
           src="/images/map.svg"
+          width={398}
+          height={119}
+          unoptimized
           alt="globe_map"
         />
         <p
@@ -54,10 +59,10 @@ export default function LanguageCard() {
             isEn ? "text-xl" : "text-lg md:text-xl max-w-[90%]"
           } font-bold px-[24px] py-4 md:py-[30px]`}
         >
-          {language.About.LanguageCard.Title}
+          {t("Title")}
         </p>
 
-        {language.About.LanguageCard.Languages.map((lang, index) => (
+        {(t.raw("Languages") as string[]).map((lang, index) => (
           <Language
             key={index}
             className={`${

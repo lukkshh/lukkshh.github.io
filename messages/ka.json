@@ -1,0 +1,66 @@
+{
+  "Header": {
+    "Home": "მთავარი",
+    "About": "ჩემს შესახებ",
+    "Experience": "გამოცდილება",
+    "Projects": "პროექტები"
+  },
+  "Home": {
+    "Headline": "გამარჯობა 👋🏼",
+    "Subtext": "მე ვარ ლუკა შველიძე <br/> <span className='text-[#CBACF9] font-en'>Full-Stack Web Developer</span>",
+    "CTA": "გარდავქმნი იდეებს სრულ ვებ გამოცდილებად.",
+    "ButtonText": "ჩემს შესახებ <span className='text-xl'> &#x2197;</span>"
+  },
+  "Profile": {
+    "Title": "ლუკა შველიძე",
+    "SubTitle": "Full-Stack დეველოპერი"
+  },
+  "About": {
+    "CvCard": {
+      "Title": "გაიგე მეტი ჩემ შესახებ.",
+      "SubTitle": "გადმოწერე რეზიუმე"
+    },
+    "TechStackCard": {
+      "Title": "ტექნოლოგიები რომლებსაც ვიყენებ"
+    },
+    "LanguageCard": {
+      "Title": "ვფლობ რამდენიმე ენას ამიტომ კომუნიკაცია პრობლემა არ არის.",
+      "Languages": [
+        "ქართული",
+        "ინგლისური",
+        "რუსული"
+      ]
+    },
+    "FeatureCard": {
+      "Title": "მნიშვნელობას ვანიჭებ კლიენტთან თანამშრომლობას და ღია კომუნიკაციას."
+    }
+  },
+  "Projects": {
+    "Title": "რჩეული <span className='text-[#CBACF9]'>პროექტები</span>",
+    "ShowMore": "მეტის ნახვა"
+  },
+  "Education": {
+    "Title": "განათლება",
+    "Data": [
+      {
+        "Title": "საქართველოს ტექნიკური უნივერსიტეტი",
+        "SubTitle": "ინფორმატიკისა და მართვის სისტემების ფაკულტეტი",
+        "Date": "2023 - აწმყო"
+      }
+    ]
+  },
+  "Certificates": {
+    "Title": "სერთიფიკატები",
+    "Data": [
+      {
+        "Title": "HTML, CSS, JavaScript, React - Online Certification",
+        "SubTitle": "Udemy",
+        "Date": "იან 17, 2024",
+        "Link": "https://ude.my/UC-51dace1f-4ca4-4ee9-9d74-049c053d75a5"
+      }
+    ]
+  },
+  "Experience": {
+    "Headline": "სამუშაო <span className=\"text-[#CBACF9]\">გამოცდილება</span>"
+  }
+}

@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import Card, { CardDataType } from "../components/Projects/Card";
-import { useLanguage } from "../context/LanguageContext";
 
 import parser from "html-react-parser";
 import Button from "../components/Button";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const Projects = () => {
   const [projects, setProjects] = useState<CardDataType[]>([]);
   const [visibleCount, setVisibleCount] = useState<number>(4);
 
-  const { language } = useLanguage();
+  const t = useTranslations("Projects");
 
   useEffect(() => {
     fetch("/projects-data.json")
@@ -44,7 +44,7 @@ const Projects = () => {
               viewport={{ once: true }}
               className="font-bold text-xl  md:text-5xl"
             >
-              {parser(language.Projects.Title)}
+              {parser(t.raw("Title") as string)}
             </motion.p>
           </div>
           <div className="grid w-full max-w-[1200px] grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:gap-10 xl:gap-16">
@@ -58,7 +58,7 @@ const Projects = () => {
                 onClick={handleShowMore}
                 className="min-w-[160px] min-h-[55px] font-bold"
               >
-                {language.Projects.ShowMore}
+                {t("ShowMore")}
               </Button>
             )}
           </div>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { useLanguage } from "../../context/LanguageContext";
 import SpotlightCard from "../SpotlightCard";
+import { useLocale, useTranslations } from "next-intl";
 
 const PurpleDecoration = () => (
   <motion.svg
@@ -63,7 +63,8 @@ const YellowDecoration = () => (
 );
 
 export default function FeatureCard() {
-  const { isEn, language } = useLanguage();
+  const isEn = useLocale() === "en";
+  const t = useTranslations("About.FeatureCard");
 
   return (
     <SpotlightCard
@@ -78,7 +79,7 @@ export default function FeatureCard() {
           isEn ? "max-w-[75%]" : "max-w-[60%]"
         } font-bold z-4 text-white text-xl m-4`}
       >
-        {language.About.FeatureCard.Title}
+        {t("Title")}
       </p>
     </SpotlightCard>
   );

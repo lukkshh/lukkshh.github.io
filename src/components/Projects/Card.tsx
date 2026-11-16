@@ -3,6 +3,7 @@ import parse from "html-react-parser";
 import { useEffect, useRef, useState } from "react";
 import BorderGlow from "../BorderGlow";
 import { trackEvent } from "../../utils/analytics";
+import Image from "next/image";
 
 export type CardDataType = {
   img: string;
@@ -86,12 +87,16 @@ export default function Card({ data }: CardProps) {
         <div className="font-en h-full drop-shadow-sm border-[0.1px] border-[#36374942] px-3 md:px-6 py-5 md:py-9 rounded-3xl bg-gradient-to-bl from-[#0C0E23] to-[#04071D]">
           <div className="relative h-[150px] md:h-[240px] lg:h-[330px] w-full min-w-0 drop-shadow-sm">
             <div className="flex h-full items-end justify-center overflow-hidden rounded-xl bg-[#13162D] bg-[url(/images/card_img_background.svg)]">
-              <img
-                className="h-[145px] w-[80%] max-w-[450px] rotate-2 translate-y-8 rounded-lg object-cover md:h-[230px] lg:h-[300px] md:hover:scale-105 transition-transform duration-300 ease-in-out"
-                src={data.img}
-                loading="lazy"
-                alt={data.title}
-              />
+              <div className="relative h-[145px] w-[80%] max-w-[450px] rotate-2 translate-y-8 md:h-[230px] lg:h-[300px] md:hover:scale-105 transition-transform duration-300 ease-in-out">
+                <Image
+                  className="rounded-lg object-cover"
+                  src={data.img}
+                  fill
+                  sizes="(max-width: 768px) 80vw, (max-width: 1280px) 40vw, 450px"
+                  unoptimized={data.img.toLowerCase().endsWith(".gif")}
+                  alt={projectName}
+                />
+              </div>
             </div>
             <span className="absolute -bottom-3 left-3 z-10 inline-flex items-center rounded-full border border-[#34384F] bg-[#0B0E20] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-[#D9DBE8] shadow-md md:left-4 md:text-[11px]">
               {projectType.label}

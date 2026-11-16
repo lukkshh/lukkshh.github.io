@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
-import { useLanguage } from "../context/LanguageContext";
+import { useState, useEffect, useRef, type JSX } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
 
 import LanguageButton from "./LanguageButton/LanguageButton";
 
@@ -76,7 +76,8 @@ function scrollToWithLock(
 }
 
 const Header = (): JSX.Element => {
-  const { language, isEn } = useLanguage();
+  const isEn = useLocale() === "en";
+  const t = useTranslations("Header");
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("#");
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
@@ -85,10 +86,10 @@ const Header = (): JSX.Element => {
   const highlightedLink = hoveredLink ?? activeLink;
 
   const NavLink: NavNavLinkType = [
-    { href: "#", label: language.Header.Home },
-    { href: "#about", label: language.Header.About },
-    { href: "#experience", label: language.Header.Experience },
-    { href: "#projects", label: language.Header.Projects },
+    { href: "#", label: t("Home") },
+    { href: "#about", label: t("About") },
+    { href: "#experience", label: t("Experience") },
+    { href: "#projects", label: t("Projects") },
   ];
 
   const handleNavClick = (

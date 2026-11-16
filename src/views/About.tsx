@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import CvCard from "../components/About/CvCard";
 import FeatureCard from "../components/About/FeatureCard";
 import LanguageCard from "../components/About/LanguageCard";
