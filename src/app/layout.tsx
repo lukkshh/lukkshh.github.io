@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { preload } from "react-dom";
 import SmoothScroll from "../components/SmoothScroll";
+import AnalyticsInitializer from "../components/AnalyticsInitializer";
 import { getSiteUrl } from "../lib/site";
 import "lenis/dist/lenis.css";
 import "./globals.css";
@@ -90,6 +91,7 @@ export default async function RootLayout({
         className={`bg-[#000319] ${locale === "ka" ? "font-ge" : "font-en"}`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <AnalyticsInitializer />
           <SmoothScroll>{children}</SmoothScroll>
         </NextIntlClientProvider>
       </body>

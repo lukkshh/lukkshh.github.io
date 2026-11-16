@@ -1,20 +1,40 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { HiArrowLeft, HiArrowUpRight } from "react-icons/hi2";
 import { projects, type Project } from "../../data/projects";
+import { trackEvent } from "../../utils/analytics";
 
-export default async function ProjectDetail({ project, locale }: { project: Project; locale: string }) {
+export default function ProjectDetail({ project, locale }: { project: Project; locale: string }) {
   const lang = locale === "ka" ? "ka" : "en";
+  const lastVisitedSlug = useRef<string | null>(null);
   const related = projects
     .filter((item) => item.slug !== project.slug && item.category === project.category)
     .slice(0, 3);
-  const t = await getTranslations({ locale, namespace: "ProjectsPage" });
+  const t = useTranslations("ProjectsPage");
+  const projectMetadata = {
+    project_slug: project.slug,
+    project_name: project.name.en,
+    category: project.category,
+  };
+
+  useEffect(() => {
+    if (lastVisitedSlug.current === project.slug) return;
+    lastVisitedSlug.current = project.slug;
+    trackEvent("project-detail-view", {
+      project_slug: project.slug,
+      project_name: project.name.en,
+      category: project.category,
+    });
+  }, [project]);
 
   return (
     <>
       <main id="main-content" className="mx-auto w-full max-w-7xl px-4 pb-20 pt-28 sm:pt-32 lg:pb-28">
-        <Link className="inline-flex min-h-11 items-center gap-2 text-sm text-[var(--projects-muted)] transition-colors hover:text-white focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--projects-accent)] active:scale-[0.98]" href={locale === "ka" ? "/ka/projects" : "/projects"}>
+        <Link className="inline-flex min-h-11 items-center gap-2 text-sm text-[var(--projects-muted)] transition-colors hover:text-white focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--projects-accent)] active:scale-[0.98]" href={locale === "ka" ? "/ka/projects" : "/projects"} onClick={() => trackEvent("project-back-to-list", projectMetadata)}>
           <HiArrowLeft aria-hidden="true" className="h-4 w-4" />
           {t("backToProjects")}
         </Link>
@@ -28,8 +48,8 @@ export default async function ProjectDetail({ project, locale }: { project: Proj
             <h1 className="mt-5 max-w-2xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] sm:text-5xl lg:text-6xl">{project.title[lang]}</h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-[var(--projects-muted)]">{project.summary[lang]}</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              {project.liveUrl && <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[var(--projects-accent-border)] bg-[var(--projects-accent)] px-5 text-sm font-semibold text-[var(--projects-accent-foreground)] transition-colors hover:bg-[var(--projects-accent-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--projects-accent)] active:scale-[0.98]" href={project.liveUrl} target="_blank" rel="noopener noreferrer">{t("visitProject")}<HiArrowUpRight aria-hidden="true" className="h-4 w-4" /></a>}
-              {project.sourceUrl && <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/15 px-5 text-sm font-semibold text-white transition-colors hover:border-white/35 hover:bg-white/[0.05] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--projects-accent)] active:scale-[0.98]" href={project.sourceUrl} target="_blank" rel="noopener noreferrer">{t("viewSource")}<HiArrowUpRight aria-hidden="true" className="h-4 w-4" /></a>}
+              {project.liveUrl && <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[var(--projects-accent-border)] bg-[var(--projects-accent)] px-5 text-sm font-semibold text-[var(--projects-accent-foreground)] transition-colors hover:bg-[var(--projects-accent-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--projects-accent)] active:scale-[0.98]" href={project.liveUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("project-external-link-click", { ...projectMetadata, link_type: "live-demo" })}>{t("visitProject")}<HiArrowUpRight aria-hidden="true" className="h-4 w-4" /></a>}
+              {project.sourceUrl && <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/15 px-5 text-sm font-semibold text-white transition-colors hover:border-white/35 hover:bg-white/[0.05] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--projects-accent)] active:scale-[0.98]" href={project.sourceUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("project-external-link-click", { ...projectMetadata, link_type: "github" })}>{t("viewSource")}<HiArrowUpRight aria-hidden="true" className="h-4 w-4" /></a>}
             </div>
           </div>
 
@@ -76,10 +96,10 @@ export default async function ProjectDetail({ project, locale }: { project: Proj
               <div>
                 <h2 id="related-heading" className="mt-2 text-2xl font-semibold text-white sm:text-3xl">{t("relatedProjects")}</h2>
               </div>
-              <Link className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[var(--projects-accent)] transition-colors hover:text-white focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--projects-accent)] active:scale-[0.98]" href={locale === "ka" ? "/ka/projects" : "/projects"}>{t("allProjects")}<HiArrowUpRight aria-hidden="true" className="h-4 w-4" /></Link>
+              <Link className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[var(--projects-accent)] transition-colors hover:text-white focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--projects-accent)] active:scale-[0.98]" href={locale === "ka" ? "/ka/projects" : "/projects"} onClick={() => trackEvent("project-back-to-list", projectMetadata)}>{t("allProjects")}<HiArrowUpRight aria-hidden="true" className="h-4 w-4" /></Link>
             </div>
             <div className="mt-7 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {related.map((item) => <Link key={item.slug} href={`${locale === "ka" ? "/ka" : ""}/projects/${item.slug}`} className="group overflow-hidden rounded-2xl border border-white/10 bg-[var(--projects-surface)] transition-[border-color,transform] duration-200 hover:-translate-y-1 hover:border-[var(--projects-accent-border)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--projects-accent)] motion-reduce:transform-none active:scale-[0.99]">
+              {related.map((item) => <Link key={item.slug} href={`${locale === "ka" ? "/ka" : ""}/projects/${item.slug}`} onClick={() => trackEvent("project-related-click", { ...projectMetadata, related_project_slug: item.slug, related_project_name: item.name.en })} className="group overflow-hidden rounded-2xl border border-white/10 bg-[var(--projects-surface)] transition-[border-color,transform] duration-200 hover:-translate-y-1 hover:border-[var(--projects-accent-border)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--projects-accent)] motion-reduce:transform-none active:scale-[0.99]">
                 <div className="relative aspect-[1.7] overflow-hidden bg-[var(--projects-image-surface)]"><Image src={item.image} alt="" fill unoptimized={item.image.endsWith(".gif")} sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" /></div>
                 <div className="p-5"><p className="text-xs text-[var(--projects-muted)]">{t(`categories.${item.category}`)}</p><h3 className="mt-2 text-lg font-semibold text-white transition-colors group-hover:text-[var(--projects-accent)]">{item.name[lang]}</h3><p className="mt-2 line-clamp-2 text-sm leading-6 text-[var(--projects-muted)]">{item.summary[lang]}</p></div>
               </Link>)}

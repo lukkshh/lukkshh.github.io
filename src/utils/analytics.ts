@@ -30,7 +30,7 @@ export const trackEvent = (
   eventName: string,
   parameters?: AnalyticsEventParameters,
 ): void => {
-  if (!websiteId || !initialized) return;
+  if (!websiteId) return;
 
   if (window.umami) {
     window.umami.track(eventName, parameters);
@@ -101,6 +101,8 @@ export const initializeAnalytics = (): (() => void) | undefined => {
   script.defer = true;
   script.src = scriptUrl;
   script.dataset.websiteId = websiteId;
+  script.dataset.excludeSearch = "true";
+  script.dataset.doNotTrack = "true";
   script.addEventListener("load", flushPendingEvents, { once: true });
   document.head.appendChild(script);
 
