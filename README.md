@@ -18,9 +18,11 @@ Import this Git repository into Vercel and use the default Next.js framework set
 Set these optional environment variables in Vercel to enable the existing Umami analytics and, if needed, override Vercel's production domain for canonical metadata:
 
 - `NEXT_PUBLIC_UMAMI_WEBSITE_ID`
-- `NEXT_PUBLIC_UMAMI_SCRIPT_URL` (defaults to `https://cloud.umami.is/script.js`)
+- `NEXT_PUBLIC_UMAMI_SCRIPT_URL` (the upstream Umami script URL; defaults to `https://cloud.umami.is/script.js`)
 - `NEXT_PUBLIC_SITE_URL` (optional production origin override, such as `https://example.com`; Vercel's production domain is used by default)
 
 English is served at `/` and Georgian at `/ka`; the language selector navigates between these URLs. Locale messages are in `messages/en.json` and `messages/ka.json`.
+
+Umami is loaded through the site's `/api/analytics/script` route. The tracker sends page views and custom events to the site's `/api/send` route, which forwards them to Umami Cloud's gateway (or to `/api/send` on the configured self-hosted Umami origin). The browser never needs a direct request to Umami. The existing website ID and dashboard remain the same. Requests with Do Not Track enabled are skipped, and the script excludes URL search parameters. The script is cached for one hour; event responses are not cached. If you add a Content Security Policy, allow `script-src 'self'` and `connect-src 'self'` for these routes. A first-party proxy can still be blocked by browser filters or user settings.
 
 <img width="715" height="186" alt="performance" src="https://github.com/user-attachments/assets/78951831-6955-4a5d-8ab8-fb0069eba44f" />

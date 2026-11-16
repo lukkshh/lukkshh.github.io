@@ -16,9 +16,9 @@ declare global {
 }
 
 const websiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID?.trim();
-const scriptUrl =
-  process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL?.trim() ||
-  "https://cloud.umami.is/script.js";
+const scriptUrl = "/api/analytics/script";
+
+const trackingDisabled = () => navigator.doNotTrack === "1";
 
 let initialized = false;
 const pendingEvents: Array<{
@@ -30,7 +30,7 @@ export const trackEvent = (
   eventName: string,
   parameters?: AnalyticsEventParameters,
 ): void => {
-  if (!websiteId) return;
+  if (!websiteId || trackingDisabled()) return;
 
   if (window.umami) {
     window.umami.track(eventName, parameters);
@@ -93,7 +93,7 @@ const trackScrollDepth = (): (() => void) => {
 };
 
 export const initializeAnalytics = (): (() => void) | undefined => {
-  if (!websiteId || initialized) return;
+  if (!websiteId || initialized || trackingDisabled()) return;
 
   initialized = true;
 
@@ -101,6 +101,7 @@ export const initializeAnalytics = (): (() => void) | undefined => {
   script.defer = true;
   script.src = scriptUrl;
   script.dataset.websiteId = websiteId;
+  script.dataset.hostUrl = window.location.origin;
   script.dataset.excludeSearch = "true";
   script.dataset.doNotTrack = "true";
   script.addEventListener("load", flushPendingEvents, { once: true });
