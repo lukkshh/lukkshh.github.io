@@ -31,7 +31,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         ka: `/ka/projects/${slug}`,
       },
     },
-    openGraph: { title, description, url: new URL(pathname, getSiteUrl()), type: "article", images: [{ url: project.image }] },
+    openGraph: { title, description, url: new URL(pathname, getSiteUrl()), type: "article" },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 

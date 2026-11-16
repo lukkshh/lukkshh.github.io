@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { projects } from "../data/projects";
 import { getPublicSiteUrl } from "../lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -6,14 +7,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   if (!siteUrl) return [];
 
-  const urls = [new URL("/", siteUrl), new URL("/ka", siteUrl)];
-  return urls.map((url) => ({
-    url: url.toString(),
-    alternates: {
-      languages: {
-        en: urls[0].toString(),
-        ka: urls[1].toString(),
-      },
-    },
-  }));
+  const paths = ["", "/projects", ...projects.map(({ slug }) => `/projects/${slug}`)];
+
+  return paths.flatMap((path) => {
+    const en = new URL(path || "/", siteUrl).toString();
+    const ka = new URL(`/ka${path}`, siteUrl).toString();
+    const alternates = { languages: { en, ka } };
+
+    return [
+      { url: en, alternates },
+      { url: ka, alternates },
+    ];
+  });
 }

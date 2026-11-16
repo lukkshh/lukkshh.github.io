@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     alternates: { canonical: pathname, languages: { en: "/projects", ka: "/ka/projects" } },
     openGraph: { title, description, url: new URL(pathname, getSiteUrl()), type: "website" },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
