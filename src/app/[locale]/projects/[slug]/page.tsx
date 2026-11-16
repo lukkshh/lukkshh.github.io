@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
+    keywords: [project.name[language], "Luka Shvelidze", "lukkshh", "coding project", ...project.technologies.slice(0, 5)],
     alternates: {
       canonical: pathname,
       languages: {
@@ -31,7 +32,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         ka: `/ka/projects/${slug}`,
       },
     },
-    openGraph: { title, description, url: new URL(pathname, getSiteUrl()), type: "article" },
+    openGraph: {
+      title,
+      description,
+      url: new URL(pathname, getSiteUrl()),
+      siteName: "Luka Shvelidze",
+      locale: locale === "ka" ? "ka_GE" : "en_US",
+      type: "article",
+    },
     twitter: { card: "summary_large_image", title, description },
   };
 }

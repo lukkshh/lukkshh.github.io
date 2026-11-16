@@ -37,13 +37,13 @@ const Home = (): JSX.Element => {
       <SpotlightEffect />
       <section className="w-full h-full flex items-center flex-col">
         <main className="mx-4 text-white text-center">
-          <h3
+          <p
             className={` ${
               isEn ? "text-base" : "text-lg"
             } mb-3 tracking-widest text-[#E4ECFF]`}
           >
             {t("Headline")}
-          </h3>
+          </p>
           <h1
             className={` ${
               isEn ? "lg:max-w-[900px]" : "lg:max-w-[1000px] !leading-[1.2]"
@@ -51,9 +51,9 @@ const Home = (): JSX.Element => {
           >
             {parse(t.raw("Subtext") as string)}
           </h1>
-          <h2 className="mt-6 text-[#E4ECFF] text-base md:text-2xl">
+          <p className="mt-6 text-[#E4ECFF] text-base md:text-2xl">
             {t("CTA")}
-          </h2>
+          </p>
         </main>
         <div className="w-[80%] h-[55px] lg:w-[250px] md:h-[66px] mt-8 md:mt-10">
           <Button

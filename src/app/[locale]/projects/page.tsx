@@ -20,17 +20,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   if (!routing.locales.includes(locale as (typeof routing.locales)[number])) notFound();
 
-  const title = locale === "ka" ? "პროექტები | Luka Shvelidze" : "Projects | Luka Shvelidze";
+  const title = locale === "ka" ? "ვებპროექტები | ლუკა შველიძე" : "Web Development Projects | Luka Shvelidze";
   const description = locale === "ka"
     ? "ლუკა შველიძის შერჩეული ვებპროექტები და მათი ტექნიკური ისტორიები."
-    : "Selected web projects by Luka Shvelidze, with the thinking and technology behind each one.";
+    : "Explore coding and web development projects by Luka Shvelidze (lukkshh), with the technologies and decisions behind each build.";
   const pathname = locale === "ka" ? "/ka/projects" : "/projects";
 
   return {
     title,
     description,
+    keywords: locale === "ka"
+      ? ["ლუკა შველიძე", "lukkshh", "ვებპროექტები", "ვებ დეველოპმენტი", "პროგრამირება", "კოდირება", "React", "Next.js", "Laravel"]
+      : ["Luka Shvelidze", "lukkshh", "coding projects", "programming projects", "web development projects", "full-stack portfolio", "React", "Next.js", "Laravel"],
     alternates: { canonical: pathname, languages: { en: "/projects", ka: "/ka/projects" } },
-    openGraph: { title, description, url: new URL(pathname, getSiteUrl()), type: "website" },
+    openGraph: {
+      title,
+      description,
+      url: new URL(pathname, getSiteUrl()),
+      siteName: "Luka Shvelidze",
+      locale: locale === "ka" ? "ka_GE" : "en_US",
+      type: "website",
+    },
     twitter: { card: "summary_large_image", title, description },
   };
 }
