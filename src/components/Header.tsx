@@ -93,9 +93,18 @@ const Header = (): JSX.Element => {
 
   const NavLink: NavNavLinkType = [
     { href: isPortfolioPage ? "#" : homePath, label: t("Home") },
-    { href: isPortfolioPage ? "#about" : `${homePath}#about`, label: t("About") },
-    { href: isPortfolioPage ? "#experience" : `${homePath}#experience`, label: t("Experience") },
-    { href: isPortfolioPage ? "#projects" : `${isEn ? "" : "/ka"}/projects`, label: t("Projects") },
+    {
+      href: isPortfolioPage ? "#about" : `${homePath}#about`,
+      label: t("About"),
+    },
+    {
+      href: isPortfolioPage ? "#experience" : `${homePath}#experience`,
+      label: t("Experience"),
+    },
+    {
+      href: isPortfolioPage ? "#projects" : `${isEn ? "" : "/ka"}/projects`,
+      label: t("Projects"),
+    },
   ];
 
   const handleNavClick = (
@@ -238,14 +247,17 @@ const Header = (): JSX.Element => {
   }, [isPortfolioPage]);
 
   return (
-    <div className="fixed w-full flex justify-center items-center z-50">
+    <div className="fixed z-50 flex w-full justify-center px-4">
       {/* Desktop header */}
-      <header className="hidden md:flex min-w-[600px] h-[60px] mx-4 my-7 px-2 py-5 rounded-xl justify-center items-center bg-gradient-to-br from-[#04071D] to-[#0C0E23] drop-shadow-sm border-[0.1px] border-[#36374942]">
-        <nav>
+      <header className="my-7 hidden h-[60px] w-full max-w-[1280px] items-center rounded-xl border-[0.1px] border-[#36374942] bg-gradient-to-br from-[#04071D] to-[#0C0E23] px-6 drop-shadow-sm md:flex">
+        <a href={homePath} className="shrink-0 text-sm font-semibold text-white lg:text-base">
+          Luka Shvelidze
+        </a>
+        <nav className="flex-1">
           <ul
             className={`${
               isEn ? "text-base" : "text-sm"
-            } flex justify-center items-center text-white md:text-lg font-medium space-x-6`}
+            } flex items-center justify-center gap-4 whitespace-nowrap font-medium text-white lg:gap-8`}
           >
             {NavLink.map((link) => (
               <li
@@ -274,16 +286,22 @@ const Header = (): JSX.Element => {
                 )}
               </li>
             ))}
-            <li>
-              <LanguageButton />
-            </li>
           </ul>
         </nav>
+        <div className="shrink-0">
+          <LanguageButton />
+        </div>
       </header>
 
       {/* Mobile header */}
-      <header className="flex md:hidden w-full mx-4 my-4 px-4 py-3 rounded-xl justify-between items-center bg-gradient-to-br from-[#04071D] to-[#0C0E23] drop-shadow-sm border-[0.1px] border-[#36374942] z-[1000]">
-        <a href={homePath} className="text-sm font-semibold text-white" aria-label="Luka Shvelidze — home">Luka Shvelidze</a>
+      <header className="z-[1000] my-4 flex w-full items-center gap-4 rounded-xl border-[0.1px] border-[#36374942] bg-gradient-to-br from-[#04071D] to-[#0C0E23] px-4 py-3 drop-shadow-sm md:hidden">
+        <a
+          href={homePath}
+          className="mr-auto text-sm font-semibold text-white"
+          aria-label="Luka Shvelidze — home"
+        >
+          Luka Shvelidze
+        </a>
         <LanguageButton />
         <HamburgerIcon
           isOpen={menuOpen}

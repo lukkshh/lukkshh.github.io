@@ -13,7 +13,7 @@ export default async function ProjectDetail({ project, locale }: { project: Proj
 
   return (
     <>
-      <main id="main-content" className="mx-auto w-full max-w-7xl px-5 pb-20 pt-28 sm:px-8 sm:pt-32 lg:px-12 lg:pb-28">
+      <main id="main-content" className="mx-auto w-full max-w-7xl px-4 pb-20 pt-28 sm:pt-32 lg:pb-28">
         <Link className="inline-flex min-h-11 items-center gap-2 text-sm text-[var(--projects-muted)] transition-colors hover:text-white focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--projects-accent)] active:scale-[0.98]" href={locale === "ka" ? "/ka/projects" : "/projects"}>
           <HiArrowLeft aria-hidden="true" className="h-4 w-4" />
           {t("backToProjects")}

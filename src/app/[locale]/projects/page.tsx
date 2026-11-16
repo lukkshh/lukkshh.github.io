@@ -52,7 +52,7 @@ export default async function ProjectsPage({ params, searchParams }: PageProps) 
       <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[40rem] w-[60rem] -translate-x-1/2 bg-[image:var(--projects-listing-glow)]" />
       <Header />
 
-      <main id="main-content" className="mx-auto w-full max-w-7xl px-5 pb-10 pt-28 sm:px-8 sm:pt-32 lg:px-12">
+      <main id="main-content" className="mx-auto w-full max-w-7xl px-4 pb-10 pt-28 sm:pt-32">
         <h1 className="sr-only">{t("accessibleTitle")}</h1>
         <ProjectsBrowser initialType={type ?? "all"} initialQuery={search ?? ""} />
       </main>
