@@ -19,7 +19,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="flex flex-col gap-8 md:gap-14 justify-center items-center px-4"
+      className="flex flex-col gap-8 md:gap-14 justify-center items-center px-4 scroll-mt-[90px] md:scroll-mt-[160px]"
     >
       <div>
         <motion.p

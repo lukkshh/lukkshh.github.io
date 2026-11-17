@@ -239,7 +239,13 @@ const Header = (): JSX.Element => {
                       ? "text-[#CBACF9]"
                       : "text-white"
                   }`}
-                  onClick={(e) => handleNavClick(e, link.href, 140)}
+                  onClick={(e) =>
+                    handleNavClick(
+                      e,
+                      link.href,
+                      link.href === "#experience" || link.href === "#projects" ? 160 : 140,
+                    )
+                  }
                 >
                   {link.label}
                 </a>
@@ -308,7 +314,14 @@ const Header = (): JSX.Element => {
                           ? "text-[#CBACF9]"
                           : "text-white"
                       }`}
-                      onClick={(e) => handleNavClick(e, link.href, 50, true)}
+                      onClick={(e) =>
+                        handleNavClick(
+                          e,
+                          link.href,
+                          link.href === "#experience" || link.href === "#projects" ? 90 : 50,
+                          true,
+                        )
+                      }
                     >
                       {link.label}
                     </a>

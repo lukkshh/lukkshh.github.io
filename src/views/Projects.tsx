@@ -13,9 +13,20 @@ export default function Projects() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section id="projects" className="projects-theme w-full px-4 text-white">
+    <section id="projects" className="projects-theme w-full px-4 text-white scroll-mt-[90px] md:scroll-mt-[160px]">
       <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-8 md:gap-10">
-        <h2 className="text-center text-2xl font-bold md:text-5xl">{parse(t.raw("Title") as string)}</h2>
+        <motion.h2
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center text-2xl font-bold md:text-5xl"
+        >
+          {parse(t.raw("Title") as string)}
+        </motion.h2>
         <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-7">
           {projects.slice(0, 3).map((project) => (
             <motion.div
