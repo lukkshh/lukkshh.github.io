@@ -9,14 +9,30 @@ interface UmamiAnalytics {
   ) => void;
 }
 
+type UmamiPayload = Record<string, unknown>;
+
 declare global {
   interface Window {
     umami?: UmamiAnalytics;
+    umamiBeforeSend?: (type: string, payload: UmamiPayload) => UmamiPayload;
   }
 }
 
 const websiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID?.trim();
 const scriptUrl = "/api/analytics/script";
+const attributionParameters = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content",
+  "utm_term",
+  "gclid",
+  "fbclid",
+  "msclkid",
+  "ttclid",
+  "li_fat_id",
+  "twclid",
+] as const;
 
 const trackingDisabled = () => navigator.doNotTrack === "1";
 
@@ -97,12 +113,34 @@ export const initializeAnalytics = (): (() => void) | undefined => {
 
   initialized = true;
 
+  window.umamiBeforeSend = (type, payload) => {
+    if (type !== "event" || typeof payload.url !== "string") return payload;
+
+    const eventUrl = new URL(payload.url, window.location.origin);
+    const currentUrl = new URL(window.location.href);
+    if (
+      eventUrl.origin !== currentUrl.origin ||
+      eventUrl.pathname !== currentUrl.pathname
+    ) {
+      return payload;
+    }
+
+    attributionParameters.forEach((parameter) => {
+      currentUrl.searchParams.getAll(parameter).forEach((value) => {
+        eventUrl.searchParams.append(parameter, value);
+      });
+    });
+
+    return { ...payload, url: eventUrl.toString() };
+  };
+
   const script = document.createElement("script");
   script.defer = true;
   script.src = scriptUrl;
   script.dataset.websiteId = websiteId;
   script.dataset.hostUrl = window.location.origin;
   script.dataset.excludeSearch = "true";
+  script.dataset.beforeSend = "umamiBeforeSend";
   script.dataset.doNotTrack = "true";
   script.addEventListener("load", flushPendingEvents, { once: true });
   document.head.appendChild(script);
