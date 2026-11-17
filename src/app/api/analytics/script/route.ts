@@ -1,4 +1,4 @@
-import { getUmamiUpstreams } from "../../../../lib/umami-proxy";
+import { getUmamiScriptUrl } from "../../../../lib/umami-proxy";
 
 export async function GET(request: Request) {
   if (!process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID?.trim()) {
@@ -6,7 +6,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const { script } = getUmamiUpstreams(request.url);
+    const script = getUmamiScriptUrl(request.url);
     const upstream = await fetch(script, {
       headers: { Accept: "application/javascript" },
       redirect: "error",
