@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import SpotlightCard from "../SpotlightCard";
 import { useLocale, useTranslations } from "next-intl";
 
@@ -68,9 +69,19 @@ export default function FeatureCard() {
 
   return (
     <SpotlightCard
+      background={
+        <Image
+          src="/images/about_card.webp"
+          alt=""
+          fill
+          sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1280px) calc((100vw - 48px) / 2), 632px"
+          className="pointer-events-none object-cover"
+          draggable={false}
+        />
+      }
       className={` ${
         isEn ? "" : "max-w-[622px]"
-      } min-h-[312px] overflow-hidden border-[0.1px] border-[#6971a265] relative rounded-xl flex items-end bg-[url(/images/about_card.svg)] bg-no-repeat bg-cover`}
+      } min-h-[312px] overflow-hidden border-[0.1px] border-[#6971a265] relative rounded-xl flex items-end`}
     >
       <PurpleDecoration />
       <YellowDecoration />

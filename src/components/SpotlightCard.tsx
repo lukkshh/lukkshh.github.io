@@ -7,12 +7,14 @@ interface Position {
 
 interface SpotlightCardProps extends React.PropsWithChildren {
   className?: string;
+  background?: React.ReactNode;
   spotlightColor?: `rgba(${number}, ${number}, ${number}, ${number})`;
 }
 
 const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
   className = "",
+  background,
   spotlightColor = "rgba(167, 139, 250, 0.20)",
 }) => {
   const divRef = useRef<HTMLDivElement>(null);
@@ -55,6 +57,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onMouseLeave={handleMouseLeave}
       className={`relative overflow-hidden  ${className}`}
     >
+      {background}
       <div
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out"
         style={{
