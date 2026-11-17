@@ -33,13 +33,13 @@ export default function ProjectDetail({ project, locale }: { project: Project; l
 
   return (
     <>
-      <main id="main-content" className="mx-auto w-full max-w-7xl px-4 pb-20 pt-28 sm:pt-32 lg:pb-28">
+      <main id="main-content" className="mx-auto w-full max-w-7xl px-4 pb-20 pt-20 md:pt-32 lg:pb-28">
         <Link className="inline-flex min-h-11 items-center gap-2 text-sm text-[var(--projects-muted)] transition-colors hover:text-white focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--projects-accent)] active:scale-[0.98]" href={locale === "ka" ? "/ka/projects" : "/projects"} onClick={() => trackEvent("project-back-to-list", projectMetadata)}>
           <HiArrowLeft aria-hidden="true" className="h-4 w-4" />
           {t("backToProjects")}
         </Link>
 
-        <header className="mt-10 grid items-end gap-8 lg:mt-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
+        <header className="mt-5 grid items-end gap-8 md:mt-10 lg:mt-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
           <div className="pb-2">
             <div className="flex flex-wrap items-center gap-2 text-sm">
               <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[var(--projects-strong-text)]" translate="no">{project.name[lang]}</span>

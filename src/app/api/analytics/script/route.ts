@@ -14,7 +14,10 @@ export async function GET(request: Request) {
       signal: AbortSignal.timeout(8000),
     });
 
-    if (!upstream.ok || !/javascript|ecmascript/i.test(upstream.headers.get("content-type") || "")) {
+    if (
+      !upstream.ok ||
+      !/javascript|ecmascript/i.test(upstream.headers.get("content-type") || "")
+    ) {
       return new Response(null, { status: 502 });
     }
 

@@ -10,3 +10,15 @@ export function getPublicSiteUrl(): URL | undefined {
 export function getSiteUrl(): string {
   return (getPublicSiteUrl() ?? new URL("http://localhost:3000")).toString();
 }
+
+export function getSiteHostname(requestHost?: string | null): string {
+  if (requestHost) {
+    try {
+      return new URL(`http://${requestHost}`).hostname;
+    } catch {
+      // Fall back to the configured site URL if the Host header is malformed.
+    }
+  }
+
+  return new URL(getSiteUrl()).hostname;
+}

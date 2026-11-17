@@ -11,7 +11,9 @@ import { getSiteUrl } from "../../../../lib/site";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   const project = getProjectBySlug(slug);
@@ -24,7 +26,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
-    keywords: [project.name[language], "Luka Shvelidze", "lukkshh", "coding project", ...project.technologies.slice(0, 5)],
+    keywords: [
+      project.name[language],
+      "Luka Shvelidze",
+      "lukkshh",
+      "coding project",
+      ...project.technologies.slice(0, 5),
+    ],
     alternates: {
       canonical: pathname,
       languages: {
@@ -53,9 +61,20 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <div className="projects-theme relative isolate min-h-screen overflow-hidden bg-[var(--projects-canvas)] text-white">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-20 bg-[url(/images/grid-pattern.svg)] bg-top opacity-25" />
-      <div aria-hidden="true" className="pointer-events-none absolute right-0 top-0 -z-10 h-[36rem] w-[50rem] bg-[image:var(--projects-detail-glow)]" />
-      <a href="#main-content" className="sr-only z-50 rounded-lg bg-[var(--projects-accent)] px-4 py-3 text-[var(--projects-accent-foreground)] focus:fixed focus:left-4 focus:top-4 focus:not-sr-only active:scale-[0.98]">{locale === "ka" ? "შინაარსზე გადასვლა" : "Skip to content"}</a>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-20 bg-[url(/images/grid-pattern.svg)] bg-top opacity-25"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-0 -z-10 h-[36rem] w-[50rem] bg-[image:var(--projects-detail-glow)]"
+      />
+      <a
+        href="#main-content"
+        className="sr-only z-50 rounded-lg bg-[var(--projects-accent)] px-4 py-3 text-[var(--projects-accent-foreground)] focus:fixed focus:left-4 focus:top-4 focus:not-sr-only active:scale-[0.98]"
+      >
+        {locale === "ka" ? "შინაარსზე გადასვლა" : "Skip to content"}
+      </a>
       <Header />
       <ProjectDetail project={project} locale={locale} />
       <Footer />

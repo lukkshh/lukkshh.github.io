@@ -17,10 +17,10 @@ export async function generateMetadata({
   const siteUrl = new URL(getSiteUrl());
   const isKa = locale === "ka";
   const title = isKa
-    ? "ლუკა შველიძე | Full Stack ვებ დეველოპერი"
+    ? "ლუკა შველიძე | Full Stack Web Developer"
     : "Luka Shvelidze | Full-Stack Web Developer";
   const description = isKa
-    ? "ლუკა შველიძის პორტფოლიო: ვებგვერდები და ვებ-აპლიკაციები React, Next.js და Laravel ტექნოლოგიებით. გაეცანით პროექტებსა და გამოცდილებას."
+    ? "ლუკა შველიძე: ვებგვერდები და ვებ-აპლიკაციები React, Next.js და Laravel ტექნოლოგიებით. გაეცანით პროექტებსა და გამოცდილებას."
     : "Luka Shvelidze (lukkshh) is a full-stack web developer. Explore his coding projects, programming experience, and work with React, Next.js, and Laravel.";
 
   return {

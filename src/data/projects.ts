@@ -26,27 +26,49 @@ export const projects = [
     slug: "svgalco",
     name: { en: "SVGalco", ka: "SVGalco" },
     title: {
-      en: "A multilingual home for a Georgian winery",
-      ka: "ქართული მარნის მრავალენოვანი ვებპლატფორმა",
+      en: "A multilingual platform for a Georgian winery",
+      ka: "მრავალენოვანი პლატფორმა ქართული მარნისთვის",
     },
     summary: {
-      en: "A responsive winery platform, built in close collaboration with a designer.",
-      ka: "ადაპტირებადი ვებპლატფორმა მარნისთვის, შექმნილი დიზაინერთან მჭიდრო თანამშრომლობით.",
+      en: "A winery website with wine management, localized content, customer inquiries, and a custom CMS.",
+      ka: "მარნის ვებსაიტი ღვინოების მართვით, მრავალენოვანი კონტენტით, მომხმარებელთა მოთხოვნებითა და custom CMS-ით.",
     },
     description: {
-      en: "I worked closely with a designer to turn the project vision into a responsive, multilingual platform. I handled the full technical implementation, including frontend and backend development, deployment, hosting configuration, and production setup.",
-      ka: "დიზაინერთან მჭიდრო თანამშრომლობით პროექტის იდეა ადაპტირებად, მრავალენოვან პლატფორმად ვაქციე. სრულად ვუზრუნველყავი ტექნიკური განხორციელება: frontend და backend განვითარება, განთავსება, ჰოსტინგის კონფიგურაცია და production გარემოს გამართვა.",
+      en: "I built SVGalco with a designer to give the winery a responsive, multilingual home online. The platform brings together wine and media management, localized pages, customer inquiries, and a custom content management system. I handled the application architecture, frontend and backend development, hosting, and production deployment.",
+      ka: "დიზაინერთან თანამშრომლობით მარნისთვის შევქმენი ადაპტირებადი, მრავალენოვანი ვებსაიტი. პლატფორმა აერთიანებს ღვინოებისა და მედიის მართვას, ლოკალიზებულ გვერდებს, მომხმარებელთა მოთხოვნებს და custom CMS-ს. ვიმუშავე აპლიკაციის არქიტექტურაზე, frontend-სა და backend-ზე, ჰოსტინგსა და production გარემოში განთავსებაზე.",
     },
     category: "freelance",
     image: "/images/projects/svgalco.png",
-    technologies: ["Laravel", "React", "PHP", "PostgreSQL", "Inertia.js", "Filament", "Web3Forms", "SASS"],
+    technologies: [
+      "Laravel",
+      "React",
+      "TypeScript",
+      "PHP",
+      "PostgreSQL",
+      "Inertia.js",
+      "Filament",
+      "Web3Forms",
+      "SASS",
+      "Hostinger",
+    ],
     role: {
-      en: "Full technical implementation: frontend and backend development, deployment, hosting configuration, and production setup, in close collaboration with the designer.",
-      ka: "დიზაინერთან მჭიდრო თანამშრომლობით სრული ტექნიკური განხორციელება: frontend და backend განვითარება, განთავსება, ჰოსტინგის კონფიგურაცია და production გარემოს გამართვა.",
+      en: "Sole developer responsible for the frontend, backend, database architecture, and deployment; collaborated with a designer on the experience.",
+      ka: "როგორც პროექტის დეველოპერი, პასუხისმგებელი ვიყავი frontend-ზე, backend-ზე, მონაცემთა ბაზის არქიტექტურასა და საიტის განთავსებაზე; დიზაინზე ვთანამშრომლობდი დიზაინერთან.",
     },
     features: [
-      { en: "Responsive winery website", ka: "მარნის ადაპტირებადი ვებსაიტი" },
-      { en: "Multilingual experience", ka: "მრავალენოვანი გამოცდილება" },
+      {
+        en: "Wine catalog and media management",
+        ka: "ღვინოების კატალოგისა და მედიის მართვა",
+      },
+      {
+        en: "Localized content across multiple languages",
+        ka: "კონტენტი რამდენიმე ენაზე",
+      },
+      { en: "Customer inquiry flow", ka: "მომხმარებელთა მოთხოვნების მიღება" },
+      {
+        en: "Custom CMS for updating the site",
+        ka: "საიტის განახლებისთვის შექმნილი CMS",
+      },
     ],
     liveUrl: "https://svgalco.com/",
     featured: true,
@@ -55,55 +77,79 @@ export const projects = [
     slug: "tt-ge",
     name: { en: "TT.ge", ka: "TT.ge" },
     title: {
-      en: "A platform for creators and their audiences",
-      ka: "პლატფორმა კონტენტის შემქმნელებისა და მათი აუდიტორიისთვის",
+      en: "A Patreon-style platform for creators and supporters",
+      ka: "Patreon-ის სტილის პლატფორმა შემქმნელებისა და მათი მხარდამჭერებისთვის",
     },
     summary: {
-      en: "A creator-focused platform built around direct audience interaction.",
-      ka: "კონტენტის შემქმნელებზე ორიენტირებული პლატფორმა აუდიტორიასთან პირდაპირი ურთიერთობისთვის.",
+      en: "A Patreon-style platform connecting creators with their supporters.",
+      ka: "Patreon-ის სტილის პლატფორმა, რომელიც შემქმნელებს მხარდამჭერებთან აკავშირებს.",
     },
     description: {
-      en: "I collaborated on TT.ge while working as a Frontend Developer at Rowix. The creator-focused platform is built around direct audience interaction, similar to Patreon.",
-      ka: "TT.ge-ზე Rowix-ში frontend დეველოპერად მუშაობისას ვთანამშრომლობდი. ეს კონტენტის შემქმნელებზე ორიენტირებული პლატფორმაა, რომელიც აუდიტორიასთან პირდაპირ ურთიერთობაზეა დაფუძნებული, Patreon-ის მსგავსად.",
+      en: "TT.ge gives creators a place to share content and connect directly with supporters. At Rowix, I worked on its frontend, building interactive features and reusable components as part of the development team.",
+      ka: "TT.ge შემქმნელებს საშუალებას აძლევს, გამოაქვეყნონ კონტენტი და მხარდამჭერებს პირდაპირ დაუკავშირდნენ. Rowix-ში ვმუშაობდი პლატფორმის frontend-ზე: გუნდთან ერთად ვქმნიდი ინტერაქტიულ ფუნქციებსა და მრავალჯერ გამოყენებად კომპონენტებს.",
     },
     category: "professional",
     image: "/images/projects/rp1.png",
-    technologies: ["SvelteKit", "SASS", "BOG Payments", "TypeScript", "WebSocket", "Push Notifications"],
+    technologies: [
+      "SvelteKit",
+      "SASS",
+      "BOG Payments",
+      "TypeScript",
+      "WebSocket",
+      "Push Notifications",
+    ],
     role: {
-      en: "Frontend development as part of the Rowix team.",
-      ka: "Frontend განვითარება Rowix-ის გუნდთან ერთად.",
+      en: "Frontend Developer / Team Lead at Rowix.",
+      ka: "Frontend Developer / Team Lead Rowix-ში.",
     },
     features: [
-      { en: "Creator-focused platform", ka: "კონტენტის შემქმნელებზე ორიენტირებული პლატფორმა" },
-      { en: "Direct interaction between creators and their audiences", ka: "შემქმნელებსა და აუდიტორიას შორის პირდაპირი ურთიერთობა" },
+      {
+        en: "Post creation and scheduling interface",
+        ka: "post-ების შექმნისა და დაგეგმვის ინტერფეისი",
+      },
+      {
+        en: "Account settings and push notifications",
+        ka: "ანგარიშის პარამეტრები და push notifications",
+      },
+      {
+        en: "Reusable frontend components",
+        ka: "მრავალჯერ გამოყენებადი frontend კომპონენტები",
+      },
     ],
     liveUrl: "https://tt.ge/",
   },
   {
     slug: "bibo",
-    name: { en: "Bibo", ka: "Bibo" },
+    name: { en: "Bibo.ge", ka: "Bibo.ge" },
     title: {
       en: "Personalised children’s books from photos",
       ka: "პერსონალიზებული საბავშვო წიგნები ფოტოებიდან",
     },
     summary: {
-      en: "A storybook platform that turns uploaded photos into illustrated books.",
-      ka: "წიგნების პლატფორმა, რომელიც ატვირთულ ფოტოებს ილუსტრირებულ ამბებად აქცევს.",
+      en: "A platform for creating personalized children's books from photos and stories.",
+      ka: "პლატფორმა, სადაც ფოტოებითა და ისტორიებით პერსონალიზებული საბავშვო წიგნები იქმნება.",
     },
     description: {
-      en: "I collaborated on Bibo while working as a Frontend Developer at Rowix. The personalised storybook platform transforms uploaded photos into a fully illustrated children’s book.",
-      ka: "Bibo-ზე Rowix-ში frontend დეველოპერად მუშაობისას ვთანამშრომლობდი. პერსონალიზებული წიგნების პლატფორმა ატვირთულ ფოტოებს სრულად ილუსტრირებულ საბავშვო წიგნად გარდაქმნის.",
+      en: "Bibo helps families turn a child's photos and story into an illustrated book. At Rowix, I developed the frontend book creation flow and other application pages as part of the team.",
+      ka: "Bibo ოჯახებს ბავშვის ფოტოებისა და ისტორიის ილუსტრირებულ წიგნად ქცევაში ეხმარება. Rowix-ში გუნდთან ერთად ვიმუშავე წიგნის შექმნის frontend flow-სა და აპლიკაციის სხვა გვერდებზე.",
     },
     category: "professional",
     image: "/images/projects/rp2.png",
     technologies: ["Next.js", "SASS", "TypeScript", "BOG Payments"],
     role: {
-      en: "Frontend development as part of the Rowix team.",
-      ka: "Frontend განვითარება Rowix-ის გუნდთან ერთად.",
+      en: "Frontend Developer / Team Lead at Rowix.",
+      ka: "Frontend Developer / Team Lead Rowix-ში.",
     },
     features: [
-      { en: "Personalised children’s storybooks", ka: "პერსონალიზებული საბავშვო წიგნები" },
-      { en: "Uploaded photos become part of illustrated books", ka: "ატვირთული ფოტოები ილუსტრირებული წიგნების ნაწილია" },
+      {
+        en: "Guided book creation interface",
+        ka: "წიგნის შექმნის ეტაპობრივი ინტერფეისი",
+      },
+      { en: "Photo upload experience", ka: "ფოტოების upload ინტერფეისი" },
+      {
+        en: "Additional application pages",
+        ka: "აპლიკაციის დამატებითი გვერდები",
+      },
     ],
     liveUrl: "https://bibo.ge/",
   },
@@ -111,20 +157,35 @@ export const projects = [
     slug: "ecommerce-test-task",
     name: { en: "E-Commerce Website", ka: "E-Commerce Website" },
     title: {
-      en: "A full-stack e-commerce test project",
-      ka: "სრული stack-ის e-commerce სატესტო პროექტი",
+      en: "A full-stack storefront built for a developer challenge",
+      ka: "Full-stack e-commerce ვებსაიტი დეველოპერის სატესტო დავალებისთვის",
     },
     summary: {
-      en: "An e-commerce website built for the Scandiweb Junior Full Stack Developer task.",
-      ka: "ელექტრონული კომერციის ვებსაიტი Scandiweb-ის Junior Full Stack Developer დავალებისთვის.",
+      en: "A Scandiweb test project combining a React storefront with a PHP, GraphQL, and MySQL stack.",
+      ka: "Scandiweb-ის სატესტო პროექტი React storefront-ით და PHP, GraphQL, MySQL stack-ით.",
     },
     description: {
-      en: "An e-commerce website made with PHP and React for the Scandiweb Junior Full Stack Developer test task.",
-      ka: "PHP-ითა და React-ით შექმნილი e-commerce ვებსაიტი Scandiweb-ის Junior Full Stack Developer სატესტო დავალებისთვის.",
+      en: "I built this e-commerce website for Scandiweb's Junior Full Stack Developer test task. It brings together a React and Tailwind CSS frontend with PHP, GraphQL, and MySQL on the application side. The project demonstrates how I structure a complete storefront across the interface and data layers.",
+      ka: "ეს e-commerce ვებსაიტი Scandiweb-ის Junior Full Stack Developer სატესტო დავალებისთვის შევქმენი. React და Tailwind CSS frontend-ს PHP, GraphQL და MySQL stack უკავშირდება. პროექტი აჩვენებს, როგორ ვაწყობ storefront-ს ინტერფეისისა და მონაცემების დონეზე.",
     },
     category: "personal",
     image: "/images/projects/ecommerce.png",
     technologies: ["React", "PHP", "MySQL", "GraphQL", "Tailwind CSS"],
+    role: {
+      en: "Sole developer across the React frontend and PHP application layer.",
+      ka: "პროექტის ერთადერთი დეველოპერი React frontend-სა და PHP application layer-ზე.",
+    },
+    features: [
+      {
+        en: "React storefront styled with Tailwind CSS",
+        ka: "React storefront Tailwind CSS-ით",
+      },
+      {
+        en: "GraphQL-based application data flow",
+        ka: "GraphQL-ზე აგებული მონაცემების flow",
+      },
+      { en: "PHP and MySQL backend stack", ka: "PHP და MySQL backend stack" },
+    ],
     sourceUrl: "https://github.com/lukkshh/php-react-ecommerce",
     liveUrl: "https://lukkshh-ecommerce.ct.ws/",
   },
@@ -132,20 +193,35 @@ export const projects = [
     slug: "tic-tac-toe",
     name: { en: "Tic Tac Toe", ka: "Tic Tac Toe" },
     title: {
-      en: "A small, browser-based Tic Tac Toe game",
-      ka: "მარტივი Tic Tac Toe თამაში ბრაუზერისთვის",
+      en: "A classic Tic Tac Toe game for the browser",
+      ka: "კლასიკური Tic Tac Toe თამაში ბრაუზერში",
     },
     summary: {
-      en: "A Tic Tac Toe game built with React and Tailwind CSS.",
-      ka: "React-ითა და Tailwind CSS-ით შექმნილი Tic Tac Toe თამაში.",
+      en: "A lightweight browser game built with React and Tailwind CSS.",
+      ka: "მსუბუქი ბრაუზერული თამაში React-ითა და Tailwind CSS-ით.",
     },
     description: {
-      en: "A Tic Tac Toe game built with React and Tailwind CSS.",
-      ka: "React-ითა და Tailwind CSS-ით შექმნილი Tic Tac Toe თამაში.",
+      en: "A small personal project that brings the familiar Tic Tac Toe game into the browser. I built the interactive interface with React and styled it with Tailwind CSS, keeping the experience simple and easy to play.",
+      ka: "პირადი პროექტი, რომელიც კლასიკურ Tic Tac Toe თამაშს ბრაუზერში აცოცხლებს. ინტერაქტიული ინტერფეისი React-ით ავაწყე და Tailwind CSS-ით გავაფორმე, რათა თამაში მარტივი და მოსახერხებელი იყოს.",
     },
     category: "personal",
     image: "/images/projects/tictactoe.png",
     technologies: ["React", "Tailwind CSS"],
+    role: {
+      en: "Designed and developed the browser game as a personal project.",
+      ka: "ბრაუზერული თამაში პირადი პროექტის სახით დავაპროექტე და შევქმენი.",
+    },
+    features: [
+      {
+        en: "Interactive Tic Tac Toe board",
+        ka: "ინტერაქტიული Tic Tac Toe დაფა",
+      },
+      { en: "Browser-based gameplay", ka: "თამაში პირდაპირ ბრაუზერში" },
+      {
+        en: "Interface built with React and Tailwind CSS",
+        ka: "ინტერფეისი React-ითა და Tailwind CSS-ით",
+      },
+    ],
     sourceUrl: "https://github.com/lukkshh/tictactoe",
     liveUrl: "https://lukkshh.github.io/tictactoe/",
   },
@@ -157,46 +233,78 @@ export const projects = [
       ka: "ბილეთების შექმნა და QR კოდით შემოწმება",
     },
     summary: {
-      en: "A ticket management tool with QR scanning and real-time validation.",
-      ka: "ბილეთების მართვის ხელსაწყო QR სკანირებითა და რეალურ დროში შემოწმებით.",
+      en: "Generate QR tickets, scan them at check-in, and verify their status instantly.",
+      ka: "QR ბილეთების შექმნა, check-in-ზე სკანირება და სტატუსის მყისიერი შემოწმება.",
     },
     description: {
-      en: "A ticket management system for generating tickets and scanning QR codes. It stores ticket information in SQLite and verifies whether a ticket is valid, has already been used, or does not exist.",
-      ka: "ბილეთების მართვის სისტემა ბილეთების გენერირებისა და QR კოდების სკანირებისთვის. ბილეთების ინფორმაცია SQLite-ში ინახება და სისტემა ამოწმებს, ბილეთი ვალიდურია, უკვე გამოყენებულია თუ არ არსებობს.",
+      en: "Ticket Scanner is a Python tool for event check-in. It generates unique tickets as QR code images, scans them with a webcam, and checks an SQLite database to distinguish valid, already used, and unknown tickets. Organizers can also review and remove ticket records.",
+      ka: "Ticket Scanner არის Python ხელსაწყო ღონისძიებაზე check-in-ისთვის. ის ქმნის უნიკალურ QR ბილეთებს, webcam-ით ასკანირებს მათ და SQLite database-ში ამოწმებს, ბილეთი მოქმედია, უკვე გამოყენებულია თუ უცნობია. ორგანიზატორს შეუძლია ბილეთების ჩანაწერების ნახვა და წაშლაც.",
     },
     category: "personal",
     image: "/images/projects/ticket-scanner.gif",
     technologies: ["Python", "OpenCV", "SQLite"],
     sourceUrl: "https://github.com/lukkshh/ticket-scanner",
+    role: {
+      en: "Built the ticket generation, webcam scanning, and SQLite-backed validation workflow.",
+      ka: "შევქმენი ბილეთების გენერაცია, webcam სკანირება და SQLite-ზე დაფუძნებული validation flow.",
+    },
     features: [
-      { en: "Ticket generation", ka: "ბილეთების გენერირება" },
-      { en: "QR code scanning", ka: "QR კოდების სკანირება" },
-      { en: "Ticket status validation", ka: "ბილეთის სტატუსის შემოწმება" },
+      {
+        en: "Unique QR tickets with a configurable prefix",
+        ka: "უნიკალური QR ბილეთები ცვლადი prefix-ით",
+      },
+      {
+        en: "Live webcam scanning at check-in",
+        ka: "რეალურ დროში webcam სკანირება check-in-ზე",
+      },
+      {
+        en: "Valid, used, and unknown ticket checks",
+        ka: "მოქმედი, გამოყენებული და უცნობი ბილეთების შემოწმება",
+      },
+      {
+        en: "View and delete ticket records in SQLite",
+        ka: "SQLite-ში ბილეთების ჩანაწერების ნახვა და წაშლა",
+      },
     ],
   },
   {
     slug: "rock-paper-scissors",
     name: { en: "Rock Paper Scissors", ka: "Rock Paper Scissors" },
     title: {
-      en: "Rock Paper Scissors in Python",
-      ka: "Rock Paper Scissors Python-ზე",
+      en: "Rock Paper Scissors as a Python desktop game",
+      ka: "Rock Paper Scissors — Python desktop თამაში",
     },
     summary: {
-      en: "A simple Rock Paper Scissors game built with Tkinter.",
-      ka: "Tkinter-ით შექმნილი მარტივი Rock Paper Scissors თამაში.",
+      en: "A desktop take on the classic game, built with Python and Tkinter.",
+      ka: "კლასიკური თამაშის desktop ვერსია Python-ითა და Tkinter-ით.",
     },
     description: {
-      en: "A simple Rock Paper Scissors game built with Python’s Tkinter library.",
-      ka: "Python-ის Tkinter ბიბლიოთეკით შექმნილი მარტივი Rock Paper Scissors თამაში.",
+      en: "A personal desktop game built with Python's Tkinter library. It presents the familiar Rock Paper Scissors choices in a simple graphical interface and explores event-driven interaction outside the browser.",
+      ka: "Python-ის Tkinter ბიბლიოთეკით შექმნილი პირადი desktop პროექტი. კლასიკური Rock Paper Scissors არჩევანი მარტივ გრაფიკულ ინტერფეისშია წარმოდგენილი და თამაში ბრაუზერის გარეთ, event-driven ინტერაქციას აჩვენებს.",
     },
     category: "personal",
     image: "/images/projects/rpc.png",
     technologies: ["Python", "Tkinter"],
+    role: {
+      en: "Built the desktop interface and game interaction as a personal Python project.",
+      ka: "პირად Python პროექტში შევქმენი desktop ინტერფეისი და თამაშის ინტერაქცია.",
+    },
+    features: [
+      { en: "Tkinter desktop interface", ka: "Tkinter desktop ინტერფეისი" },
+      {
+        en: "Classic Rock Paper Scissors gameplay",
+        ka: "კლასიკური Rock Paper Scissors თამაში",
+      },
+    ],
     sourceUrl: "https://github.com/lukkshh/Rock-Paper-Scissors",
   },
 ] satisfies Project[];
 
-export const projectCategories = ["personal", "freelance", "professional"] as const;
+export const projectCategories = [
+  "personal",
+  "freelance",
+  "professional",
+] as const;
 
 export function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug);

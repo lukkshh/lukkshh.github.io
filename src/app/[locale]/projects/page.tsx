@@ -16,23 +16,52 @@ function firstValue(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] : value;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) notFound();
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number]))
+    notFound();
 
-  const title = locale === "ka" ? "ვებპროექტები | ლუკა შველიძე" : "Web Development Projects | Luka Shvelidze";
-  const description = locale === "ka"
-    ? "ლუკა შველიძის შერჩეული ვებპროექტები და მათი ტექნიკური ისტორიები."
-    : "Explore coding and web development projects by Luka Shvelidze (lukkshh), with the technologies and decisions behind each build.";
+  const title =
+    locale === "ka" ? "პროექტები | ლუკა შველიძე" : "Projects | Luka Shvelidze";
+  const description =
+    locale === "ka"
+      ? "პროექტები და მათი ტექნიკური ისტორიები."
+      : "Explore projects by Luka Shvelidze (lukkshh), with the technologies and decisions behind each build.";
   const pathname = locale === "ka" ? "/ka/projects" : "/projects";
 
   return {
     title,
     description,
-    keywords: locale === "ka"
-      ? ["ლუკა შველიძე", "lukkshh", "ვებპროექტები", "ვებ დეველოპმენტი", "პროგრამირება", "კოდირება", "React", "Next.js", "Laravel"]
-      : ["Luka Shvelidze", "lukkshh", "coding projects", "programming projects", "web development projects", "full-stack portfolio", "React", "Next.js", "Laravel"],
-    alternates: { canonical: pathname, languages: { en: "/projects", ka: "/ka/projects" } },
+    keywords:
+      locale === "ka"
+        ? [
+            "ლუკა შველიძე",
+            "lukkshh",
+            "ვებპროექტები",
+            "ვებ დეველოპმენტი",
+            "პროგრამირება",
+            "კოდირება",
+            "React",
+            "Next.js",
+            "Laravel",
+          ]
+        : [
+            "Luka Shvelidze",
+            "lukkshh",
+            "coding projects",
+            "programming projects",
+            "web development projects",
+            "full-stack portfolio",
+            "React",
+            "Next.js",
+            "Laravel",
+          ],
+    alternates: {
+      canonical: pathname,
+      languages: { en: "/projects", ka: "/ka/projects" },
+    },
     openGraph: {
       title,
       description,
@@ -45,9 +74,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function ProjectsPage({ params, searchParams }: PageProps) {
+export default async function ProjectsPage({
+  params,
+  searchParams,
+}: PageProps) {
   const [{ locale }, filters] = await Promise.all([params, searchParams]);
-  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) notFound();
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number]))
+    notFound();
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "ProjectsPage" });
@@ -58,14 +91,31 @@ export default async function ProjectsPage({ params, searchParams }: PageProps) 
   if (search) query.set("q", search);
   return (
     <div className="projects-theme relative isolate min-h-screen overflow-hidden bg-[var(--projects-canvas)] text-white">
-      <a href="#main-content" className="sr-only z-50 rounded-lg bg-[var(--projects-accent)] px-4 py-3 text-[var(--projects-accent-foreground)] focus:fixed focus:left-4 focus:top-4 focus:not-sr-only active:scale-[0.98]">{locale === "ka" ? "შინაარსზე გადასვლა" : "Skip to content"}</a>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-20 bg-[url(/images/grid-pattern.svg)] bg-top opacity-35" />
-      <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[40rem] w-[60rem] -translate-x-1/2 bg-[image:var(--projects-listing-glow)]" />
+      <a
+        href="#main-content"
+        className="sr-only z-50 rounded-lg bg-[var(--projects-accent)] px-4 py-3 text-[var(--projects-accent-foreground)] focus:fixed focus:left-4 focus:top-4 focus:not-sr-only active:scale-[0.98]"
+      >
+        {locale === "ka" ? "შინაარსზე გადასვლა" : "Skip to content"}
+      </a>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-20 bg-[url(/images/grid-pattern.svg)] bg-top opacity-35"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[40rem] w-[60rem] -translate-x-1/2 bg-[image:var(--projects-listing-glow)]"
+      />
       <Header />
 
-      <main id="main-content" className="mx-auto w-full max-w-7xl px-4 pb-10 pt-28 sm:pt-32">
+      <main
+        id="main-content"
+        className="mx-auto w-full max-w-7xl px-4 pb-10 pt-28 sm:pt-32"
+      >
         <h1 className="sr-only">{t("accessibleTitle")}</h1>
-        <ProjectsBrowser initialType={type ?? "all"} initialQuery={search ?? ""} />
+        <ProjectsBrowser
+          initialType={type ?? "all"}
+          initialQuery={search ?? ""}
+        />
       </main>
       <Footer />
     </div>

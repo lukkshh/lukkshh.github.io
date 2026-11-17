@@ -43,7 +43,7 @@ export default function ProjectCard({ project, featured = false }: { project: Pr
           <Link className="rounded-sm transition-colors hover:text-[var(--projects-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--projects-accent)]" href={href} translate="no" onClick={() => trackOpen("title")}>{project.name[lang]}</Link>
         </h2>
         <ul className="mt-3 flex flex-wrap gap-1.5" aria-label={t("technologies")}>
-          {project.technologies.slice(0, featured ? 8 : 5).map((technology) => (
+          {project.technologies.slice(0, featured ? 10 : 5).map((technology) => (
             <li className="rounded-full bg-[var(--projects-tag)] px-2.5 py-1 text-[11px] text-[var(--projects-tag-text)] sm:text-xs" key={technology} translate="no">{technology}</li>
           ))}
         </ul>
